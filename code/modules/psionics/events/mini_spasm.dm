@@ -33,7 +33,11 @@
 /datum/event/minispasm/proc/do_spasm(var/mob/living/victim, var/obj/item/device/radio/source)
 	set waitfor = 0
 
-	if(iscarbon(victim) && !victim.isSynthetic())
+  if(victim.isSynthetic())
+    to_chat(world, "<span class='boldannounce'>[You hear discorded sounds!]</span>")
+    return
+
+	if(iscarbon(victim)
 		var/list/disabilities = list(NEARSIGHTED, EPILEPSY, TOURETTES, NERVOUS)
 		for(var/disability in disabilities)
 			if(victim.disabilities & disability)
