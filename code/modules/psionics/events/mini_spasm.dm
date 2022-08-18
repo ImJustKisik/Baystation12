@@ -1,3 +1,11 @@
+
+
+GLOBAL_LIST_INIT(banned_spices, list(\
+SPECIES_ADHERENT, SPECIES_IPC, SPECIES_INSECTOID, SPECIES_VOX, SPECIES_ALIEN, SPECIES_GOLEM,\
+SPECIES_MANTID_GYNE, SPECIES_MANTID_ALATE, SPECIES_MONARCH_WORKER, SPECIES_MONARCH_QUEEN, SPECIES_XENO
+))
+
+
 /datum/event/minispasm
 	startWhen = 60
 	endWhen = 90
@@ -34,17 +42,9 @@
 
 /datum/event/minispasm/proc/do_spasm(var/mob/living/victim, var/obj/item/device/radio/source)
 	set waitfor = 0
-	
-	GLOBAL_LIST_INIT(banned_spices, list(\
-	SPECIES_ADHERENT, SPECIES_IPC, SPECIES_INSECTOID, SPECIES_VOX, SPECIES_ALIEN, SPECIES_GOLEM,\
-	SPECIES_MANTID_GYNE, SPECIES_MANTID_ALATE, SPECIES_MONARCH_WORKER, SPECIES_MONARCH_QUEEN, SPECIES_XENO
-	))
-		for(var/mob/living/carbon/human/M in victims)
-  			if((M.species.name in GLOB.banned_spices))
-   	 			return 
-		else .().. 	
 
-  	if(iscarbon(victim) && !victim.isSynthetic())
+ 		if ((victim.species.name in GLOB.banned_species))
+			return
 		var/list/disabilities = list(NEARSIGHTED, EPILEPSY, TOURETTES, NERVOUS)
 		for(var/disability in disabilities)
 			if(victim.disabilities & disability)
