@@ -39,13 +39,12 @@
 	SPECIES_ADHERENT, SPECIES_IPC, SPECIES_INSECTOID, SPECIES_VOX, SPECIES_ALIEN, SPECIES_GOLEM,\
 	SPECIES_MANTID_GYNE, SPECIES_MANTID_ALATE, SPECIES_MONARCH_WORKER, SPECIES_MONARCH_QUEEN, SPECIES_XENO
 	))
-
-  	if(iscarbon(victim) && !victim.isSynthetic())
-		for(var/mob/living/carbon/human/M in victims)
+	for(var/mob/living/carbon/human/M in victims)
   			if((M.species.name in GLOB.banned_spices))
    	 			return 
 		else .().. 	
-		
+
+  	if(iscarbon(victim) && !victim.isSynthetic())
 		var/list/disabilities = list(NEARSIGHTED, EPILEPSY, TOURETTES, NERVOUS)
 		for(var/disability in disabilities)
 			if(victim.disabilities & disability)
