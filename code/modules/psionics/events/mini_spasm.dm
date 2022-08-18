@@ -37,9 +37,9 @@
 	
 	var/banned_spices = list(SPECIES_ADHERENT, SPECIES_IPC, SPECIES_INSECTOID, SPECIES_VOX, SPECIES_ALIEN, SPECIES_GOLEM, SPECIES_MANTID_GYNE, SPECIES_MANTID_ALATE, SPECIES_MONARCH_WORKER, SPECIES_MONARCH_QUEEN, SPECIES_XENO)
 		for(var/mob/living/carbon/human/M in victims)
-  		if((M.species.name in banned_spices))
+  	if((M.species.name in banned_spices))
    	 	return 
-	else ..()
+	else
 
   	if(iscarbon(victim) && !victim.isSynthetic())
 		var/list/disabilities = list(NEARSIGHTED, EPILEPSY, TOURETTES, NERVOUS)
