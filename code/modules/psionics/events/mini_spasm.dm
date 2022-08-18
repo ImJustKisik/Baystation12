@@ -33,11 +33,7 @@
 /datum/event/minispasm/proc/do_spasm(var/mob/living/victim, var/obj/item/device/radio/source)
 	set waitfor = 0
 
-  	if(victim.isSynthetic())
-    	to_chat(world, "<span class='boldannounce'>[You hear discorded sounds!]</span>")
-    	return
-
-	if(iscarbon(victim)
+  	if(iscarbon(victim) && !victim.isSynthetic())
 		var/list/disabilities = list(NEARSIGHTED, EPILEPSY, TOURETTES, NERVOUS)
 		for(var/disability in disabilities)
 			if(victim.disabilities & disability)
@@ -45,7 +41,7 @@
 		if(disabilities.len)
 			victim.disabilities |= pick(disabilities)
 
-	if(victim.psi)
+	if(victim.psi) && !victim.isSynthetic())
 		to_chat(victim, SPAN_DANGER("A hauntingly familiar sound hisses from [icon2html(source, victim)] \the [source], and your vision flickers!"))
 		victim.psi.backblast(rand(5,15))
 		victim.Paralyse(5)
