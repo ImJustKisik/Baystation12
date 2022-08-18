@@ -35,7 +35,7 @@
 /datum/event/minispasm/proc/do_spasm(var/mob/living/victim, var/obj/item/device/radio/source)
 	set waitfor = 0
 	
-		var/banned_spices = list(SPECIES_ADHERENT, SPECIES_IPC, SPECIES_INSECTOID, SPECIES_VOX, SPECIES_ALIEN, SPECIES_GOLEM, SPECIES_MANTID_GYNE, SPECIES_MANTID_ALATE, SPECIES_MONARCH_WORKER, SPECIES_MONARCH_QUEEN, SPECIES_XENO)
+	var/banned_spices = list(SPECIES_ADHERENT, SPECIES_IPC, SPECIES_INSECTOID, SPECIES_VOX, SPECIES_ALIEN, SPECIES_GOLEM, SPECIES_MANTID_GYNE, SPECIES_MANTID_ALATE, SPECIES_MONARCH_WORKER, SPECIES_MONARCH_QUEEN, SPECIES_XENO)
 		for(var/mob/living/carbon/human/M in victims)
   			if((M.species.name in banned_spices))
    	 		return 
