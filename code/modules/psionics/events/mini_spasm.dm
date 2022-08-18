@@ -30,8 +30,13 @@
 		var/obj/item/device/radio/source = victims[victim]
 		do_spasm(victim, source)
 
+
+
 /datum/event/minispasm/proc/do_spasm(var/mob/living/victim, var/obj/item/device/radio/source)
 	set waitfor = 0
+	
+	if(victim.isSynthetic())
+   		return
 
   	if(iscarbon(victim) && !victim.isSynthetic())
 		var/list/disabilities = list(NEARSIGHTED, EPILEPSY, TOURETTES, NERVOUS)
@@ -41,7 +46,7 @@
 		if(disabilities.len)
 			victim.disabilities |= pick(disabilities)
 
-	if(victim.psi) && !victim.isSynthetic())
+	if(victim.psi)
 		to_chat(victim, SPAN_DANGER("A hauntingly familiar sound hisses from [icon2html(source, victim)] \the [source], and your vision flickers!"))
 		victim.psi.backblast(rand(5,15))
 		victim.Paralyse(5)
