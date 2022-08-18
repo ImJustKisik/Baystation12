@@ -42,7 +42,6 @@
 		for(var/mob/living/carbon/human/M in victims)
   			if((M.species.name in GLOB.banned_spices))
    	 			return 
-			else ..()
 
   	if(iscarbon(victim) && !victim.isSynthetic())
 		var/list/disabilities = list(NEARSIGHTED, EPILEPSY, TOURETTES, NERVOUS)
