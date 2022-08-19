@@ -25,7 +25,7 @@
 	name = "strange ion cloud"
 	desc = "Slight traces of a cloaking device are present. Unable to determine exact location."
 	hide_from_reports = TRUE
-	in_space = 1
+	sector_flags = OVERMAP_SECTOR_IN_SPACE
 	icon_state = "ion1"
 
 /obj/item/stock_parts/circuitboard/telecomms/allinone/skrellscoutship
