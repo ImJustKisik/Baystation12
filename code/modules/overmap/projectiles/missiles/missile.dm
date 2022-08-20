@@ -74,9 +74,9 @@
 
 // Move to the overmap until we encounter a new z
 /obj/structure/missile/touch_map_edge()
-	
+
 	addtimer(CALLBACK(src, .proc/expire), lifetime)
-	
+
 	//Missile destroyed if it fails to hit something
 	if(entered_away)
 		Destroy()
@@ -92,9 +92,10 @@
 	if(!active)
 		Destroy()
 		return
-	
+
 	if(overmap_missile.dangerous)
 		log_and_message_admins("A dangerous missile has entered the overmap (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[overmap_missile.x];Y=[overmap_missile.y];Z=[overmap_missile.z]'>JMP</a>)")
+		addtimer(CALLBACK(src, .proc/sendsignal), rand(1 SECONDS, 3 SECONDS))
 
 
 	origin = map_sectors["[z]"]
@@ -103,6 +104,12 @@
 	walk(src, 0)
 	forceMove(overmap_missile)
 	overmap_missile.set_moving(TRUE)
+
+
+/obj/structure/missile/proc/sendsignal()
+	for (var/obj/machinery/computer/ship/missiles/S in SSmachines.machinery)
+		S.announce()
+
 
 /obj/structure/missile/attackby(var/obj/item/I, var/mob/user)
 
@@ -119,12 +126,12 @@
 				for(var/obj/item/missile_equipment/payload/L in equipment)
 					to_chat(user, "\The [src] can only have one payload.")
 					return
-				
+
 			if(istype(I, /obj/item/missile_equipment/thruster))
 				for(var/obj/item/missile_equipment/thruster/T in equipment)
 					to_chat(user, "\The [src] can only have one thruster.")
 					return
-				
+
 			if(!user.unEquip(I, src))
 				return
 			equipment += I
@@ -165,7 +172,7 @@
 
 	overmap_missile = new /obj/effect/overmap/projectile(null, start_object.x, start_object.y)
 	overmap_missile.set_missile(src)
-	
+
 	for(var/obj/item/missile_equipment/E in equipment)
 		E.on_missile_activated(overmap_missile)
 
@@ -197,28 +204,28 @@
 
 	var/start_x = Floor(world.maxx / 2) + rand(-10, 10)
 	var/start_y = Floor(world.maxy / 2) + rand(-10, 10)
-	
-	
+
+
 	//Normalizes this to just be NWES. If you want to do the fuckery required to make this better, be my guest.
-	if(heading in GLOB.cornerdirs)	
+	if(heading in GLOB.cornerdirs)
 		if(heading == NORTHEAST)
 			heading = pick(NORTH, EAST)
 		if(heading == NORTHWEST)
-			heading = pick(NORTH, WEST) 
+			heading = pick(NORTH, WEST)
 		if(heading == SOUTHEAST)
-			heading = pick(SOUTH, EAST) 
+			heading = pick(SOUTH, EAST)
 		if(heading == SOUTHWEST)
-			heading = pick(SOUTH, WEST) 
+			heading = pick(SOUTH, WEST)
 
 	if(target_dir in GLOB.cornerdirs)
 		if(target_dir == NORTHEAST)
 			target_dir = pick(NORTH, EAST)
 		if(target_dir == NORTHWEST)
-			target_dir = pick(NORTH, WEST) 
+			target_dir = pick(NORTH, WEST)
 		if(target_dir == SOUTHEAST)
-			target_dir = pick(SOUTH, EAST) 
+			target_dir = pick(SOUTH, EAST)
 		if(target_dir == SOUTHWEST)
-			target_dir = pick(SOUTH, WEST) 
+			target_dir = pick(SOUTH, WEST)
 
 	if(heading == target_dir)
 		if(target_fore_dir == NORTH)
