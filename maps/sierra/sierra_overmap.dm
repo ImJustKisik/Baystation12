@@ -6,6 +6,7 @@
 	vessel_mass = 63000
 	known_ships = list(/obj/effect/overmap/visitable/ship/landable/exploration_shuttle, /obj/effect/overmap/visitable/ship/landable/guppy)
 	contact_class = /decl/ship_contact_class/dagon
+	transponder_active = FALSE
 	base = TRUE
 	color = LIGHT_COLOR_PURPLE
 	icon = 'icons/obj/overmap_inf.dmi'
