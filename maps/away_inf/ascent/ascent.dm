@@ -24,6 +24,7 @@
 	desc = "Wake signature indicates a small to medium sized vessel of unknown design."
 	color = COLOR_PURPLE
 	vessel_mass = 6500
+	contact_class = /decl/ship_contact_class/ship
 	fore_dir = WEST
 	max_speed = 0.6/(1 SECOND)
 	hide_from_reports = TRUE

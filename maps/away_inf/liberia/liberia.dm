@@ -30,6 +30,7 @@
 	desc = "Sensors detect a merchant ship." //Данные с сенсоров
 	color = "#8a6642" //Цвет
 	vessel_mass = 3000
+	contact_class = /decl/ship_contact_class/ship
 	fore_dir = WEST
 	max_speed = 1/(1 SECOND)
 	known = 1
