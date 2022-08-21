@@ -20,6 +20,7 @@
 	vessel_mass = 60
 	max_speed = 1/(10 SECONDS)
 	burn_delay = 10 SECONDS
+	contact_class = /decl/ship_contact_class/ship
 	initial_restricted_waypoints = list(
 		"Exploration Shuttle" = list("nav_bearcat_port_dock_shuttle"),
 	)
@@ -174,4 +175,3 @@
 	name = "Port Shuttle Dock"
 	landmark_tag = "nav_bearcat_port_dock_shuttle"
 	docking_controller = "bearcat_dock_port"
-

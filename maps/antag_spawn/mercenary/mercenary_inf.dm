@@ -24,6 +24,7 @@
 	fore_dir = NORTH
 	vessel_size = SHIP_SIZE_SMALL
 	vessel_mass = 14000
+	contact_class = /decl/ship_contact_class/destroyer_escort
 
 /obj/effect/overmap/visitable/ship/landable/merc/New()
 	var/list/desperado_name = list(

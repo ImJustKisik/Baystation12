@@ -25,6 +25,7 @@
 	fore_dir = NORTH
 	vessel_size = SHIP_SIZE_SMALL
 	vessel_mass = 10000
+	contact_class = /decl/ship_contact_class/destroyer_escort
 
 /datum/shuttle/autodock/overmap/merc_shuttle
 	name = "Cyclopes"

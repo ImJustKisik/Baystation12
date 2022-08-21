@@ -9,6 +9,9 @@
 	machine_desc = "Used to activate, monitor, and configure a spaceship's sensors. Higher range means higher temperature; dangerously high temperatures may fry the delicate equipment."
 	var/obj/machinery/shipsensors/sensors
 	var/print_language = LANGUAGE_HUMAN_EURO
+	var/working_sound = 'sound/machines/sensors/dradis.ogg'
+	var/datum/sound_token/sound_token
+	var/sound_id
 
 /obj/machinery/computer/ship/sensors/spacer
 	construct_state = /decl/machine_construction/default/panel_closed/computer/no_deconstruct
@@ -19,6 +22,19 @@
 	if(!(. = ..()))
 		return
 	find_sensors()
+
+/obj/machinery/computer/ship/sensors/proc/update_sound()
+	if(!working_sound)
+		return
+	if(!sound_id)
+		sound_id = "[type]_[sequential_id(/obj/machinery/computer/ship/sensors)]"
+	if(linked && sensors.use_power ** sensors.powered())
+		var/volume = 10
+		if(!sound_token)
+			sound_token = GLOB.sound_player.PlayLoopingSound(src, sound_id, working_sound, volume = volume, range = 10)
+		sound_token.SetVolume(volume)
+	else if(sound_token)
+		QDEL_NULL(sound_token)
 
 /obj/machinery/computer/ship/sensors/proc/find_sensors()
 	if(!linked)
@@ -55,6 +71,7 @@
 			data["status"] = "OK"
 		var/list/contacts = list()
 		for(var/obj/effect/overmap/O in view(7,linked))
+			var/datum/overmap_contact/record
 			if(linked == O)
 				continue
 			if(!O.scannable)
@@ -62,6 +79,11 @@
 			var/bearing = round(90 - Atan2(O.x - linked.x, O.y - linked.y),5)
 			if(bearing < 0)
 				bearing += 360
+			for(var/key in contact_datums)
+				record = contact_datums[O]
+			if(record)
+				if(!record.identified)
+					continue
 			contacts.Add(list(list("name"=O.name, "ref"="\ref[O]", "bearing"=bearing)))
 		if(contacts.len)
 			data["contacts"] = contacts
@@ -112,15 +134,6 @@
 			new/obj/item/paper/(get_turf(src), O.get_scan_data(user), "paper (Sensor Scan - [O])", L = print_language)
 		return TOPIC_HANDLED
 
-/obj/machinery/computer/ship/sensors/Process()
-	..()
-	if(!linked)
-		return
-	if(sensors && sensors.use_power && sensors.powered())
-		var/sensor_range = round(sensors.range*1.5) + 1
-		linked.set_light(1, sensor_range, sensor_range+1)
-	else
-		linked.set_light(0)
 
 /obj/machinery/shipsensors
 	name = "sensors suite"

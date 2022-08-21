@@ -4,6 +4,8 @@
 	the target as NanoTrasen Science Vessel, a property of NanoTrasen Corporation."
 	fore_dir = WEST
 	vessel_mass = 63000
+	known_ships = list(/obj/effect/overmap/visitable/ship/landable/exploration_shuttle, /obj/effect/overmap/visitable/ship/landable/guppy)
+	contact_class = /decl/ship_contact_class/dagon
 	base = TRUE
 	color = LIGHT_COLOR_PURPLE
 	icon = 'icons/obj/overmap_inf.dmi'
@@ -48,6 +50,12 @@
 		"nav_deck4_aquila",
 		"nav_bridge_aquila"
 	)
+
+
+/decl/ship_contact_class/dagon
+	class_short = "MAKO"
+	class_long = "Mako-Class Frigate"
+	max_ship_mass = 70000
 
 /obj/effect/overmap/visitable/ship/landable/exploration_shuttle
 	name = "Charon"
