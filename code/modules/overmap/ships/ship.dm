@@ -20,8 +20,8 @@ var/const/OVERMAP_SPEED_CONSTANT = (1 SECOND)
 	var/contact_icon_state
 	var/class = "spacefaring vessel"
 	var/moving_state = "ship_moving"
-	var/list/consoles
 	var/transponder_active = FALSE //do we instantly identify ourselves to any ship?
+	var/list/consoles
 
 	var/sensor_visiblity //chance of showing up on sensors at all
 	var/base_sensor_visibility

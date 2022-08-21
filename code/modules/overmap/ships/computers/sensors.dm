@@ -8,7 +8,6 @@
 	machine_name = "sensors console"
 	machine_desc = "Used to activate, monitor, and configure a spaceship's sensors. Higher range means higher temperature; dangerously high temperatures may fry the delicate equipment."
 	var/obj/machinery/shipsensors/sensors
-	var/obj/effect/overmap/visitable/ship/source_ship
 	var/print_language = LANGUAGE_HUMAN_EURO
 	var/working_sound = 'sound/machines/sensors/dradis.ogg'
 	var/datum/sound_token/sound_token
@@ -62,7 +61,6 @@
 		data["max_health"] = sensors.max_health
 		data["heat"] = sensors.heat
 		data["critical_heat"] = sensors.critical_heat
-		data["transponder_status"] = source_ship.transponder_active
 		if(sensors.health == 0)
 			data["status"] = "DESTROYED"
 		else if(!sensors.powered())
@@ -129,9 +127,6 @@
 			sensors.toggle()
 			return TOPIC_REFRESH
 
-		if (href_list["TransponderOnline"])
-			source_ship.transponder_active = TRUE
-
 	if (href_list["scan"])
 		var/obj/effect/overmap/O = locate(href_list["scan"])
 		if(istype(O) && !QDELETED(O) && (O in view(7,linked)))
@@ -139,12 +134,6 @@
 			new/obj/item/paper/(get_turf(src), O.get_scan_data(user), "paper (Sensor Scan - [O])", L = print_language)
 		return TOPIC_HANDLED
 
-
-/*/obj/machinery/computer/ship/sensors/proc/transponderOn(var/obj/effect/overmap/source)
-	var/obj/effect/overmap/visitable/ship/source_ship = source
-	source_ship.transponder_active
-
-*/
 
 /obj/machinery/shipsensors
 	name = "sensors suite"
@@ -154,12 +143,12 @@
 	anchored = TRUE
 	var/max_health = 200
 	var/health = 200
-	var/critical_heat = 150 // sparks and takes damage when active & above this heat
+	var/critical_heat = 50 // sparks and takes damage when active & above this heat
 	var/heat_reduction = 1.5 // mitigates this much heat per tick
 	var/heat = 0
 	var/range = 1
 	idle_power_usage = 5000
-	use_power = 1
+	use_power = 0 //INF. Turned off at roundstart
 
 /obj/machinery/shipsensors/attackby(obj/item/W, mob/user)
 	var/damage = max_health - health
