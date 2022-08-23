@@ -9,7 +9,8 @@ var/const/OVERMAP_SPEED_CONSTANT = (1 SECOND)
 	else \
 		{speed_var = SANITIZE_SPEED((speed_var + v_diff)/(1 + speed_var*v_diff/(max_speed ** 2)))}
 // Uses Lorentzian dynamics to avoid going too fast.
-#define SENSOR_COEFFICENT 5000
+
+#define SENSOR_COEFFICENT 5
 
 /obj/effect/overmap/visitable/ship
 	name = "generic ship"
