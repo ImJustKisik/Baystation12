@@ -17,6 +17,11 @@
 /mob/proc/isSynthetic()
 	return FALSE
 
+/mob/proc/isMonkey()
+	return 0
+
+/mob/living/carbon/human/isMonkey()
+	return istype(species, /datum/species/monkey)
 
 /mob/living/silicon/isSynthetic()
 	return TRUE

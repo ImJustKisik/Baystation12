@@ -888,21 +888,9 @@
 		to_chat(src,"<span class='notice'>You feel like you're [pick("moving","flying","floating","falling","hovering")].</span>")
 
 /mob/living/carbon/human/proc/handle_changeling()
-/*original
-	if(mind && mind.changeling)
-		mind.changeling.regenerate()
-/original*/
-//[INF]
-	if(!client) return
 	if(mind?.changeling)
 		mind.changeling.regenerate()
-		if(hud_used?.changeling_chems)
-			var/datum/changeling/changeling = mind.changeling
-			hud_used.changeling_chems.invisibility = 0
-			hud_used.changeling_chems.maptext = "<div align='center' valign='middle' style='position:relative; top:0px; left:6px'><font color='#dd66dd'>[round(changeling.chem_charges)]</font></div>"
-	else
-		hud_used.changeling_chems.invisibility = INVISIBILITY_ABSTRACT
-//[/INF]
+		update_action_buttons()
 
 /mob/living/carbon/human/proc/handle_shock()
 	if(status_flags & GODMODE)	return 0	//godmode
@@ -974,9 +962,10 @@
 
 
 /mob/living/carbon/human/proc/handle_hud_list()
+	var/effectively_dead = (stat == DEAD || status_flags & FAKEDEATH)
 	if (BITTEST(hud_updateflag, HEALTH_HUD) && hud_list[HEALTH_HUD])
 		var/image/holder = hud_list[HEALTH_HUD]
-		if(stat == DEAD || (status_flags & FAKEDEATH))
+		if(effectively_dead)
 			holder.icon_state = "0" 	// X_X
 		else if(is_asystole())
 			holder.icon_state = "flatline"
@@ -986,7 +975,7 @@
 
 	if (BITTEST(hud_updateflag, LIFE_HUD) && hud_list[LIFE_HUD])
 		var/image/holder = hud_list[LIFE_HUD]
-		if(stat == DEAD || (status_flags & FAKEDEATH))
+		if(effectively_dead)
 			holder.icon_state = "huddead"
 		else
 			holder.icon_state = "hudhealthy"
@@ -994,7 +983,7 @@
 
 	if (BITTEST(hud_updateflag, STATUS_HUD) && hud_list[STATUS_HUD] && hud_list[STATUS_HUD_OOC])
 		var/image/holder = hud_list[STATUS_HUD]
-		if(stat == DEAD || (status_flags & FAKEDEATH))
+		if(effectively_dead)
 			holder.icon_state = "huddead"
 
 		else if(has_brain_worms())
@@ -1007,7 +996,7 @@
 			holder.icon_state = "hudhealthy"
 
 		var/image/holder2 = hud_list[STATUS_HUD_OOC]
-		if(stat == DEAD || (status_flags & FAKEDEATH))
+		if(effectively_dead)
 			holder2.icon_state = "huddead"
 		else if(has_brain_worms())
 			holder2.icon_state = "hudbrainworm"

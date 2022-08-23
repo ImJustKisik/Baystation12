@@ -137,7 +137,7 @@ GLOBAL_LIST_EMPTY(compatable_genomes_owners)
 		if(mind)
 			if(mind.changeling)
 				stat("Chemical Storage", mind.changeling.chem_charges)
-				stat("Genetic Damage Time", mind.changeling.geneticdamage)
+				stat("Genetic Damage Time", mind.changeling.genetic_damage)
 		/*if(nutrition)
 			stat("Nutrition:", "[nutrition]")*/
 
