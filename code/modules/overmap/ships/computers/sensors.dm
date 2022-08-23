@@ -13,6 +13,13 @@
 	var/datum/sound_token/sound_token
 	var/sound_id
 
+// fancy sprite
+/obj/machinery/computer/ship/sensors/adv
+	icon_keyboard = null
+	icon_state = "adv_sensors"
+	icon_screen = "adv_sensors_screen"
+	light_color = "#05A6A8"
+
 /obj/machinery/computer/ship/sensors/spacer
 	construct_state = /decl/machine_construction/default/panel_closed/computer/no_deconstruct
 	base_type = /obj/machinery/computer/ship/sensors
