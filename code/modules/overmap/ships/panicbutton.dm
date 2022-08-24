@@ -63,5 +63,5 @@
 		for(var/mob/M in GLOB.player_list)
 			var/sound/SND = sound('sound/misc/emergency_beacon_launched.ogg') // Inside the loop because playsound_local modifies it for each person, so, need separate instances
 			var/turf/them = get_turf(M)
-			var/volume = max(0.20, 1-(get_dist(us,them) / mapsize*0.8))*100
+			var/volume = max(0.20, 1-(get_dist(us,them) / mapsize*0.1))*100
 			M.playsound_local(get_turf(M), SND, vol = volume)

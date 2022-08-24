@@ -71,7 +71,7 @@
 		else
 			data["status"] = "OK"
 		var/list/contacts = list()
-		for(var/obj/effect/overmap/O in view(7,linked))
+		for(var/obj/effect/overmap/O in view(20,linked)) //debug ne zabud ubrat (<4)
 			var/datum/overmap_contact/record
 			if(linked == O)
 				continue

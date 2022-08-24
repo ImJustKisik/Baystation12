@@ -4,7 +4,6 @@
 	name = "XCV Ahab's Harpoon"
 	scanner_name = "XCV Ahab's Harpoon"
 	scanner_desc = @{"[i]Registration[/i]: XCV Ahab's Harpoon
-[i]Class[/i]: UNKNOWN
 [i]Transponder[/i]: Transmitting (CIV)
 [b]Notice[/b]: Sensors detect civilian vessel with unusual signs of life aboard"}
 	color = "#bd6100"
