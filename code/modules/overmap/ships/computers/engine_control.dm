@@ -13,6 +13,7 @@
 	icon_state = "adv_engines"
 	icon_screen = "adv_engines_screen"
 	light_color = "#05A6A8"
+	base_type = /obj/machinery/computer/ship/engines
 
 
 /obj/machinery/computer/ship/engines/ui_interact(mob/user, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = 1)

@@ -129,6 +129,38 @@
 // prior to being moved to the overmap. This blocks that. Use set_invisibility to adjust invisibility as needed instead.
 /obj/effect/overmap/visitable/sector/hide()
 
+/obj/effect/overmap/visitable/proc/distress(mob/user)
+	if(has_distress_beacon)
+		return FALSE
+	has_distress_beacon = TRUE
+
+	log_and_message_admins(message ="Overmap panic button hit on z[z] ([name]) by '[user?.ckey || "Unknown"]'") //VOREStation Add
+
+	var/distress_message = "Это автоматический сигнал бедствия от радиомаяка, соответствующего стандарту MIL-DTL-93352, передаваемого на частоте [PUB_FREQ*0.1]кГц.  \
+	Этот маяк был запущен с  '[initial(name)]'. Местоположение передающего устройства: [get_distress_info()]. \
+	Согласно Межпланетной конвенции о космической спасательной деятельности, лица, получившие это сообщение, должны попытаться предпринять попытку спасения, \
+	или передать сообщение тем, кто может это сделать. Это сообщение повторится еще раз через 5 минут. Спасибо за вашу помощь."
+
+
+	priority_announcement.Announce(distress_message, "Automated Distress Signal", new_sound = sound('sound/AI/sos.ogg'), zlevels = GLOB.using_map.map_levels)
+
+	var/image/I = image(icon, icon_state = "distress")
+	I.plane = EFFECTS_ABOVE_LIGHTING_PLANE
+	I.appearance_flags = KEEP_APART|RESET_TRANSFORM|RESET_COLOR
+	add_overlay(I)
+
+	addtimer(CALLBACK(src, .proc/distress_update), 5 MINUTES)
+	return TRUE
+
+/obj/effect/overmap/visitable/proc/get_distress_info()
+	return "\[X:[x], Y:[y]\]"
+
+/obj/effect/overmap/visitable/proc/distress_update()
+	var/message = "Это последнее сообщение с маяка бедствия, запущенного '[initial(name)]'. Местоположение передающего устройства: [get_distress_info()]. \
+	Пожалуйста, окажите помощь в соответствии с вашими обязательствами по Межпланетной конвенции о космической спасательной деятельности, или передайте это сообщение той стороне, которая может это сделать."
+
+	priority_announcement.Announce(message, new_title = "Automated Distress Signal", new_sound = 'sound/AI/sos.ogg', zlevels = GLOB.using_map.map_levels)
+
 /proc/build_overmap()
 	if(!GLOB.using_map.use_overmap)
 		return 1

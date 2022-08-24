@@ -24,6 +24,7 @@ LEGACY_RECORD_STRUCTURE(all_waypoints, waypoint)
 	icon_state = "adv_helm"
 	icon_screen = "adv_helm_screen"
 	light_color = "#70ffa0"
+	base_type = /obj/machinery/computer/ship/helm
 
 /obj/machinery/computer/ship/helm/Initialize()
 	. = ..()

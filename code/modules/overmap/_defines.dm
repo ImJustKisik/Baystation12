@@ -83,3 +83,9 @@ proc/toggle_move_stars(zlevel, direction)
 	var/area/A = get_area(T)
 	var/list/dimensions = A.get_dimensions()
 	return T.x <= TRANSITIONEDGE || T.x >= (dimensions["x"] - TRANSITIONEDGE + 1) || T.y <= TRANSITIONEDGE || T.y >= (dimensions["y"] - TRANSITIONEDGE + 1)
+
+/proc/get_overmap_sector(var/z)
+	if(GLOB.using_map.use_overmap)
+		return map_sectors["[z]"]
+	else
+		return null

@@ -322,6 +322,16 @@ obj/effect/overmap/visitable/ship/proc/get_base_sensor_visibility()
 
 	return min(new_sensor_vis, 100)
 
+// Get heading in degrees (like a compass heading)
+/obj/effect/overmap/visitable/ship/proc/get_heading_degrees()
+	return (Atan2(speed[2], speed[1]) + 360) % 360 // Yes ATAN2(y, x) is correct to get clockwise degrees
+
+/obj/effect/overmap/visitable/ship/get_distress_info()
+	var/turf/T = get_turf(src) // Usually we're on the turf, but sometimes we might be landed or something.
+	var/x_to_use = T?.x || "UNK"
+	var/y_to_use = T?.y || "UNK"
+	return "\[X:[x_to_use], Y:[y_to_use], VEL:[get_speed() * 1000], HDG:[get_heading_degrees()]\]"
+
 #undef MOVING
 #undef SANITIZE_SPEED
 #undef CHANGE_SPEED_BY
