@@ -26,11 +26,14 @@
 
 // Overmap objects.
 /obj/effect/overmap/visitable/ship/liberia //Объект в Системе
-	name = "Liberia" //Название
-	desc = "Sensors detect a merchant ship." //Данные с сенсоров
+	desc = "A spacefaring merchant vessel"
+	scanner_name = "Liberia"
+	scanner_desc = @{"[i]Registration[/i]: FTU Liberia
+[i]Transponder[/i]: Transmitting (CIV), non-hostile
+[b]Notice[/b]: Independent trader vessel "}
+	contact_class = /decl/ship_contact_class/merchant
 	color = "#8a6642" //Цвет
 	vessel_mass = 3000
-	contact_class = /decl/ship_contact_class/ship
 	fore_dir = WEST
 	max_speed = 1/(1 SECOND)
 	known = 1
@@ -55,8 +58,10 @@
 	_output_on = TRUE
 	_fully_charged = TRUE
 
-
-
+/decl/ship_contact_class/merchant
+	class_short = "FTU"
+	class_long = "Free Trader Union Ship"
+	max_ship_mass = 7000
 
 
 #undef WEBHOOK_SUBMAP_LOADED_LIBERIA

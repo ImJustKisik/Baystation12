@@ -13,8 +13,10 @@ var/const/OVERMAP_SPEED_CONSTANT = (1 SECOND)
 #define SENSOR_COEFFICENT 5
 
 /obj/effect/overmap/visitable/ship
-	name = "generic ship"
-	desc = "Space faring vessel."
+	name = "spacecraft"
+	scanner_name = "spacecraft"
+	desc = "This marker represents a spaceship. Scan it for more information."
+	scanner_desc = "Unknown spacefaring vessel."
 	icon_state = "ship"
 	alpha = 255
 
@@ -106,7 +108,17 @@ var/const/OVERMAP_SPEED_CONSTANT = (1 SECOND)
 	var/decl/ship_contact_class/class = decls_repository.get_decl(contact_class)
 	. += "<br>Class: [class.class_long], mass [vessel_mass] tons."
 	if(!is_still())
-		. += "<br>Heading: [get_heading_angle()], speed [get_speed() * 1000]"
+		. += {"\n\[i\]Heading\[/i\]: [get_heading_degrees()]\n\[i\]Velocity\[/i\]: [get_speed() * 1000]"}
+	else
+		. += {"\n\[i\]Vessel was stationary at time of scan.\[/i\]\n"}
+
+	var/life = 0
+
+	for(var/mob/living/L in GLOB.living_mob_list_)
+		if(L.z in map_z) //Things inside things we'll consider shielded, otherwise we'd want to use get_z(L)
+			life++
+
+	. += {"\[i\]Life Signs\[/i\]: [life ? life : "None"]"}
 
 //Projected acceleration based on information from engines
 /obj/effect/overmap/visitable/ship/proc/get_acceleration()

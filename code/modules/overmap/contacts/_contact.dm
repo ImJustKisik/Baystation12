@@ -41,7 +41,7 @@ var/list/phonetic_alphabet_suffix = list("ALPHA", "BETA", "GAMMA", "DELTA", "EPS
 	// Update local tracking information.
 	owner =  creator
 	effect = source
-	name =   effect.name
+	name =   effect.scanner_name
 	owner.contact_datums[effect] = src
 
 	if(!is_overmap_event)

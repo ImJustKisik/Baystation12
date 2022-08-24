@@ -31,7 +31,7 @@
 	icon_state = "cpt"
 
 /obj/effect/overmap/visitable/ship/salvage
-	name = "PSV Pancake"
+	scanner_name = "PSV Pancake"
 	fore_dir = WEST
 	vessel_mass = 10
 	start_x = 4

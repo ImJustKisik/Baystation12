@@ -12,7 +12,11 @@
 
 /obj/effect/overmap/visitable/ship/patrol
 	name = "Multipurpose Patrol Craft"
-	desc = "Nagashino-class Multipurpose Patrol Craft. Fine example of human fleet brilliant technologies with 5th Fleet designation and massive heat footprint."
+	scanner_name = "Multipurpose Patrol Craft"
+	scanner_desc = @{"[i]Registration[/i]: SCG Multipurpose Patrol Craft
+[i]Transponder[/i]: Transmitting (MIL), SCG
+[b]Notice[/b]: Nagashino-class Multipurpose Patrol Craft. Fine example of human fleet brilliant technologies with 5th Fleet designation and massive heat footprint."}
+	contact_class = /decl/ship_contact_class/nagashino
 	color = "#990000"
 	fore_dir = WEST
 	vessel_mass = 500
@@ -32,8 +36,9 @@
 	"Reaper" = list("nav_hangar_reaper")
 		)
 
+
 /obj/effect/overmap/visitable/ship/patrol/New()
-	name = "SFV [pick("Sentinel","Cavalry","Scarabaeus","Helios","Heretic","Apocalypse","Calamatious","Terror","Pandemonium","Anubis","Hound","Stalker","Avatar","Ultimatum","Goliath","Tyrant","Nemesis","Hydra","Stormhawk","Manticore","Basilisk")], \a [name]"
+	scanner_name = "SFV [pick("Sentinel","Cavalry","Scarabaeus","Helios","Heretic","Apocalypse","Calamatious","Terror","Pandemonium","Anubis","Hound","Stalker","Avatar","Ultimatum","Goliath","Tyrant","Nemesis","Hydra","Stormhawk","Manticore","Basilisk")], \a [name]"
 	for(var/area/ship/patrol/A)
 		A.name = "\improper [name] - [A.name]"
 		GLOB.using_map.area_purity_test_exempt_areas += A.type
@@ -107,3 +112,8 @@
 	name = "SCG Patrol radio encryption key"
 	icon_state = "nt_cypherkey"
 	channels = list("SCG Patrol" = 1)
+
+/decl/ship_contact_class/nagashino
+	class_short = "NAG"
+	class_long = "Nagashino-Class patrol craft"
+	max_ship_mass = 5000

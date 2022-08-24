@@ -4,6 +4,7 @@
 /obj/effect/overmap/visitable
 	name = "map object"
 	scannable = TRUE
+	scanner_desc = "!! No Data Available !!"
 
 	var/list/map_z = list()
 
@@ -137,7 +138,7 @@
 	log_and_message_admins(message ="Overmap panic button hit on z[z] ([name]) by '[user?.ckey || "Unknown"]'") //VOREStation Add
 
 	var/distress_message = "Это автоматический сигнал бедствия от радиомаяка, соответствующего стандарту MIL-DTL-93352, передаваемого на частоте [PUB_FREQ*0.1]кГц.  \
-	Этот маяк был запущен с  '[initial(name)]'. Местоположение передающего устройства: [get_distress_info()]. \
+	Этот маяк был запущен с  '[initial(scanner_name)]'. Местоположение передающего устройства: [get_distress_info()]. \
 	Согласно Межпланетной конвенции о космической спасательной деятельности, лица, получившие это сообщение, должны попытаться предпринять попытку спасения, \
 	или передать сообщение тем, кто может это сделать. Это сообщение повторится еще раз через 5 минут. Спасибо за вашу помощь."
 

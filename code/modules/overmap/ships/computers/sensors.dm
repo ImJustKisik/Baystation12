@@ -85,7 +85,7 @@
 			if(record)
 				if(!record.identified)
 					continue
-			contacts.Add(list(list("name"=O.name, "ref"="\ref[O]", "bearing"=bearing)))
+			contacts.Add(list(list("name"=O.scanner_name, "ref"="\ref[O]", "bearing"=bearing)))
 		if(contacts.len)
 			data["contacts"] = contacts
 	else
