@@ -105,6 +105,10 @@
 
 /obj/effect/overmap/visitable/ship/landable/salvage
 	name = "Salvage shuttle"
+	scanner_name = "Salvage shuttle"
+	scanner_desc = @{"[i]Registration[/i]: UNKNOWN
+[i]Class[/i]: UNKNOWN
+[i]Transponder[/i]: None Detected"}
 	shuttle = "Salvage shuttle"
 	fore_dir = SOUTH
 

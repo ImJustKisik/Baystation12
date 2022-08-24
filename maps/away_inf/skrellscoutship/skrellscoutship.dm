@@ -22,8 +22,9 @@
 	)
 
 /obj/effect/overmap/visitable/sector/skrellscoutspace
-	name = "strange ion cloud"
-	desc = "Slight traces of a cloaking device are present. Unable to determine exact location."
+	scanner_name = "strange ion cloud"
+	scanner_desc = @{"[i]Transponder[/i]: EW detected, impossible to identify.
+[b]Notice[/b]: Warning! Slight traces of a cloaking device are present. Unable to determine exact location."}
 	hide_from_reports = TRUE
 	in_space = 1
 	icon_state = "ion1"

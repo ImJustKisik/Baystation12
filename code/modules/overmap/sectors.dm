@@ -131,9 +131,6 @@
 /obj/effect/overmap/visitable/sector/hide()
 
 /obj/effect/overmap/visitable/proc/distress(mob/user)
-	if(has_distress_beacon)
-		return FALSE
-	has_distress_beacon = TRUE
 
 	log_and_message_admins(message ="Overmap panic button hit on z[z] ([name]) by '[user?.ckey || "Unknown"]'") //VOREStation Add
 

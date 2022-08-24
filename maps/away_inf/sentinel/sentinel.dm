@@ -20,6 +20,7 @@
 	color = "#990000"
 	fore_dir = WEST
 	vessel_mass = 500
+	known_ships = list(/obj/effect/overmap/visitable/ship/landable/reaper)
 	vessel_size = SHIP_SIZE_SMALL
 	start_x = 1
 	start_y = 1

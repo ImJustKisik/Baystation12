@@ -17,7 +17,7 @@
 	)
 
 /obj/effect/overmap/visitable/ship/yacht/New(nloc, max_x, max_y)
-	name = "IPV [pick("Razorshark", "Aurora", "Lighting", "Pequod", "Anansi")], \a [name]"
+	scanner_name = "IPV [pick("Razorshark", "Aurora", "Lighting", "Pequod", "Anansi")], \a [name]"
 	..()
 
 /datum/map_template/ruin/away_site/yacht

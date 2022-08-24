@@ -16,6 +16,7 @@
 
 /obj/effect/overmap/visitable/ship/bearcat
 	name = "light freighter"
+	scanner_name = "light freighter"
 	color = "#00ffff"
 	vessel_mass = 60
 	max_speed = 1/(10 SECONDS)
@@ -26,7 +27,7 @@
 	)
 
 /obj/effect/overmap/visitable/ship/bearcat/New()
-	name = "[pick("FTV","ITV","IEV")] [pick("Bearcat", "Firebug", "Defiant", "Unsinkable","Horizon","Vagrant")]"
+	scanner_name = "[pick("FTV","ITV","IEV")] [pick("Bearcat", "Firebug", "Defiant", "Unsinkable","Horizon","Vagrant")]"
 	for(var/area/ship/scrap/A)
 		A.name = "\improper [name] - [A.name]"
 		GLOB.using_map.area_purity_test_exempt_areas += A.type
