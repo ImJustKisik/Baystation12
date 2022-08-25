@@ -311,14 +311,14 @@
 	else if (effective_dose > 10)
 		M.vomit(4, 2, rand(3 SECONDS, 10 SECONDS))
 	else
-		M.vomit(1, 1, rand(5 SECONDS, 15 SECONDS))	
+		M.vomit(1, 1, rand(5 SECONDS, 15 SECONDS))
 
 /datum/species/skrell/get_sex(var/mob/living/carbon/human/H)
 	return istype(H) && (H.descriptors["headtail length"] == 1 ? MALE : FEMALE)
 
 /datum/species/skrell/check_background()
 	return TRUE
-	
+
 /datum/species/skrell/can_float(mob/living/carbon/human/H)
 	if(!H.is_physically_disabled())
 		if(H.encumbrance() < 2)
@@ -404,7 +404,7 @@
 
 	body_temperature = T0C + 15		//make the plant people have a bit lower body temperature, why not
 
-	species_flags = SPECIES_FLAG_NO_SCAN | SPECIES_FLAG_IS_PLANT | SPECIES_FLAG_NO_PAIN | SPECIES_FLAG_NO_SLIP
+	species_flags = SPECIES_FLAG_NO_SCAN | SPECIES_FLAG_IS_PLANT | SPECIES_FLAG_NO_PAIN | SPECIES_FLAG_NO_SLIP | SPECIES_FLAG_NO_BLOOD
 	appearance_flags = 0
 	spawn_flags = SPECIES_CAN_JOIN | SPECIES_IS_WHITELISTED | SPECIES_NO_FBP_CONSTRUCTION | SPECIES_NO_FBP_CHARGEN
 

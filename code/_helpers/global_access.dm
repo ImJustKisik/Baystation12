@@ -659,6 +659,10 @@
 			return global.powerinstances;
 		if("powers")
 			return global.powers;
+		if("vampirepower_types")
+			return global.vampirepower_types
+		if("vampirepowers")
+			return global.vampirepowers
 		if("priority_air_alarms")
 			return global.priority_air_alarms;
 		if("priority_announcement")
@@ -1550,6 +1554,10 @@
 			global.powerinstances=newval;
 		if("powers")
 			global.powers=newval;
+		if("vampirepower_types")
+			global.vampirepower_types=newval;
+		if("vampirepowers")
+			global.vampirepowers=newval;
 		if("priority_air_alarms")
 			global.priority_air_alarms=newval;
 		if("priority_announcement")
@@ -2111,6 +2119,8 @@
 	"possible_changeling_IDs",
 	"powerinstances",
 	"powers",
+	"vampirepower_types",
+	"vampirepowers",
 	"priority_air_alarms",
 	"priority_announcement",
 	"priv_all_access",

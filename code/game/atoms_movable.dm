@@ -55,6 +55,12 @@
 		INVOKE_ASYNC(A, /atom/proc/Bumped, src) // Avoids bad actors sleeping or unexpected side effects, as the legacy behavior was to spawn here
 	..()
 
+/atom/movable/proc/get_selected_zone()
+	return
+
+/atom/movable/proc/get_active_item()
+	return
+
 /atom/movable/proc/forceMove(atom/destination)
 	if((gc_destroyed && gc_destroyed != GC_CURRENTLY_BEING_QDELETED) && !isnull(destination))
 		CRASH("Attempted to forceMove a QDELETED [src] out of nullspace!!!")

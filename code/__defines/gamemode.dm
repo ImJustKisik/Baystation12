@@ -52,7 +52,6 @@
 #define MODE_TRAITOR       "traitor"
 #define MODE_DEITY         "deity"
 #define MODE_GODCULTIST    "god cultist"
-#define MODE_THRALL        "mind thrall"
 #define MODE_PARAMOUNT     "paramount"
 #define MODE_FOUNDATION    "foundation agent"
 #define MODE_MISC_AGITATOR "provocateur"
@@ -85,6 +84,20 @@
 //End split flags
 #define CONSTRUCT_CHECK	0x100	//used by construct spells - checks for nullrods
 #define NO_BUTTON		0x200	//spell won't show up in the HUD with this
+
+/////////////////
+////VAMPIRE~ //////
+/////////////////
+
+#define MODE_VAMPIRE "vampire"
+#define MODE_THRALL "thrall"
+#define VAMP_DRAINING   0x1
+#define VAMP_HEALING    0x2
+#define VAMP_PRESENCE   0x4
+#define VAMP_FRENZIED   0x8
+#define VAMP_ISTHRALL   0x10
+#define VAMP_FULLPOWER  0x20
+
 
 //invocation
 #define SpI_SHOUT	"shout"

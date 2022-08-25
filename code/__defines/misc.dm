@@ -306,6 +306,11 @@
 #define INTENT_HOTKEY_LEFT  "left"
 #define INTENT_HOTKEY_RIGHT "right"
 
+//vamp stuff
+#define ADD_VERB_IN(the_atom,time,verb) addtimer(CALLBACK(the_atom, /atom/proc/add_verb, verb), time, TIMER_UNIQUE | TIMER_OVERRIDE | TIMER_NO_HASH_WAIT)
+#define ADD_VERB_IN_IF(the_atom,time,verb,callback) addtimer(CALLBACK(the_atom, /atom/proc/add_verb, verb, callback), time, TIMER_UNIQUE | TIMER_OVERRIDE | TIMER_NO_HASH_WAIT)
+
+
 // Helper procs for easy HTML browser button creation.
 #define UIBUTTON(key, label, title) "[title ? title + ": " : ""]<a href='?src=\ref[src];[key]=1'>[label]</a>"
 

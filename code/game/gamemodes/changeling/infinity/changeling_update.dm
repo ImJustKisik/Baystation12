@@ -9,6 +9,7 @@ var/list/datum/power/changeling/powerinstances = list()
 	var/helptext = ""
 	var/verbpath // Path to a verb (or datum) that contains the effects.
 	var/icon_state = "debug"
+	var/isVerb = 1 	// Is it an active power, or passive?
 
 /datum/power/changeling
 	var/allowduringlesserform = 0

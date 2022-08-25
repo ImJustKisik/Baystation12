@@ -40,6 +40,55 @@
 /mob/proc/is_species(datum/species/S)
 	return FALSE
 
+/proc/do_mob(atom/movable/affecter, mob/target, time = 30, target_zone = 0, uninterruptible = 0, progress = 1, incapacitation_flags = INCAPACITATION_DEFAULT)
+	if(!affecter || !target)
+		return 0
+	var/mob/user = affecter
+	var/is_mob_type = istype(user)
+	var/user_loc = affecter.loc
+	var/target_loc = target.loc
+
+	var/holding = affecter.get_active_item()
+	var/datum/progressbar/progbar
+	if(is_mob_type && progress)
+		progbar = new(user, time, target)
+
+	var/endtime = world.time+time
+	var/starttime = world.time
+	. = 1
+	while (world.time < endtime)
+
+		stoplag(1)
+
+		if(progbar)
+			progbar.update(world.time - starttime)
+
+		if(!affecter || !target)
+			. = 0
+			break
+
+		if(uninterruptible)
+			continue
+
+		if(!affecter || (is_mob_type && user.incapacitated(incapacitation_flags)) || affecter.loc != user_loc)
+			. = 0
+			break
+
+		if(target.loc != target_loc)
+			. = 0
+			break
+
+		if(affecter.get_active_item() != holding)
+			. = 0
+			break
+
+		if(target_zone && affecter.get_selected_zone() != target_zone)
+			. = 0
+			break
+
+	if(progbar)
+		qdel(progbar)
+
 
 /proc/islesserform(A)
 	if(istype(A, /mob/living/carbon/human))

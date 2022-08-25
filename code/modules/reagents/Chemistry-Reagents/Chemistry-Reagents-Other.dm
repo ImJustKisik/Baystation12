@@ -169,6 +169,14 @@
 				var/obj/effect/spider/spiderling/S = new /obj/effect/spider/spiderling(M.loc)
 				M.visible_message("<span class='warning'>\The [M] coughs up \the [S]!</span>")
 
+		if(M.mind && M.mind.vampire)
+			M.adjustFireLoss(6)
+			M.adjust_fire_stacks(1)
+			M.IgniteMob()
+			if(prob(20))
+				for (var/mob/V in viewers(src))
+					V.show_message(SPAN_WARNING("[M]'s skin sizzles and burns."), 1)
+
 /datum/reagent/water/holywater/touch_turf(var/turf/T)
 	if(volume >= 5)
 		T.holy = 1
@@ -523,27 +531,27 @@
 /datum/reagent/colored_hair_dye/red
 	name = "Red Hair Dye"
 	color = "#b33636"
-	
+
 /datum/reagent/colored_hair_dye/orange
 	name = "Orange Hair Dye"
 	color = "#b5772f"
-	
+
 /datum/reagent/colored_hair_dye/yellow
 	name = "Yellow Hair Dye"
 	color = "#a6a035"
-		
+
 /datum/reagent/colored_hair_dye/green
 	name = "Green Hair Dye"
 	color = "#61a834"
-	
+
 /datum/reagent/colored_hair_dye/blue
 	name = "Blue Hair Dye"
 	color = "#3470a8"
-	
+
 /datum/reagent/colored_hair_dye/purple
 	name = "Purple Hair Dye"
 	color = "#6d2d91"
-		
+
 /datum/reagent/colored_hair_dye/grey
 	name = "Grey Hair Dye"
 	color = "#696969"

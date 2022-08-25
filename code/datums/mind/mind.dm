@@ -50,6 +50,7 @@
 
 	var/faction 			//associated faction
 	var/datum/changeling/changeling		//changeling holder
+	var/datum/vampire/vampire 			//vampire holder
 
 	var/rev_cooldown = 0
 
@@ -78,6 +79,8 @@
 		if(changeling)
 			current.remove_changeling_powers()
 			current.verbs -= /datum/changeling/proc/EvolutionMenu
+		if(vampire)
+			current.remove_vampire_powers()
 		current.mind = null
 
 		SSnano.user_transferred(current, new_character) // transfer active NanoUI instances to new user
@@ -94,6 +97,8 @@
 
 	if(changeling)
 		new_character.make_changeling()
+	if(vampire)
+		new_character.make_vampire()
 
 	if(active)
 		new_character.key = key		//now transfer the key to link the client to our new body
@@ -523,6 +528,7 @@
 	//faction =       null //Uncommenting this causes a compile error due to 'undefined type', fucked if I know.
 	changeling =      null
 	initial_account = null
+	vampire =         null
 	objectives =      list()
 	special_verbs =   list()
 	has_been_rev =    0
