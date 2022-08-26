@@ -132,7 +132,7 @@
 
 /obj/effect/overmap/visitable/proc/distress(mob/user)
 
-	log_and_message_admins(message ="Overmap panic button hit on z[z] ([scanner_name]) by '[user?.ckey || "Unknown"]'") //VOREStation Add
+	log_and_message_admins(message ="Overmap panic button hit on z[z] ([scanner_name]) by '[user?.ckey || "Unknown"]'")
 
 	var/distress_message = "Это автоматический сигнал бедствия от радиомаяка, соответствующего стандарту MIL-DTL-93352, передаваемого на частоте [PUB_FREQ*0.1]кГц.  \
 	Этот маяк был запущен с  '[initial(scanner_name)]'. Местоположение передающего устройства: [get_distress_info()]. \
@@ -140,7 +140,7 @@
 	или передать сообщение тем, кто может это сделать. Это сообщение повторится еще раз через 5 минут. Спасибо за вашу помощь."
 
 
-	command_announcement.Announce(distress_message, "Automated Distress Signal", new_sound = sound('sound/AI/sos.ogg'), zlevels = GLOB.using_map.player_levels, radio_mode = TRUE)
+	priority_announcement.Announce(distress_message, "Automated Distress Signal", new_sound = sound('sound/AI/sos.ogg'), zlevels = GLOB.using_map.player_levels, radio_mode = TRUE)
 
 	var/image/I = image(icon, icon_state = "distress")
 	I.plane = EFFECTS_ABOVE_LIGHTING_PLANE
@@ -157,7 +157,7 @@
 	var/message = "Это последнее сообщение с маяка бедствия, запущенного '[initial(scanner_name)]'. Местоположение передающего устройства: [get_distress_info()]. \
 	Пожалуйста, окажите помощь в соответствии с вашими обязательствами по Межпланетной конвенции о космической спасательной деятельности, или передайте это сообщение той стороне, которая может это сделать."
 
-	command_announcement.Announce(message, new_title = "Automated Distress Signal", new_sound = 'sound/AI/sos.ogg', zlevels = GLOB.using_map.player_levels)
+	priority_announcement.Announce(message, new_title = "Automated Distress Signal", new_sound = 'sound/AI/sos.ogg', zlevels = GLOB.using_map.player_levels, radio_mode = TRUE)
 
 /proc/build_overmap()
 	if(!GLOB.using_map.use_overmap)

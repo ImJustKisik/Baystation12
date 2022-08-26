@@ -6,7 +6,7 @@
 /obj/effect/overmap/visitable/sector/arcticplanet
 	scanner_name = "arctic planetoid"
 	scanner_desc = @{"[i]Stellar Body[/i]: UNKNOWN
-[i]Class[/i]: M-Class Planetoid
+[i]Class[/i]: L-Class Planetoid
 [i]Habitability[/i]: Moderate (Low Temperature)
 [b]Notice[/b]: Sensor array detects an arctic planet with a small vessle on the planet's surface. Scans further indicate strange energy levels below the planet's surface."}
 	in_space = 0

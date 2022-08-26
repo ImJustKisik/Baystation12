@@ -2,7 +2,7 @@
 	name = "snow exoplanet"
 	scanner_name = "snow exoplanet"
 	scanner_desc = @{"[i]Stellar Body[/i]>: UNKNOWN
-[i]Class[/i]>: M-Class Planetoid
+[i]Class[/i]>: L-Class Planetoid
 [i]Habitability[/i]>: Moderate (Low Temperature)
 [b]Notice[/b]>: Cold planet with limited plant life"}
 	color = "#dcdcdc"

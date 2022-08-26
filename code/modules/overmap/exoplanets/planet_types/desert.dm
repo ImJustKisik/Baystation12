@@ -2,7 +2,7 @@
 	name = "desert exoplanet"
 	scanner_name = "desert exoplanet"
 	scanner_desc = @{"[i]Stellar Body[/i]>: UNKNOWN
-[i]Class[/i]>: M-Class Planetoid
+[i]Class[/i]>: N-Class Planetoid
 [i]Habitability[/i]>: Moderate (High temperature)
 [b]Notice[/b]>: An arid exoplanet with sparse biological resources but rich mineral deposits underground"}
 	color = "#a08444"

@@ -45,6 +45,8 @@
 		launch(usr)
 
 /obj/structure/panic_button/proc/launch(mob/living/user)
+	var/sound/SND = sound('sound/misc/emergency_beacon_launched.ogg') // Inside the loop because playsound_local modifies it for each person, so, need separate instances
+
 	if(launched)
 		return
 	launched = TRUE
@@ -53,15 +55,4 @@
 		error("Distress button hit on z[z] but that's not an overmap sector...")
 		return
 	S.distress(user)
-	//Kind of pricey, but this is a one-time thing that can't be reused, so I'm not too worried.
-	var/list/hear_z = GetConnectedZlevels(z) // multiz 'physical' connections only, not crazy overmap connections
-
-	var/mapsize = (world.maxx+world.maxy)*0.5
-	var/turf/us = get_turf(src)
-
-	for(var/hz in hear_z)
-		for(var/mob/M in GLOB.player_list)
-			var/sound/SND = sound('sound/misc/emergency_beacon_launched.ogg') // Inside the loop because playsound_local modifies it for each person, so, need separate instances
-			var/turf/them = get_turf(M)
-			var/volume = max(0.20, 1-(get_dist(us,them) / mapsize*0.1))*100
-			M.playsound_local(get_turf(M), SND, vol = volume)
+	playsound(src, SND, 25)
