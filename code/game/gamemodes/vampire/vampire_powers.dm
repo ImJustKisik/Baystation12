@@ -532,7 +532,7 @@
 	set name = "Blood Heal"
 	set desc = "At the cost of blood and time, heal any injuries you have sustained."
 
-	var/datum/vampire/vampire = vampire_power(15, 1)
+	var/datum/vampire/vampire = vampire_power(0, 0)
 	if (!vampire)
 		return
 
@@ -548,7 +548,7 @@
 	to_chat(src, SPAN_NOTICE("You begin the process of blood healing. Do not move, and ensure that you are not interrupted."))
 
 	log_and_message_admins("activated blood heal.")
-
+	
 	while (do_after(src, 20, src))
 		if (!(vampire.status & VAMP_HEALING))
 			to_chat(src, SPAN_WARNING("Your concentration is broken! You are no longer regenerating!"))
@@ -566,24 +566,29 @@
 			to_heal = min(10, tox_loss)
 			adjustToxLoss(0 - to_heal)
 			blood_used += Floor(to_heal * 1.2)
+			vampire.use_blood (to_heal * 1.2)
 		if (oxy_loss)
 			to_heal = min(10, oxy_loss)
 			adjustOxyLoss(0 - to_heal)
 			blood_used += Floor(to_heal * 1.2)
+			vampire.use_blood (to_heal * 1.2)
 		if (ext_loss)
 			to_heal = min(20, ext_loss)
 			heal_overall_damage(min(10, getBruteLoss()), min(10, getFireLoss()))
 			blood_used += Floor(to_heal * 1.2)
+			vampire.use_blood (to_heal * 1.2)
 		if (clone_loss)
 			to_heal = min(10, clone_loss)
 			adjustCloneLoss(0 - to_heal)
 			blood_used += Floor(to_heal * 1.2)
+			vampire.use_blood (to_heal * 1.2)
 
 		var/list/organs = get_damaged_organs(1, 1)
 		if (organs.len)
 			// Heal an absurd amount, basically regenerate one organ.
 			heal_organ_damage(50, 50)
 			blood_used += 12
+			vampire.use_blood (12)
 
 		for(var/obj/item/organ/external/current_organ in organs)
 			for(var/datum/wound/wound in current_organ.wounds)
@@ -601,13 +606,16 @@
 			if(E.status & ORGAN_ARTERY_CUT)
 				E.status &= ~ORGAN_ARTERY_CUT
 				blood_used += 12
+				vampire.use_blood (12)
 			if(E.status & ORGAN_TENDON_CUT)
 				E.status &= ~ORGAN_TENDON_CUT
 				blood_used += 12
+				vampire.use_blood (12)
 			if(E.status & ORGAN_BROKEN)
 				E.mend_fracture()
 				E.stage = 0
 				blood_used += 12
+				vampire.use_blood (12)
 				healed = TRUE
 
 			if (healed)
