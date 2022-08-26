@@ -559,8 +559,8 @@
 		var/ext_loss = getBruteLoss() + getFireLoss()
 		var/clone_loss = getCloneLoss()
 
-		var/blood_used = 1
-		var/to_heal = 1
+		var/blood_used = 0
+		var/to_heal = 0
 
 		if (tox_loss)
 			to_heal = min(10, tox_loss)
@@ -587,8 +587,8 @@
 		if (organs.len)
 			// Heal an absurd amount, basically regenerate one organ.
 			heal_organ_damage(50, 50)
-			blood_used += 12
-			vampire.use_blood (12)
+			blood_used += 6
+			vampire.use_blood (6)
 
 		for(var/obj/item/organ/external/current_organ in organs)
 			for(var/datum/wound/wound in current_organ.wounds)
@@ -605,17 +605,17 @@
 			var/obj/item/organ/external/E = A
 			if(E.status & ORGAN_ARTERY_CUT)
 				E.status &= ~ORGAN_ARTERY_CUT
-				blood_used += 12
-				vampire.use_blood (12)
+				blood_used += 6
+				vampire.use_blood (6)
 			if(E.status & ORGAN_TENDON_CUT)
 				E.status &= ~ORGAN_TENDON_CUT
-				blood_used += 12
-				vampire.use_blood (12)
+				blood_used += 6
+				vampire.use_blood (6)
 			if(E.status & ORGAN_BROKEN)
 				E.mend_fracture()
 				E.stage = 0
-				blood_used += 12
-				vampire.use_blood (12)
+				blood_used += 6
+				vampire.use_blood (6)
 				healed = TRUE
 
 			if (healed)
