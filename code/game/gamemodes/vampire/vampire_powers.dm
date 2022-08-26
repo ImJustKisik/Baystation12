@@ -559,8 +559,8 @@
 		var/ext_loss = getBruteLoss() + getFireLoss()
 		var/clone_loss = getCloneLoss()
 
-		var/blood_used = 0
-		var/to_heal = 0
+		var/blood_used = 1
+		var/to_heal = 1
 
 		if (tox_loss)
 			to_heal = min(10, tox_loss)
