@@ -48,6 +48,7 @@
 	name = "HUNTER warp booster"
 	desc = "An advanced booster specifically designed to plot courses towards and catch up to rapidly moving objects such as other missiles."
 	icon_state = "seeker"
+	min_speed = 25
 
 	fuel = 40
 
