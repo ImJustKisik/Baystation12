@@ -148,11 +148,15 @@
 	playsound(src.loc, 'sound/voice/shriek1.ogg', 50, 1)
 
 	last_special = world.time + (17.5 SECONDS)
+	status_flags |= LEAPING
 
 	src.visible_message("<span class='danger'>\The [src] leaps at [T]!</span>")
 	src.throw_at(get_step(get_turf(T),get_turf(src)), 4, 1, src)
 
 	sleep(5)
+
+	if(status_flags & LEAPING)
+		status_flags &= ~LEAPING
 
 	if(!src.Adjacent(T))
 		to_chat(src, "<span class='warning'>You miss!</span>")

@@ -173,7 +173,7 @@
 				to_chat(src, message)
 				vampire.last_frenzy_message = world.time
 
-/mob/proc/vampire_start_frenzy(force_frenzy = 0)
+/mob/proc/vampire_start_frenzy(var/mob/living/carbon/human/H, force_frenzy = 0)
 	var/datum/vampire/vampire = mind.vampire
 
 	if (vampire.status & VAMP_FRENZIED)
@@ -185,16 +185,18 @@
 		vampire.status |= VAMP_FRENZIED
 		visible_message(SPAN_DANGER("A dark aura manifests itself around [src.name], their eyes turning red and their composure changing to be more beast-like."), SPAN_DANGER("You can resist no longer. The power of the Veil takes control over your mind: you are unable to speak or think. In people, you see nothing but prey to be feasted upon. You are reduced to an animal."))
 
-		mutations.Add(MUTATION_HULK)
-		update_mutations()
+		H.add_aura(new /obj/aura/vampire_aura(H))
+		//mutations.Add(MUTATION_HULK)
+		//update_mutations()
 
-		set_sight(sight|SEE_MOBS)
-		set_see_in_dark(8)
+		src.set_sight(sight|SEE_MOBS)
+		src.set_see_in_dark(8)
 
 		verbs += /mob/living/carbon/human/proc/grapple
 
 /mob/proc/vampire_stop_frenzy(force_stop = 0)
 	var/datum/vampire/vampire = mind.vampire
+
 
 	if (!(vampire.status & VAMP_FRENZIED))
 		return
@@ -202,10 +204,12 @@
 	if (prob(force_stop ? 100 : vampire.blood_usable))
 		vampire.status &= ~VAMP_FRENZIED
 
-		mutations.Remove(MUTATION_HULK)
-		update_mutations()
+		//mutations.Remove(MUTATION_HULK)
+		//update_mutations()
+		for(var/mob/living/carbon/human/H in src)
+			H.remove_aura(/obj/aura/vampire_aura)
 
-		sight &= ~SEE_MOBS
+		src.sight &= ~SEE_MOBS
 
 		visible_message(SPAN_DANGER("[src.name]'s eyes no longer glow with violent rage, their form reverting to resemble that of a normal person's."), SPAN_DANGER("The beast within you retreats. You gain control over your body once more."))
 

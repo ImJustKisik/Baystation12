@@ -18,3 +18,20 @@
 		user.visible_message("<span class='warning'>\The [P] refracts, bending into \the [user]'s aura.</span>")
 		return AURA_FALSE
 	return 0
+
+
+
+/obj/aura/vampire_aura
+	name = "Vampire aura"
+	icon = 'icons/effects/effects.dmi'
+	icon_state = "eyes_s_frenzy"
+	layer = ABOVE_HUMAN_LAYER
+
+/obj/aura/vampire_aura/added_to(var/mob/living/L)
+	..()
+	to_chat(L,"<span class='notice'>ТЕСТ ТЕСТ ТЕСТ ТЕСТ ТЕСТ ТЕСТ.</span>")
+	set_light(0.6, 1, 6, 2, "#a70202")
+
+/obj/aura/vampire_aura/removed()
+	to_chat(user, "<span class='warning'>ТЕСТ ТЕСТ ТЕСТ ТЕСТ ТЕСТ ТЕСТ.</span>")
+	..()

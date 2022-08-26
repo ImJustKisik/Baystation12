@@ -1,6 +1,6 @@
 // Contains all /mob/procs that relate to vampire.
 /mob/living/carbon/human/AltClickOn(atom/A)
-	if(mind && mind.vampire && istype(A , /turf/simulated/floor) && /mob/living/carbon/human/proc/vampire_veilstep in verbs)
+	if(mind && mind.vampire && istype(A , /turf/simulated/floor) && (/mob/living/carbon/human/proc/vampire_veilstep in verbs))
 		vampire_veilstep(A)
 	..()
 
@@ -83,7 +83,7 @@
 	playsound(src.loc, 'sound/effects/drain_blood.ogg', 50, 1)
 
 
-	while (do_mob(src, T, 50))
+	while (do_after(src, 50, T))
 		if (!mind.vampire)
 			to_chat(src, SPAN_DANGER("Your fangs have disappeared!"))
 			return
@@ -549,7 +549,7 @@
 
 	log_and_message_admins("activated blood heal.")
 
-	while (do_after(src, 20, 0))
+	while (do_after(src, 20, src))
 		if (!(vampire.status & VAMP_HEALING))
 			to_chat(src, SPAN_WARNING("Your concentration is broken! You are no longer regenerating!"))
 			break
@@ -565,25 +565,35 @@
 		if (tox_loss)
 			to_heal = min(10, tox_loss)
 			adjustToxLoss(0 - to_heal)
-			blood_used += round(to_heal * 1.2)
+			blood_used += Floor(to_heal * 1.2)
 		if (oxy_loss)
 			to_heal = min(10, oxy_loss)
 			adjustOxyLoss(0 - to_heal)
-			blood_used += round(to_heal * 1.2)
+			blood_used += Floor(to_heal * 1.2)
 		if (ext_loss)
 			to_heal = min(20, ext_loss)
 			heal_overall_damage(min(10, getBruteLoss()), min(10, getFireLoss()))
-			blood_used += round(to_heal * 1.2)
+			blood_used += Floor(to_heal * 1.2)
 		if (clone_loss)
 			to_heal = min(10, clone_loss)
 			adjustCloneLoss(0 - to_heal)
-			blood_used += round(to_heal * 1.2)
+			blood_used += Floor(to_heal * 1.2)
 
 		var/list/organs = get_damaged_organs(1, 1)
 		if (organs.len)
 			// Heal an absurd amount, basically regenerate one organ.
 			heal_organ_damage(50, 50)
 			blood_used += 12
+
+		for(var/obj/item/organ/external/current_organ in organs)
+			for(var/datum/wound/wound in current_organ.wounds)
+				wound.embedded_objects.Cut()
+
+			// remove embedded objects and drop them on the floor
+			for(var/obj/implanted_object in current_organ.implants)
+				if(!istype(implanted_object,/obj/item/implant))	// We don't want to remove REAL implants. Just shrapnel etc.
+					implanted_object.loc = get_turf(src)
+					current_organ.implants -= implanted_object
 
 		for (var/A in organs)
 			var/healed = FALSE
@@ -595,13 +605,14 @@
 				E.status &= ~ORGAN_TENDON_CUT
 				blood_used += 12
 			if(E.status & ORGAN_BROKEN)
-				E.status &= ~ORGAN_BROKEN
+				E.mend_fracture()
 				E.stage = 0
 				blood_used += 12
 				healed = TRUE
 
 			if (healed)
 				break
+
 
 		var/list/emotes_lookers = list("[src]'s skin appears to liquefy for a moment, sealing up their wounds.",
 									"[src]'s veins turn black as their damaged flesh regenerates before your eyes!",
@@ -664,7 +675,7 @@
 	if (!(vampire.status & VAMP_FULLPOWER))
 		to_chat(src, SPAN_NOTICE("You begin peering into [T]'s mind, looking for a way to gain control."))
 
-		if (!do_mob(src, T, 50))
+		if (!do_after(src, 50, T))
 			to_chat(src, SPAN_WARNING("Your concentration is broken!"))
 			return
 
@@ -682,7 +693,7 @@
 
 	admin_attack_log(src, T, "used dominate on [key_name(T)]", "was dominated by [key_name(src)]", "used dominate and issued the command of '[command]' to")
 
-	show_browser(T, "<center>You feel a strong presence enter your mind. For a moment, you hear nothing but what it says, <b>and are compelled to follow its direction without question or hesitation:</b><br>[command]</center>", "window=vampiredominate")
+	show_browser(T, "<HTML><meta charset=\"utf-8\"><>You feel a strong presence enter your mind. For a moment, you hear nothing but what it says, <b>and are compelled to follow its direction without question or hesitation:</b><br>[command]</center></BODY></HTML>", "window=vampiredominate")
 	to_chat(T, SPAN_NOTICE("You feel a strong presence enter your mind. For a moment, you hear nothing but what it says, and are compelled to follow its direction without question or hesitation:"))
 	to_chat(T, "<span style='color: green;'><i><em>[command]</em></i></span>")
 	to_chat(src, SPAN_NOTICE("You command [T], and they will obey."))
@@ -729,7 +740,7 @@
 	visible_message(SPAN_DANGER("[src] tears the flesh on their wrist, and holds it up to [T]. In a gruesome display, [T] starts lapping up the blood that's oozing from the fresh wound."), SPAN_WARNING("You inflict a wound upon yourself, and force them to drink your blood, thus starting the conversion process"))
 	to_chat(T, SPAN_WARNING("You feel an irresistable desire to drink the blood pooling out of [src]'s wound. Against your better judgement, you give in and start doing so."))
 
-	if (!do_mob(src, T, 50))
+	if (!do_after(src, 50, T))
 		visible_message(SPAN_WARNING("[src] yanks away their hand from [T]'s mouth as they're interrupted, the wound quickly sealing itself!"), SPAN_DANGER("You are interrupted!"))
 		return
 
@@ -901,7 +912,7 @@
 
 	to_chat(T, SPAN_NOTICE("You are currently being turned into a vampire. You will die in the course of this, but you will be revived by the end. Please do not ghost out of your body until the process is complete."))
 
-	while (do_mob(src, T, 50))
+	while (do_after(src, 50, T))
 		if (!mind.vampire)
 			to_chat(src, "<span class='alert'>Your fangs have disappeared!</span>")
 			return
@@ -942,8 +953,8 @@
 	set name = "Grapple"
 	set desc = "Lunge towards a target like an animal, and grapple them."
 
-	if (status_flags & LEAPING)
-		return
+//	if (status_flags & LEAPING)
+//		return
 	if (incapacitated())
 		to_chat(src, SPAN_WARNING("You cannot lean in your current state."))
 		return
