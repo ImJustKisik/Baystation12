@@ -12,7 +12,13 @@ GLOBAL_DATUM_INIT(vampires, /datum/antagonist/vampire, new)
 
 
 	blacklisted_jobs = list(/datum/job/ai, /datum/job/cyborg, /datum/job/chaplain)
-	welcome_text = "You are a Vampire! Use the \"<b>Vampire Help</b>\" command to learn about the backstory and mechanics! Stay away from the Chaplain, and use the darkness to your advantage."
+	welcome_text = "<hr><u>Вы - Вампир</u> существо, которое после экспериментов с магией крови, \
+	или после обращения самим вампиром, было осквернено Вуалью и одарено силами за гранью человеческого понимания.\
+	Как существо ночи, вы потеряли свою потребность в еде и воде, \
+	но вместо этого вас гложет неутолимая жажда крови для того, \
+	чтобы поддерживать своё существование и стать более могущественным, \
+	приблизившись к использованию всей силы Вуали. \
+	Используйте команду "<b>Vampire Help</b>" для навигации по способностям вампира"
 	flags = ANTAG_SUSPICIOUS | ANTAG_RANDSPAWN | ANTAG_VOTABLE
 	antaghud_indicator = "hudvampire"
 
