@@ -531,7 +531,6 @@
 	set category = "Vampire"
 	set name = "Blood Heal"
 	set desc = "At the cost of blood and time, heal any injuries you have sustained."
-	status_flags = DO_AFTER_INCAPACITATED
 
 	var/datum/vampire/vampire = vampire_power(0, 0)
 	if (!vampire)
