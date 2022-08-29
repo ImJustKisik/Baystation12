@@ -18,6 +18,14 @@ LEGACY_RECORD_STRUCTURE(all_waypoints, waypoint)
 	/// The mob currently operating the helm - The last one to click one of the movement buttons and be on the overmap screen. Set to `null` for autopilot or when the mob isn't in range.
 	var/mob/current_operator
 
+// fancy sprite
+/obj/machinery/computer/ship/helm/adv
+	icon_keyboard = null
+	icon_state = "adv_helm"
+	icon_screen = "adv_helm_screen"
+	light_color = "#70ffa0"
+	base_type = /obj/machinery/computer/ship/helm
+
 /obj/machinery/computer/ship/helm/Initialize()
 	. = ..()
 	get_known_sectors()

@@ -4,6 +4,7 @@
 /obj/effect/overmap/visitable
 	name = "map object"
 	scannable = TRUE
+	scanner_desc = "!! No Data Available !!"
 
 	var/list/initial_generic_waypoints //store landmark_tag of landmarks that should be added to the actual lists below on init.
 	var/list/initial_restricted_waypoints //For use with non-automatic landmarks (automatic ones add themselves).
@@ -121,6 +122,35 @@
 // Because of the way these are spawned, they will potentially have their invisibility adjusted by the turfs they are mapped on
 // prior to being moved to the overmap. This blocks that. Use set_invisibility to adjust invisibility as needed instead.
 /obj/effect/overmap/visitable/sector/hide()
+
+/obj/effect/overmap/visitable/proc/distress(mob/user)
+
+	log_and_message_admins(message ="Overmap panic button hit on z[z] ([scanner_name]) by '[user?.ckey || "Unknown"]'")
+
+	var/distress_message = "Это автоматический сигнал бедствия от радиомаяка, соответствующего стандарту MIL-DTL-93352, передаваемого на частоте [PUB_FREQ*0.1]кГц.  \
+	Этот маяк был запущен с  '[initial(scanner_name)]'. Местоположение передающего устройства: [get_distress_info()]. \
+	Согласно Межпланетной конвенции о космической спасательной деятельности, лица, получившие это сообщение, должны попытаться предпринять попытку спасения, \
+	или передать сообщение тем, кто может это сделать. Это сообщение повторится еще раз через 5 минут. Спасибо за вашу помощь."
+
+
+	priority_announcement.Announce(distress_message, "Automated Distress Signal", new_sound = sound('sound/AI/sos.ogg'), zlevels = GLOB.using_map.player_levels, radio_mode = TRUE)
+
+	var/image/I = image(icon, icon_state = "distress")
+	I.plane = EFFECTS_ABOVE_LIGHTING_PLANE
+	I.appearance_flags = KEEP_APART|RESET_TRANSFORM|RESET_COLOR
+	add_overlay(I)
+
+	addtimer(CALLBACK(src, .proc/distress_update), 5 MINUTES)
+	return TRUE
+
+/obj/effect/overmap/visitable/proc/get_distress_info()
+	return "\[X:[x], Y:[y]\]"
+
+/obj/effect/overmap/visitable/proc/distress_update()
+	var/message = "Это последнее сообщение с маяка бедствия, запущенного '[initial(scanner_name)]'. Местоположение передающего устройства: [get_distress_info()]. \
+	Пожалуйста, окажите помощь в соответствии с вашими обязательствами по Межпланетной конвенции о космической спасательной деятельности, или передайте это сообщение той стороне, которая может это сделать."
+
+	priority_announcement.Announce(message, new_title = "Automated Distress Signal", new_sound = 'sound/AI/sos.ogg', zlevels = GLOB.using_map.player_levels, radio_mode = TRUE)
 
 /proc/build_overmap()
 	if(!GLOB.using_map.use_overmap)
