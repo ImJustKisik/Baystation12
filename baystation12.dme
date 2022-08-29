@@ -74,6 +74,7 @@
 #include "code\__defines\skills.dm"
 #include "code\__defines\spaceman_dmm.dm"
 #include "code\__defines\species.dm"
+#include "code\__defines\station.dm"
 #include "code\__defines\subsystem-priority.dm"
 #include "code\__defines\subsystems.dm"
 #include "code\__defines\targeting.dm"
@@ -3964,3 +3965,4 @@
 #include "maps\~unit_tests\unit_testing.dm"
 #include "~code\global_init.dm"
 // END_INCLUDE
+>>>>>>> New-away-ship

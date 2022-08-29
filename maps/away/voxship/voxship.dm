@@ -21,7 +21,7 @@
 	scanner_desc = @{"[i]Registration[/i]: UNKNOWN
 [b]Notice[/b]: Sensor array detects a small asteroid cluster."}
 
-	in_space = 1
+	sector_flags = OVERMAP_SECTOR_IN_SPACE
 	icon_state = "meteor4"
 	hide_from_reports = TRUE
 	initial_generic_waypoints = list(

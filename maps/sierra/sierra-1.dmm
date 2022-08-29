@@ -323,6 +323,10 @@
 /obj/effect/floor_decal/industrial/danger{
 	dir = 8
 	},
+/obj/machinery/conveyor{
+	dir = 8;
+	id = "bsa"
+	},
 /turf/simulated/floor/tiled,
 /area/command/bsa)
 "aR" = (
@@ -528,6 +532,7 @@
 /obj/machinery/camera/network/command{
 	c_tag = "Command - OFD"
 	},
+/obj/machinery/computer/ship/missiles,
 /turf/simulated/floor/tiled,
 /area/command/bsa)
 "bp" = (
@@ -1645,6 +1650,11 @@
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled,
 /area/quartermaster/exploration)
+"dm" = (
+/obj/effect/floor_decal/industrial/outline/red,
+/obj/structure/missile/he,
+/turf/simulated/floor/reinforced,
+/area/command/bsa)
 "dn" = (
 /obj/structure/table/steel,
 /obj/item/device/radio/intercom{
@@ -2957,7 +2967,8 @@
 /turf/simulated/wall/prepainted,
 /area/maintenance/substation/thirddeck)
 "fs" = (
-/obj/machinery/disperser/front{
+/obj/machinery/mass_driver{
+	id_tag = "missisles";
 	dir = 8
 	},
 /turf/simulated/floor/reinforced/airless,
@@ -5780,10 +5791,6 @@
 	name = "Obstruction Field Disperser Space Shield";
 	pixel_x = -24;
 	req_access = list("ACCESS_GUN")
-	},
-/obj/structure/sign/warning/vacuum{
-	dir = 4;
-	pixel_x = -45
 	},
 /obj/machinery/conveyor_switch{
 	id = "bsa";
@@ -19946,8 +19953,9 @@
 /turf/simulated/wall/r_titanium,
 /area/exploration_shuttle/power)
 "FB" = (
-/obj/machinery/disperser/middle{
-	dir = 8
+/obj/machinery/conveyor{
+	dir = 8;
+	id = "bsa"
 	},
 /turf/simulated/floor/reinforced/airless,
 /area/command/bsa)
@@ -25723,11 +25731,7 @@
 /turf/simulated/floor/tiled/techfloor/grid,
 /area/maintenance/thirddeck/aft)
 "OP" = (
-/obj/structure/railing/mapped{
-	dir = 8
-	},
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/structure/ship_munition/disperser_charge/explosive,
 /turf/simulated/floor/reinforced,
 /area/command/bsa)
 "OQ" = (
@@ -25735,7 +25739,7 @@
 /obj/machinery/light/spot{
 	dir = 1
 	},
-/obj/structure/ship_munition/disperser_charge/emp,
+/obj/structure/missile/he,
 /turf/simulated/floor/reinforced,
 /area/command/bsa)
 "OR" = (
@@ -25780,7 +25784,6 @@
 /area/exploration_shuttle/cockpit)
 "OW" = (
 /obj/effect/floor_decal/industrial/outline/blue,
-/obj/structure/ship_munition/disperser_charge/emp,
 /turf/simulated/floor/reinforced,
 /area/command/bsa)
 "OX" = (
@@ -25826,7 +25829,6 @@
 /area/maintenance/thirddeck/port)
 "Pb" = (
 /obj/effect/floor_decal/industrial/outline/red,
-/obj/structure/ship_munition/disperser_charge/fire,
 /turf/simulated/floor/reinforced,
 /area/command/bsa)
 "Pc" = (
@@ -26050,15 +26052,11 @@
 /turf/simulated/floor/tiled/techfloor,
 /area/maintenance/thirddeck/aft)
 "Pu" = (
-/obj/structure/railing/mapped{
-	dir = 8
-	},
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/machinery/firealarm{
 	dir = 1;
 	pixel_y = -24
 	},
-/obj/structure/ship_munition/disperser_charge/explosive,
 /turf/simulated/floor/reinforced,
 /area/command/bsa)
 "Pv" = (
@@ -26138,7 +26136,7 @@
 "PB" = (
 /obj/effect/floor_decal/industrial/outline/orange,
 /obj/machinery/light/spot,
-/obj/structure/ship_munition/disperser_charge/mining,
+/obj/structure/missile/impact,
 /turf/simulated/floor/reinforced,
 /area/command/bsa)
 "PC" = (
@@ -26546,7 +26544,6 @@
 	pixel_x = 24;
 	req_access = list("ACCESS_GUN")
 	},
-/obj/structure/ship_munition/disperser_charge/mining,
 /turf/simulated/floor/reinforced,
 /area/command/bsa)
 "Qj" = (
@@ -29140,6 +29137,29 @@
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/tiled/white,
 /area/exploration_shuttle/power)
+"Vg" = (
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/effect/floor_decal/borderfloor,
+/obj/effect/floor_decal/borderfloor{
+	dir = 1
+	},
+/obj/effect/floor_decal/industrial/danger{
+	dir = 1
+	},
+/obj/effect/floor_decal/industrial/danger,
+/obj/structure/missile/antispace,
+/turf/simulated/floor/tiled/techmaint,
+/area/command/bsa)
 "Vi" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -29422,6 +29442,12 @@
 	},
 /turf/simulated/floor/plating,
 /area/quartermaster/hangar)
+"VL" = (
+/obj/machinery/button/mass_driver{
+	id_tag = "missisles"
+	},
+/turf/simulated/wall/r_wall/prepainted,
+/area/command/bsa)
 "VO" = (
 /obj/structure/sign/warning/hot_exhaust{
 	dir = 1
@@ -29602,6 +29628,18 @@
 /obj/effect/catwalk_plated,
 /turf/simulated/floor/plating,
 /area/quartermaster/hangar)
+"We" = (
+/obj/effect/floor_decal/borderfloor{
+	dir = 1
+	},
+/obj/effect/floor_decal/borderfloor,
+/obj/effect/floor_decal/industrial/danger{
+	dir = 1
+	},
+/obj/effect/floor_decal/industrial/danger,
+/obj/structure/missile/he,
+/turf/simulated/floor/tiled/techmaint,
+/area/command/bsa)
 "Wf" = (
 /obj/structure/cable/green{
 	d1 = 4;
@@ -53323,7 +53361,7 @@ co
 co
 co
 cE
-OS
+VL
 bo
 dc
 Po
@@ -54131,9 +54169,9 @@ Is
 co
 co
 OQ
-Pg
-Pb
-Pp
+We
+dm
+Vg
 PB
 OS
 OS
