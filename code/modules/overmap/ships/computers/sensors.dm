@@ -155,7 +155,7 @@
 	var/heat = 0
 	var/range = 1
 	idle_power_usage = 5000
-	use_power = 0 //INF. Turned off at roundstart
+	use_power = 1 //INF. Turned off at roundstart
 
 /obj/machinery/shipsensors/attackby(obj/item/W, mob/user)
 	var/damage = max_health - health
