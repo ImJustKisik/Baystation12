@@ -754,6 +754,37 @@ GLOBAL_LIST_EMPTY(hivemind_bank)
 	to_chat(C, SPAN_NOTICE("Stimulants pour into our blood. Energy pumps through us, and we rise."))
 	SSstatistics.add_field_details("changeling_powers", "UNS")
 
+/datum/power/changeling/armblades
+	name = "Arm Blade"
+	desc="Rupture the flesh and mend the bone of your hand into a deadly blade."
+	helptext = "We may retract our armblade by dropping it."
+	genome_cost = 5
+	button_icon_state = "epinephrine_sacs" // нужна иконка
+	allow_during_lesser_form = TRUE
+	allow_incapacitated = TRUE
+	has_button = TRUE
+
+/datum/power/changeling/armblades/activate(mob/living/user)
+	var/mob/living/carbon/T = user
+
+	var/obj/item/melee/arm_blade/blade = T
+	for(blade in T.contents)
+		T.drop_from_inventory(blade)
+		return
+
+	if(T.l_hand && T.r_hand)
+		to_chat(T, SPAN_LING("Our hands are full."))
+		return
+
+	T.visible_message(SPAN_DANGER("[T]\'s arm begins to twist and rip!"),
+							SPAN_LING("Our arm twists and mutates, transforming it into a deadly blade."),
+							SPAN_DANGER("You hear organic matter ripping and tearing!"))
+	playsound(get_turf(src), 'infinity/sound/effects/lingextends.ogg', 50, 1)
+	spawn(1 SECOND)
+		blade = new(T)
+		blade.creator = T
+		T.put_in_hands(blade)
+		playsound(src, 'infinity/sound/weapons/bloodyslice.ogg', 30, 1)
 
 /// Passive, doubles natural chem regen. At time of writing, this means it goes from 0.5 to 1.
 /datum/power/changeling/rapid_chemical_synthesis
