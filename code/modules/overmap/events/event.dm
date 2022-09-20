@@ -207,7 +207,7 @@
 	event_icon_states = list("meteor1", "meteor2", "meteor3", "meteor4")
 	difficulty = EVENT_LEVEL_MAJOR
 	weaknesses = OVERMAP_WEAKNESS_MINING | OVERMAP_WEAKNESS_EXPLOSIVE
-	colors = list("#fc1100", "#b5251b", "#8a1007")
+	colors = list("#a08444", "#c2993a", "#e7c880")
 
 /obj/effect/overmap/event/electric
 	name = "electrical storm"
@@ -247,7 +247,7 @@
 	name = "carp school"
 	difficulty = EVENT_LEVEL_MAJOR
 	event_icon_states = list("carp3", "carp4")
-	colors = list("#a709db", "#75039c", "#6b1e85")
+	colors = list("#a709db", "#75039c", "#8b25ad")
 
 /obj/effect/overmap/event/gravity
 	name = "dark matter influx"
@@ -255,7 +255,7 @@
 	events = list(/datum/event/gravity)
 	event_icon_states = list("grav1", "grav2", "grav3", "grav4")
 	opacity = 0
-	color = "#321945"
+	color = "#7d43a8"
 
 //These now are basically only used to spawn hazards. Will be useful when we need to spawn group of moving hazards
 /datum/overmap_event
