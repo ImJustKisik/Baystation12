@@ -26,20 +26,20 @@
 	start_y = 1
 
 	initial_generic_waypoints = list(
-		"nav_patrol_1",
-		"nav_patrol_2",
-		"nav_patrol_3",
-		"nav_patrol_4",
-		"nav_dock_reaper"
+		"nav_farfleet_1",
+		"nav_farfleet_2",
+		"nav_farfleet_3",
+		"nav_farfleet_4",
+		"nav_dock_snz"
 		)
 
 	initial_restricted_waypoints = list(
-	"Reaper" = list("nav_hangar_reaper")
+	"SNZ-250" = list("nav_dock_snz")
 		)
 
 
 /obj/effect/overmap/visitable/ship/farfleet/New()
-	scanner_name = "SFV [pick("Onyx","Zircon","Grad","Zirkel","Odessa","Gomel","Uragan","Shilka","Omsk","Krondstatt","Topol","Kestrel","Buratino","Kerch","Kherson","Proryv","Triumph","Sochi","Elisarov","Engels","Magnitogorsk")], \a [name]"
+	scanner_name = "SFV [pick("Onyx","Zircon","Grad","Zirkel","Odessa","Gomel","Uragan","Shilka","Omsk","Krondstatt","Topol","Iron Dmitry","Buratino","Kerch","Kherson","Proryv","Triumph","Sochi","Elisarov","Engels","Magnitogorsk")], \a [name]"
 	for(var/area/ship/patrol/A)
 		A.name = "\improper [name] - [A.name]"
 		GLOB.using_map.area_purity_test_exempt_areas += A.type
@@ -58,25 +58,25 @@
 	shuttles_to_initialise = list(/datum/shuttle/autodock/overmap/reaper)
 
 
-/obj/effect/shuttle_landmark/nav_patrol/nav1
+/obj/effect/shuttle_landmark/nav_farfleet/nav1
 	name = "Recon Ship Fore"
-	landmark_tag = "nav_patrol_1"
+	landmark_tag = "nav_farfleet_1"
 
-/obj/effect/shuttle_landmark/nav_patrol/nav2
+/obj/effect/shuttle_landmark/nav_farfleet/nav2
 	name = "Recon Ship Aft"
-	landmark_tag = "nav_patrol_2"
+	landmark_tag = "nav_farfleet_2"
 
-/obj/effect/shuttle_landmark/nav_patrol/nav3
+/obj/effect/shuttle_landmark/nav_farfleet/nav3
 	name = "Recon Ship Port"
-	landmark_tag = "nav_patrol_3"
+	landmark_tag = "nav_farfleet_3"
 
-/obj/effect/shuttle_landmark/nav_patrol/nav4
+/obj/effect/shuttle_landmark/nav_farfleet/nav4
 	name = "Recon Ship Starboard"
-	landmark_tag = "nav_patrol_4"
+	landmark_tag = "nav_farfleet_4"
 
-/obj/effect/submap_landmark/joinable_submap/patrol
+/obj/effect/submap_landmark/joinable_submap/farfleet
 	name = "ICCGN Farfleet Ship"
-	archetype = /decl/submap_archetype/away_scg_patrol
+	archetype = /decl/submap_archetype/away_iccgn_farfleet
 
 //obj/machinery/door/airlock/autoname/command
 	//req_access = list(access_heads)

@@ -36,7 +36,7 @@
 
 /obj/effect/shuttle_landmark/snz/start
 	name = "Dock"
-	landmark_tag = "nav_dock_iggc_snz"
+	landmark_tag = "nav_dock_farfleet_snz"
 	base_area = /area/ship/farfleet/command/hangar
 	base_turf = /turf/simulated/floor/reinforced
 	movable_flags = MOVABLE_FLAG_EFFECTMOVE
