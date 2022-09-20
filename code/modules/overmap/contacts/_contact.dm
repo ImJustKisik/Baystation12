@@ -48,7 +48,7 @@ var/list/phonetic_alphabet_suffix = list("ALPHA", "BETA", "GAMMA", "DELTA", "EPS
 		var/obj/effect/overmap/visitable/ship/source_ship = source
 		information = source_ship.desc
 		temp_designation = "[pick(global.phonetic_alphabet_prefix)]-[pick(global.phonetic_alphabet_suffix)]-[random_id(type, 1, 999)]"
-		marker = image(loc = source_ship, icon = 'icons/obj/overmap.dmi', icon_state = "shuttle")
+		marker = image(loc = source_ship, icon = 'icons/obj/overmap.dmi', icon_state = "unidentified_ship")
 
 		if(source_ship.transponder_active)
 			handle_being_identified()
@@ -85,7 +85,7 @@ var/list/phonetic_alphabet_suffix = list("ALPHA", "BETA", "GAMMA", "DELTA", "EPS
 			radar = image(loc = effect, icon = 'icons/obj/overmap.dmi', icon_state = "sensor_range")
 			radar.pixel_x = -2
 			radar.tag = "radar"
-			radar.filters = filter(type="blur", size = 1)
+			radar.filters = filter(type="blur", size = 0.5)
 			images += radar
 
 			var/matrix/M = matrix()
@@ -119,7 +119,7 @@ var/list/phonetic_alphabet_suffix = list("ALPHA", "BETA", "GAMMA", "DELTA", "EPS
 
 
 /datum/overmap_contact/proc/unping()
-	animate(marker, alpha=75, 2 SECOND, 1, LINEAR_EASING)
+	animate(marker, alpha=230, 2 SECOND, 1, LINEAR_EASING)
 
 /datum/overmap_contact/proc/check_effect_shield()
 	var/shield_active = FALSE

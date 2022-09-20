@@ -96,7 +96,7 @@
 				playsound(loc, "sound/machines/sensors/contact_regained.ogg", 30, 1)
 			record.show()
 			if(record.is_overmap_event)
-				animate(record.marker, alpha=75, 2 SECOND, 1, LINEAR_EASING)
+				animate(record.marker, alpha=255, 2 SECOND, 1, LINEAR_EASING)
 				continue
 			animate(record.marker, alpha=255, 2 SECOND, 1, LINEAR_EASING)
 
