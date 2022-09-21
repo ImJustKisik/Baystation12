@@ -8,19 +8,19 @@
 	icon_state = "iccgn-Dormintory"
 	req_access = list(access_away_iccgn)
 
-/area/ship/farfleet/crew
+/area/ship/farfleet/crew/fleet
 	name = "\improper Fleet Cabins"
 	icon_state = "iccgn-fleetdorms"
 	req_access = list(access_away_iccgn)
 
-/area/ship/farfleet/crew/hallway/lower/
-	name = "\improper Hallway - Ordnance Deck"
-	icon_state = "iccgn-corridor"
+/area/ship/farfleet/crew/captain
+	name = "\improper Captain Cabin"
+	icon_state = "iccgn-captain"
 	req_access = list(access_away_iccgn)
 
-/area/ship/farfleet/crew
-	name = "\improper Barracks"
-	icon_state = "iccgn-Dormintory"
+/area/ship/farfleet/crew/hallway/lower
+	name = "\improper Hallway - Ordnance Deck"
+	icon_state = "iccgn-corridor"
 	req_access = list(access_away_iccgn)
 
 /area/ship/farfleet/crew/kitchen
@@ -43,25 +43,20 @@
 	icon_state = "locker"
 	req_access = list(access_away_iccgn)
 
-/area/ship/patrol/crew/warehouse
+/area/ship/farfleet/crew/warehouse/starboard
 	name = "\improper Missile Warehouse - Starboard"
 	icon_state = "iccgn-warehouseN"
 	req_access = list(access_away_iccgn)
 
-/area/ship/patrol/crew/warehouse
+/area/ship/farfleet/crew/warehouse
 	name = "\improper Missile Warehouse - Port"
 	icon_state = "iccgn-warehouseS"
 	req_access = list(access_away_iccgn)
 
 /area/ship/farfleet/crew/brig
-	name = "\improper Brig Section"
-	icon_state = "locker"
-	req_access = list(access_away_iccgn)
-
-/area/ship/patrol/crew/brig
 	name = "\improper Ship Brig"
 	icon_state = "iccgn-brig"
-	req_access = list(access_away_cavalry)
+	req_access = list(access_away_iccgn)
 
 /area/ship/farfleet/crew/brig/emergency_armory
 	name = "\improper Emergency Armory"
@@ -75,6 +70,11 @@
 
 /area/ship/farfleet/engineering/equipment
 	name = "\improper Engineering Equipment"
+	icon_state = "green"
+	req_access = list(access_away_iccgn)
+
+/area/ship/farfleet/engineering/atmos_equipment
+	name = "\improper Atmospherics Equipment"
 	icon_state = "green"
 	req_access = list(access_away_iccgn)
 
@@ -101,10 +101,14 @@
 
 /area/ship/farfleet/engineering/atmospherics
 	name = "\improper Atmospherics"
-	icon_state = "iccgn-atmos"
+	icon_state = "iccgn-Atmos"
 	ambience = list('sound/ambience/ambigen3.ogg','sound/ambience/ambigen4.ogg','sound/ambience/ambigen5.ogg','sound/ambience/ambigen6.ogg','sound/ambience/ambigen7.ogg','sound/ambience/ambigen8.ogg','sound/ambience/ambigen9.ogg','sound/ambience/ambigen10.ogg','sound/ambience/ambigen11.ogg','sound/ambience/ambiatm1.ogg')
 	req_access = list(access_away_iccgn)
 
+/area/ship/farfleet/engineering/reactor
+	name = "\improper Nuclear Reactor"
+	icon_state = "iccgn-NReactor"
+	req_access = list(access_away_iccgn)
 
 /area/ship/farfleet/barracks
 	name = "\improper Droptroops Section"
@@ -161,50 +165,56 @@
 /area/ship/farfleet/maintenance/upper/port
 	name = "\improper Maintenance Upper Port"
 	icon_state = "amaint"
-	req_access = list(access_away_cavalry)
+	req_access = list(access_away_iccgn)
 
 /area/ship/farfleet/maintenance/upper/starboard
 	name = "\improper Maintenance Upper Starboard"
 	icon_state = "amaint"
-	req_access = list(access_away_cavalry)
+	req_access = list(access_away_iccgn)
 
 /area/ship/farfleet/maintenance/upper/anomaly
 	name = "\improper Anomaly Materials "
+	icon_state = "iccgn-anomaly"
 	req_access = list(access_away_iccgn)
 
-/area/ship/patrol/maintenance/upper/waste
+/area/ship/farfleet/maintenance/upper/waste
 	name = "\improper Waste Disposal"
-	req_access = list(access_away_cavalry)
+	req_access = list(access_away_iccgn)
 
-/area/ship/patrol/maintenance/engine/port
+/area/ship/farfleet/maintenance/engine/port
 	name = "\improper Port Thruster"
-	req_access = list(access_away_cavalry)
+	req_access = list(access_away_iccgn)
 
-/area/ship/patrol/maintenance/engine/starboard
+/area/ship/farfleet/maintenance/engine/starboard
 	name = "\improper Starboard Thruster"
-	req_access = list(access_away_cavalry)
+	req_access = list(access_away_iccgn)
 
 
 
 /area/ship/farfleet/command/bridge
 	name = "\improper Bridge"
-	icon_state = "iccgn-bridge"
+	icon_state = "iccgn-Bridge"
 	req_access = list(access_away_iccgn)
 
 /area/ship/farfleet/command/eva
 	name = "\improper Fleet EVA"
-	req_access = list(access_away_cavalry)
+	req_access = list(access_away_iccgn)
 
 /area/ship/farfleet/command/equipment
 	name = "\improper Fleet Equipment"
-	req_access = list(access_away_cavalry)
+	req_access = list(access_away_iccgn)
 
-/area/ship/patrol/command/hangar
-	name = "\improper Hangar"
+/area/ship/farfleet/command/bsd
+	name = "\improper Bluespace Drive"
+	icon_state = "iccgn-bsd"
+	req_access = list(access_away_iccgn)
+
+/area/ship/farfleet/command/snz_exterior_dock
+	name = "\improper Roof Dock"
 	icon_state = "purple"
-	req_access = list(access_away_cavalry)
+	req_access = list(access_away_iccgn)
 
-/area/ship/farfleet/command/launcher
+/area/ship/farfleet/command/launcher/north
 	name = "\improper Starboard Missile Launcher"
 	icon_state = "iccgn-Ordnance-North"
 	req_access = list(access_away_iccgn)

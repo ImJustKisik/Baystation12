@@ -231,36 +231,28 @@
  * ====
  */
 
-/obj/machinery/suit_storage_unit/away_cavalry_med
-	name = "Corpsman Voidsuit Storage Unit"
+/obj/machinery/suit_storage_unit/away_iccgn_med
+	name = "Farfleet Medic Voidsuit Storage Unit"
 	suit= /obj/item/clothing/suit/space/void/medical/alt/sol/prepared
 	boots = /obj/item/clothing/shoes/magboots
 	tank = /obj/item/tank/oxygen
-	req_access = list(access_away_cavalry)
+	req_access = list(access_away_iccgn)
 	islocked = 1
 
-/obj/machinery/suit_storage_unit/away_cavalry_eng
-	name = "Technician Voidsuit Storage Unit"
+/obj/machinery/suit_storage_unit/away_iccgn_eng
+	name = "Ordnance Technician Voidsuit Storage Unit"
 	suit= /obj/item/clothing/suit/space/void/engineering/alt/sol/prepared
 	boots = /obj/item/clothing/shoes/magboots
 	tank = /obj/item/tank/oxygen
-	req_access = list(access_away_cavalry)
+	req_access = list(access_away_iccgn)
 	islocked = 1
 
-/obj/machinery/suit_storage_unit/away_cavalry_com
-	name = "Officer Voidsuit Storage Unit"
+/obj/machinery/suit_storage_unit/away_iccgn_com
+	name = "Captain Voidsuit Storage Unit"
 	suit= /obj/item/clothing/suit/space/void/command/prepared
 	boots = /obj/item/clothing/shoes/magboots
 	tank = /obj/item/tank/oxygen
-	req_access = list(access_away_cavalry, access_away_cavalry_commander)
-	islocked = 1
-
-/obj/machinery/suit_storage_unit/away_cavalry_fly
-	name = "Pilot Voidsuit Storage Unit"
-	suit= /obj/item/clothing/suit/space/void/pilot/sol/prepared
-	boots = /obj/item/clothing/shoes/magboots
-	tank = /obj/item/tank/oxygen
-	req_access = list(access_away_cavalry)
+	req_access = list(access_away_iccgn, access_away_iccgn_captain)
 	islocked = 1
 
 /obj/structure/sign/farfleetplaque

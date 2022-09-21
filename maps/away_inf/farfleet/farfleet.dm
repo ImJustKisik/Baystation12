@@ -20,7 +20,7 @@
 	color = "#fc7a00"
 	fore_dir = WEST
 	vessel_mass = 500
-	known_ships = list(/obj/effect/overmap/visitable/ship/landable/reaper)
+	known_ships = list(/obj/effect/overmap/visitable/ship/landable/snz)
 	vessel_size = SHIP_SIZE_SMALL
 	start_x = 1
 	start_y = 1
@@ -55,7 +55,7 @@
 	spawn_cost = 0.5
 	player_cost = 7 // Нынешнее значение основано на количестве игроков в авейке ~bear1ake
 	spawn_weight = 1 // INF, spawn_weight = 0.5
-	shuttles_to_initialise = list(/datum/shuttle/autodock/overmap/reaper)
+	shuttles_to_initialise = list(/datum/shuttle/autodock/overmap/snz)
 
 
 /obj/effect/shuttle_landmark/nav_farfleet/nav1

@@ -1,9 +1,9 @@
-/datum/shuttle/autodock/overmap/iccg_snz
+/datum/shuttle/autodock/overmap/snz
 	name = "SNZ Speedboat"
 	warmup_time = 15
-	current_location = "nav_dock_iccg_snz"
+	current_location = "nav_dock_snz"
 	range = 2
-	shuttle_area = /area/ship/iccg_snz
+	shuttle_area = /area/ship/snz
 	defer_initialisation = TRUE
 	flags = SHUTTLE_FLAGS_PROCESS
 	skill_needed = SKILL_NONE
@@ -11,7 +11,7 @@
 
 /obj/machinery/computer/shuttle_control/explore/away_farfleet/snz
 	name = "SNZ Shuttle control console"
-	req_access = list(\access_away_iccgn)
+	req_access = list(access_away_iccgn)
 	shuttle_tag = "SNZ Speedboat"
 
 /obj/effect/overmap/visitable/ship/landable/snz
@@ -37,7 +37,7 @@
 /obj/effect/shuttle_landmark/snz/start
 	name = "Dock"
 	landmark_tag = "nav_dock_farfleet_snz"
-	base_area = /area/ship/farfleet/command/hangar
+	base_area = /area/ship/farfleet/command/snz_exterior_dock
 	base_turf = /turf/simulated/floor/reinforced
 	movable_flags = MOVABLE_FLAG_EFFECTMOVE
 

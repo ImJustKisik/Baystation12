@@ -67,7 +67,7 @@
 /obj/item/card/id/awayiccgn/fleet
 	color = COLOR_GRAY40
 	detail_color = "#447ab1"
-	access = list(access_away_cavalry)
+	access = list(access_away_iccgn)
 
 /obj/item/card/id/awayiccgndroptroops
 	color = "#b10309c2"
