@@ -248,14 +248,14 @@
 	item_state = "Dpacket"
 	startswith = list(/obj/item/clothing/mask/smokable/cigarette/professionals = 6)
 
-/obj/item/weapon/storage/fancy/cigarettes/yava
+/obj/item/storage/fancy/cigarettes/yava
 	name = "pack of Yava"
 	desc = "That's the Yava."
 	icon_state = "yava"
 	item_state = "Dpacket"
 	startswith = list(/obj/item/clothing/mask/smokable/cigarette/yava = 6)
 
-/obj/item/weapon/storage/fancy/cigarettes/prima
+/obj/item/storage/fancy/cigarettes/prima
 	name = "pack of Prima"
 	desc = "Horrible and without filter. But they're cheap, by the way!"
 	icon_state = "prima"
