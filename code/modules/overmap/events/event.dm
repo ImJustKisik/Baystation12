@@ -221,6 +221,7 @@
 /obj/effect/overmap/event/dust
 	name = "dust cloud"
 	events = list(/datum/event/dust)
+	opacity = 0
 	event_icon_states = list("dust1", "dust2", "dust3", "dust4")
 	weaknesses = OVERMAP_WEAKNESS_MINING | OVERMAP_WEAKNESS_EXPLOSIVE | OVERMAP_WEAKNESS_FIRE
 	colors = list("#facd50", "#cc9d1d", "#cca027")
