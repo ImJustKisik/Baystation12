@@ -1,5 +1,5 @@
 /obj/effect/overmap/visitable/ship/sierra
-	name = "spacecraft"
+	name = "NSV Sierra"
 	desc = "Spacefaring vessel. NanoTrasen IFF detected."
 	scanner_name = "NSV Sierra"
 	scanner_desc = @{"
