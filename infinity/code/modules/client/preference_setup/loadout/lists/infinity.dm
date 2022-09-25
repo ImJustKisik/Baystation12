@@ -131,3 +131,193 @@
 	path = /obj/item/clothing/gloves/wristwatch/gold
 	cost = 3
 */
+
+/datum/gear/uniform/antiquated_skirt
+	display_name = "antiquated skirt"
+	path = /obj/item/clothing/under/inf/
+
+/datum/gear/uniform/vice
+	display_name = "vice uniform"
+	path = /obj/item/clothing/under/inf/vice
+
+/datum/gear/uniform/detective
+	display_name = "red 'n black suit"
+	path = /obj/item/clothing/under/inf/detective
+
+/datum/gear/uniform/chain_with_shirt
+	display_name = "chain jeans"
+	path = /obj/item/clothing/under/inf/chain_with_shirt
+
+/datum/gear/uniform/chain_with_shirt
+	display_name = "black and white with style"
+	path = /obj/item/clothing/under/inf/chain_with_shirt
+
+/datum/gear/uniform/cuttop
+	display_name = "grey cuttop"
+	path = /obj/item/clothing/under/inf/cuttop
+
+/datum/gear/uniform/cuttop_red
+	display_name = "red cuttop"
+	path = /obj/item/clothing/under/inf/cuttop_red
+
+/datum/gear/uniform/pinstripe
+	display_name = "pinstripe"
+	path = /obj/item/clothing/under/inf/pinstripe
+
+/datum/gear/uniform/gotsis_dress_1
+	display_name = "red gotsis dress"
+	path = /obj/item/clothing/under/inf/gotsis_dress_1
+
+/datum/gear/uniform/gotsis_dress_2
+	display_name = "orange gotsis dress"
+	path = /obj/item/clothing/under/inf/gotsis_dress_2
+
+/datum/gear/uniform/classic_suit
+	display_name = "classic suit"
+	path = /obj/item/clothing/under/inf/classic_suit
+
+/datum/gear/uniform/jacket
+	display_name = "old style jacket"
+	path = /obj/item/clothing/under/inf/jacket
+
+
+/datum/gear/uniform/blackservice
+	display_name = "service uniform selection"
+	path = /obj/item/clothing/under/inf/blackservice
+
+/datum/gear/uniform/blackservice/New()
+	..()
+	var/service = list()
+	service["dark service uniform"] = /obj/item/clothing/under/inf/blackservice
+	service["brown service uniform"] = /obj/item/clothing/under/inf/blackserviceof
+	service["white service uniform"] = /obj/item/clothing/under/inf/whiteservice
+	service["white female service uniform"] = /obj/item/clothing/under/inf/whiteservicefem
+	gear_tweaks += new/datum/gear_tweak/path(service)
+
+/datum/gear/uniform/harper_uniform
+	display_name = "harper uniform"
+	path = /obj/item/clothing/under/inf/harper_uniform
+
+/datum/gear/uniform/stripped_shirt
+	display_name = "red checkered shirt"
+	path = /obj/item/clothing/under/inf/stripped_shirt
+
+/datum/gear/uniform/lify
+	display_name = "lify"
+	path = /obj/item/clothing/under/inf/lify
+
+/datum/gear/uniform/white_black
+	display_name = "white black"
+	path = /obj/item/clothing/under/inf/white_black
+
+/datum/gear/uniform/black_white
+	display_name = "black white"
+	path = /obj/item/clothing/under/inf/black_white
+
+/datum/gear/uniform/biker
+	display_name = "biker"
+	path = /obj/item/clothing/under/inf/biker
+
+/datum/gear/uniform/formalvest
+	display_name = "formal vest"
+	path = /obj/item/clothing/under/inf/formalvest
+
+/datum/gear/uniform/callum
+	display_name = "callum vest"
+	path = /obj/item/clothing/under/inf/callum
+
+/datum/gear/uniform/denimvest
+	display_name = "denim vest"
+	path = /obj/item/clothing/under/inf/denimvest
+
+/datum/gear/uniform/olympic
+	display_name = "olympic clothes"
+	path = /obj/item/clothing/under/inf/olympic
+
+/datum/gear/uniform/hm_suit
+	display_name = "charcoal vest"
+	path = /obj/item/clothing/under/inf/hm_suit
+
+/datum/gear/uniform/mafia
+	display_name = "mafia outfit selection"
+	path = /obj/item/clothing/under/inf/mafia
+
+/datum/gear/uniform/mafia/New()
+	..()
+	var/mafia = list()
+	mafia["mafia outfit"] = /obj/item/clothing/under/inf/mafia
+	mafia["mafia vest"] = /obj/item/clothing/under/inf/mafia/vest
+	mafia["white mafia outfit"] = /obj/item/clothing/under/inf/mafia/white
+	gear_tweaks += new/datum/gear_tweak/path(mafia)
+
+/datum/gear/uniform/maid
+	display_name = "maid dress"
+	path = /obj/item/clothing/under/inf/maid
+
+/datum/gear/uniform/noble
+	display_name = "artsy suit"
+	path = /obj/item/clothing/under/inf/noble
+
+
+/datum/gear/uniform/hawaiianshirt
+	display_name = "hawaiian shirt selection"
+	path = /obj/item/clothing/under/inf/redhawaiianshirt
+
+/datum/gear/uniform/hawaiianshirt/New()
+	..()
+	var/hawaiian = list()
+	hawaiian["red hawaiian shirt"] = /obj/item/clothing/under/inf/redhawaiianshirt
+	hawaiian["pink hawaiian shirt"] = /obj/item/clothing/under/inf/pinkhawaiianshirt
+	hawaiian["yellow hawaiian shirt"] = /obj/item/clothing/under/inf/yellowhawaiianshirt
+	hawaiian["blue hawaiian shirt"] = /obj/item/clothing/under/inf/bluehawaiianshirt
+	gear_tweaks += new/datum/gear_tweak/path(hawaiian)
+
+/datum/gear/uniform/cuban_suit
+	display_name = "rhumba outfit"
+	path = /obj/item/clothing/under/inf/cuban_suit
+
+/datum/gear/uniform/victdress
+	display_name = "victorian dress selection"
+	path = /obj/item/clothing/under/inf/victdress
+
+/datum/gear/uniform/victdress/New()
+	..()
+	var/dress = list()
+	dress["black victorian dress"] = /obj/item/clothing/under/inf/victdress
+	dress["red victorian dresst"] = /obj/item/clothing/under/inf/victdress/red
+	gear_tweaks += new/datum/gear_tweak/path(dress)
+
+/datum/gear/uniform/victsuit
+	display_name = "victorian suit selection"
+	path = /obj/item/clothing/under/inf/victsuit
+
+/datum/gear/uniform/victsuit/New()
+	..()
+	var/victsuit = list()
+	victsuit["victorian suit"] = /obj/item/clothing/under/inf/victsuit
+	victsuit["red and black victorian suit"] = /obj/item/clothing/under/inf/victsuit/redblk
+	victsuit["red victorian suit"] = /obj/item/clothing/under/inf/victsuit/red
+	victsuit["dark victorian suit"] = /obj/item/clothing/under/inf/victsuit/twilight
+	gear_tweaks += new/datum/gear_tweak/path(victsuit)
+
+/datum/gear/uniform/retro_security
+	display_name = "retro security officer's uniform"
+	allowed_roles = list(\
+	/datum/job/hos, /datum/job/warden, /datum/job/detective, /datum/job/officer, /datum/job/security_assistant)
+	path = /obj/item/clothing/under/inf/retro/security
+
+/datum/gear/uniform/retro_medical
+	display_name = "retro medical officer's uniform"
+	allowed_roles = list(\
+	/datum/job/cmo, /datum/job/senior_doctor, /datum/job/doctor,\
+	/datum/job/doctor_trainee, /datum/job/explorer_medic,\
+	/datum/job/psychiatrist, /datum/job/chemist, /datum/job/roboticist)
+	path = /obj/item/clothing/under/inf/retro/medical
+
+/datum/gear/uniform/retro_engineering
+	display_name = "retro engineering uniform"
+	path = /obj/item/clothing/under/inf/retro/engineering
+
+/datum/gear/uniform/retro_science
+	display_name = "retro science officer's uniform"
+	path = /obj/item/clothing/under/inf/retro/science
