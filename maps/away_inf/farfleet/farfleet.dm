@@ -40,7 +40,7 @@
 
 /obj/effect/overmap/visitable/ship/farfleet/New()
 	scanner_name = "SFV [pick("Onyx","Zircon","Grad","Zirkel","Odessa","Gomel","Uragan","Shilka","Omsk","Krondstatt","Topol","Iron Dmitry","Buratino","Kerch","Kherson","Proryv","Triumph","Sochi","Elisarov","Engels","Magnitogorsk")], \a [name]"
-	for(var/area/ship/patrol/A)
+	for(var/area/ship/farfleet/A)
 		A.name = "\improper [name] - [A.name]"
 		GLOB.using_map.area_purity_test_exempt_areas += A.type
 	..()
@@ -92,8 +92,8 @@
  */
 
 /obj/machinery/telecomms/allinone/away_iccg_recon
-	listening_freqs = list(SCG_FREQ)
-	channel_color = COMMS_COLOR_CENTCOMM
+	listening_freqs = list(ICCG_FREQ)
+	channel_color = COMMS_COLOR_COMMAND
 	channel_name = "ICCGN Farfleet"
 	circuitboard = /obj/item/stock_parts/circuitboard/telecomms/allinone/away_iccg_recon
 
@@ -107,7 +107,7 @@
 
 /obj/item/device/radio/headset/away_iccg_recon/Initialize()
 	. = ..()
-	set_frequency(SCG_FREQ)	//Not going to be random or just set to the common frequency, but can be set later.
+	set_frequency(ICCG_FREQ)	//Not going to be random or just set to the common frequency, but can be set later.
 
 /obj/item/device/encryptionkey/away_iccg_recon
 	name = "ICCGN farfleet radio encryption key"
@@ -115,6 +115,6 @@
 	channels = list("ICCGN Farfleet" = 1)
 
 /decl/ship_contact_class/nagashino
-	class_short = "NAG"
-	class_long = "Nagashino-Class patrol craft"
+	class_short = "FRC"
+	class_long = "Gagarin-Class recon craft"
 	max_ship_mass = 5000

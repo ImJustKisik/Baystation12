@@ -107,6 +107,7 @@ var/const/RADIO_HIGH_FREQ	= 1600
 var/const/BOT_FREQ	= 1447
 var/const/SKRELL_FREQ = 1598
 //[INF]
+var/const/ICCG_FREQ	= 1597
 var/const/SCG_FREQ	= 1599
 var/const/TAJSCISHIP_FREQ = 1377
 //[/INF]
@@ -168,6 +169,7 @@ var/list/radiochannels = list(
 	"AI Private"	= AI_FREQ,
 	"Entertainment" = ENT_FREQ,
 //[INF]
+	"Farfleet"		= ICCG_FREQ,
 	"CCA EC"        = TAJSCISHIP_FREQ,
 	"SCG Patrol"	= SCG_FREQ,
 //[/INF]

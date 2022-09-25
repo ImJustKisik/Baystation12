@@ -23,8 +23,18 @@
 	icon_state = "iccgn-corridor"
 	req_access = list(access_away_iccgn)
 
+/area/ship/farfleet/crew/hallway/upper
+	name = "\improper Hallway - Warehouse Deck"
+	icon_state = "iccgn-corridor"
+	req_access = list(access_away_iccgn)
+
 /area/ship/farfleet/crew/kitchen
 	name = "\improper Galley"
+	icon_state = "iccgn-canteen"
+	req_access = list(access_away_iccgn)
+
+/area/ship/farfleet/crew/freezer
+	name = "\improper Freezer"
 	icon_state = "iccgn-canteen"
 	req_access = list(access_away_iccgn)
 
@@ -175,6 +185,10 @@
 /area/ship/farfleet/maintenance/upper/anomaly
 	name = "\improper Anomaly Materials "
 	icon_state = "iccgn-anomaly"
+	req_access = list(access_away_iccgn)
+
+/area/ship/farfleet/maintenance/upper/canisters
+	name = "\improper Auxiliary Storage"
 	req_access = list(access_away_iccgn)
 
 /area/ship/farfleet/maintenance/upper/waste
