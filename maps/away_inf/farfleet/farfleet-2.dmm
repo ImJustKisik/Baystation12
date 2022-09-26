@@ -734,8 +734,7 @@
 /obj/structure/cable{
 	d1 = 1;
 	d2 = 8;
-	icon_state = "1-8";
-	dir = 4
+	icon_state = "1-8"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/farfleet/barracks)
@@ -1471,8 +1470,7 @@
 /obj/structure/cable{
 	d1 = 2;
 	d2 = 4;
-	icon_state = "2-4";
-	dir = 4
+	icon_state = "2-4"
 	},
 /turf/simulated/floor/tiled/techfloor,
 /area/ship/snz)
@@ -1994,16 +1992,21 @@
 /turf/simulated/floor/plating,
 /area/ship/snz)
 "eJ" = (
-/obj/structure/lattice,
 /obj/structure/cable{
-	d1 = 16;
-	d2 = 0;
-	icon_state = "16-0";
-	pixel_y = 0
+	d1 = 32;
+	icon_state = "32-1"
 	},
-/obj/machinery/atmospherics/pipe/zpipe/down/supply,
 /obj/machinery/atmospherics/pipe/zpipe/down/scrubbers,
-/obj/structure/cable,
+/obj/machinery/atmospherics/pipe/zpipe/down/supply,
+/obj/structure/lattice,
+/obj/structure/railing/mapped{
+	dir = 1
+	},
+/obj/structure/railing/mapped{
+	dir = 4;
+	icon_state = "railing0-1"
+	},
+/obj/structure/railing/mapped,
 /turf/simulated/open,
 /area/ship/farfleet/maintenance/upper/aft)
 "eK" = (
@@ -2179,8 +2182,7 @@
 /obj/structure/cable{
 	d1 = 2;
 	d2 = 4;
-	icon_state = "2-4";
-	dir = 4
+	icon_state = "2-4"
 	},
 /turf/simulated/floor/tiled/techfloor,
 /area/ship/snz)
@@ -3056,8 +3058,7 @@
 /obj/structure/cable{
 	d1 = 2;
 	d2 = 4;
-	icon_state = "2-4";
-	dir = 4
+	icon_state = "2-4"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 5
@@ -3143,13 +3144,12 @@
 /turf/simulated/floor/tiled/freezer,
 /area/ship/farfleet/crew/freezer)
 "kM" = (
-/obj/structure/cable{
-	d1 = 1;
-	d2 = 8;
-	icon_state = "1-8";
-	dir = 4
-	},
 /obj/effect/paint/dark_gunmetal,
+/obj/structure/cable{
+	d1 = 2;
+	d2 = 8;
+	icon_state = "2-8"
+	},
 /turf/simulated/wall/r_wall,
 /area/ship/farfleet/crew/hallway/upper)
 "kU" = (
@@ -3342,13 +3342,12 @@
 /turf/simulated/floor/tiled/monotile,
 /area/ship/farfleet/maintenance/upper/port)
 "nO" = (
-/obj/structure/cable{
-	d1 = 2;
-	d2 = 4;
-	icon_state = "2-4";
-	dir = 4
-	},
 /obj/effect/paint/dark_gunmetal,
+/obj/structure/cable{
+	d1 = 1;
+	d2 = 4;
+	icon_state = "1-4"
+	},
 /turf/simulated/wall/r_wall,
 /area/ship/farfleet/maintenance/upper/port)
 "oq" = (
@@ -3655,9 +3654,8 @@
 	pixel_y = 0
 	},
 /obj/structure/cable{
-	icon_state = "0-2";
-	d2 = 2;
-	dir = 8
+	d2 = 8;
+	icon_state = "0-8"
 	},
 /turf/simulated/floor/tiled/dark/monotile,
 /area/ship/farfleet/barracks/armory)
@@ -3676,10 +3674,9 @@
 	},
 /obj/machinery/atmospherics/pipe/manifold4w/hidden/scrubbers,
 /obj/structure/cable{
-	d1 = 1;
+	d1 = 2;
 	d2 = 8;
-	icon_state = "1-8";
-	dir = 4
+	icon_state = "2-8"
 	},
 /turf/simulated/floor/tiled,
 /area/ship/farfleet/crew/hallway/upper)
@@ -3881,10 +3878,9 @@
 	pixel_x = 0
 	},
 /obj/structure/cable{
-	d1 = 1;
-	d2 = 8;
-	icon_state = "1-8";
-	dir = 4
+	d1 = 2;
+	d2 = 4;
+	icon_state = "2-4"
 	},
 /turf/simulated/floor,
 /area/ship/farfleet/maintenance/upper/aft)
@@ -4025,10 +4021,9 @@
 	dir = 4
 	},
 /obj/structure/cable{
-	d1 = 1;
+	d1 = 2;
 	d2 = 8;
-	icon_state = "1-8";
-	dir = 4
+	icon_state = "2-8"
 	},
 /turf/simulated/floor/tiled,
 /area/ship/farfleet/crew/hallway/upper)
@@ -4131,13 +4126,12 @@
 /turf/simulated/floor,
 /area/ship/farfleet/maintenance/upper/aft)
 "yQ" = (
-/obj/structure/cable{
-	d1 = 2;
-	d2 = 4;
-	icon_state = "2-4";
-	dir = 4
-	},
 /obj/effect/paint/dark_gunmetal,
+/obj/structure/cable{
+	d1 = 1;
+	d2 = 4;
+	icon_state = "1-4"
+	},
 /turf/simulated/wall/r_wall,
 /area/ship/farfleet/maintenance/upper/starboard)
 "yV" = (
@@ -4301,10 +4295,9 @@
 /area/ship/farfleet/maintenance/upper/starboard)
 "AO" = (
 /obj/structure/cable{
-	d1 = 1;
+	d1 = 2;
 	d2 = 8;
-	icon_state = "1-8";
-	dir = 4
+	icon_state = "2-8"
 	},
 /turf/simulated/floor,
 /area/ship/farfleet/maintenance/upper/aft)
@@ -4327,13 +4320,12 @@
 	d2 = 8;
 	icon_state = "1-8"
 	},
-/obj/structure/cable{
-	d1 = 1;
-	d2 = 8;
-	icon_state = "1-8";
-	dir = 4
-	},
 /obj/effect/paint/dark_gunmetal,
+/obj/structure/cable{
+	d1 = 2;
+	d2 = 8;
+	icon_state = "2-8"
+	},
 /turf/simulated/wall/r_wall,
 /area/ship/farfleet/maintenance/upper/starboard)
 "BG" = (
@@ -4659,17 +4651,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/ship/farfleet/crew/hallway/upper)
-"Ft" = (
-/obj/structure/cable{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8";
-	pixel_x = 0
-	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/supply,
-/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
-/turf/simulated/floor/tiled,
-/area/ship/farfleet/crew/hallway/upper)
 "FC" = (
 /obj/machinery/atmospherics/unary/vent_pump/high_volume/external_air{
 	dir = 1
@@ -4769,10 +4750,9 @@
 /area/ship/farfleet/maintenance/upper/aft)
 "GO" = (
 /obj/structure/cable{
-	d1 = 1;
+	d1 = 2;
 	d2 = 8;
-	icon_state = "1-8";
-	dir = 4
+	icon_state = "2-8"
 	},
 /turf/simulated/floor/reinforced/airless,
 /area/ship/farfleet/command/snz_exterior_dock)
@@ -4893,12 +4873,6 @@
 /obj/structure/cable{
 	d1 = 1;
 	d2 = 8;
-	icon_state = "1-8";
-	dir = 4
-	},
-/obj/structure/cable{
-	d1 = 1;
-	d2 = 8;
 	icon_state = "1-8"
 	},
 /obj/structure/cable{
@@ -4910,6 +4884,11 @@
 	name = "east bump";
 	pixel_x = 24;
 	pixel_y = 0
+	},
+/obj/structure/cable{
+	d1 = 2;
+	d2 = 8;
+	icon_state = "2-8"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/farfleet/maintenance/upper/anomaly)
@@ -4954,10 +4933,9 @@
 "JB" = (
 /obj/structure/closet/secure_closet/guncabinet/farfleet/assault,
 /obj/structure/cable{
-	d1 = 2;
+	d1 = 1;
 	d2 = 4;
-	icon_state = "2-4";
-	dir = 4
+	icon_state = "1-4"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/farfleet/barracks/armory)
@@ -5058,13 +5036,12 @@
 /obj/structure/cable{
 	d1 = 1;
 	d2 = 8;
-	icon_state = "1-8";
-	dir = 4
+	icon_state = "1-8"
 	},
 /obj/structure/cable{
-	d1 = 1;
+	d1 = 2;
 	d2 = 8;
-	icon_state = "1-8"
+	icon_state = "2-8"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/farfleet/maintenance/upper/anomaly)
@@ -5741,8 +5718,7 @@
 /obj/structure/cable{
 	d1 = 1;
 	d2 = 8;
-	icon_state = "1-8";
-	dir = 4
+	icon_state = "1-8"
 	},
 /turf/simulated/floor/tiled,
 /area/ship/farfleet/crew/hallway/upper)
@@ -5852,10 +5828,9 @@
 /obj/structure/closet/secure_closet/guncabinet/farfleet/antitank,
 /obj/item/stack/material/rods/fifty,
 /obj/structure/cable{
-	d1 = 2;
-	d2 = 4;
-	icon_state = "2-4";
-	dir = 1
+	d1 = 1;
+	d2 = 8;
+	icon_state = "1-8"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/farfleet/barracks/armory)
@@ -5919,14 +5894,13 @@
 /area/ship/farfleet/command/snz_exterior_dock)
 "WX" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/structure/cable{
-	d1 = 1;
-	d2 = 8;
-	icon_state = "1-8";
-	dir = 4
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 10
+	},
+/obj/structure/cable{
+	d1 = 2;
+	d2 = 8;
+	icon_state = "2-8"
 	},
 /turf/simulated/floor/tiled/monotile,
 /area/ship/farfleet/maintenance/upper/port)
@@ -5941,16 +5915,14 @@
 	icon_state = "1-2"
 	},
 /obj/structure/cable{
-	d1 = 2;
-	d2 = 4;
-	icon_state = "2-4";
-	dir = 1
+	d1 = 1;
+	d2 = 8;
+	icon_state = "1-8"
 	},
 /obj/structure/cable{
-	d1 = 2;
+	d1 = 1;
 	d2 = 4;
-	icon_state = "2-4";
-	dir = 4
+	icon_state = "1-4"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/farfleet/barracks/armory)
@@ -6043,15 +6015,14 @@
 /obj/structure/cable{
 	d1 = 1;
 	d2 = 8;
-	icon_state = "1-8";
-	dir = 4
-	},
-/obj/structure/cable{
-	d1 = 1;
-	d2 = 8;
 	icon_state = "1-8"
 	},
 /obj/effect/paint/dark_gunmetal,
+/obj/structure/cable{
+	d1 = 2;
+	d2 = 8;
+	icon_state = "2-8"
+	},
 /turf/simulated/wall/r_wall,
 /area/ship/farfleet/maintenance/upper/port)
 "Yj" = (
@@ -13874,7 +13845,7 @@ cE
 tS
 vt
 dt
-Ft
+jD
 eq
 Oy
 fJ
@@ -14484,7 +14455,7 @@ Jk
 XA
 av
 gq
-Ft
+jD
 lU
 xW
 xW
