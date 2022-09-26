@@ -1,5 +1,5 @@
 /obj/effect/overmap/visitable/ship/sierra
-	name = "spacecraft"
+	name = "NSV Sierra"
 	desc = "Spacefaring vessel. NanoTrasen IFF detected."
 	scanner_name = "NSV Sierra"
 	scanner_desc = @{"
@@ -21,10 +21,11 @@
 		"Guppy" = list("nav_hangar_guppy"),
 		"Mule" = list("nav_merchant_out"), //away_inf/liberia/liberia.dmm shuttle,
 		"Desperado" = list("nav_merc_dock"), //antag_spawn/mercenary/mercenary_inf.dmm shuttle,
-		"Albatross" = list("nav_albatross_dock"), //away_inf/sentinel/sentinel.dmm shuttle,
+		"Reaper Gunboat" = list("nav_reaper_dock"), //away_inf/sentinel/sentinel.dmm shuttle,
 		"Sol Patrol Shuttle" = list("nav_deck3_patrol"), //away_inf/patrol/patrol.dmm shuttle,
 		"Skrellian Shuttle" = list("nav_deck3_skrellshuttle"), //away_inf/skrellscoutship.dm shuttle,
 		"Skrellian Scout" = list("nav_deck1_skrellscout"), //away_inf/skrellscoutship.dm shuttle,
+		"SRV Venerable Catfish" = list("nav_deck3_catfish"), //away/verne shuttle,
 	)
 
 	initial_generic_waypoints = list(
