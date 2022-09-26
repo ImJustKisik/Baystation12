@@ -1680,6 +1680,7 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
+/obj/machinery/constructable_frame/machine_frame,
 /turf/simulated/floor/tiled/monotile,
 /area/ship/farfleet/maintenance/upper/port)
 "ed" = (
@@ -1993,13 +1994,13 @@
 /turf/simulated/floor/plating,
 /area/ship/snz)
 "eJ" = (
+/obj/structure/lattice,
 /obj/structure/cable{
 	d1 = 16;
 	d2 = 0;
 	icon_state = "16-0";
 	pixel_y = 0
 	},
-/obj/structure/lattice,
 /obj/machinery/atmospherics/pipe/zpipe/down/supply,
 /obj/machinery/atmospherics/pipe/zpipe/down/scrubbers,
 /obj/structure/cable,
@@ -2880,6 +2881,18 @@
 	},
 /turf/simulated/floor/tiled/dark/monotile,
 /area/ship/farfleet/crew/brig)
+"hr" = (
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 4
+	},
+/obj/structure/cable{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8";
+	pixel_x = 0
+	},
+/turf/simulated/floor/tiled/dark,
+/area/ship/farfleet/barracks/armory)
 "hu" = (
 /obj/machinery/atmospherics/pipe/simple/hidden,
 /turf/simulated/floor/tiled,
@@ -3568,6 +3581,11 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/farfleet/barracks)
+"sq" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/constructable_frame/machine_frame,
+/turf/simulated/floor/tiled/monotile,
+/area/ship/farfleet/maintenance/upper/port)
 "sD" = (
 /obj/structure/cable{
 	d1 = 1;
@@ -4933,6 +4951,16 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/farfleet/maintenance/upper/canisters)
+"JB" = (
+/obj/structure/closet/secure_closet/guncabinet/farfleet/assault,
+/obj/structure/cable{
+	d1 = 2;
+	d2 = 4;
+	icon_state = "2-4";
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark,
+/area/ship/farfleet/barracks/armory)
 "JG" = (
 /obj/item/stack/material/phoron/ten,
 /obj/structure/closet/crate/secure/phoron,
@@ -5123,6 +5151,11 @@
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/reinforced,
 /area/ship/farfleet/crew/warehouse)
+"Ll" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/chemical_dispenser,
+/turf/simulated/floor/tiled/monotile,
+/area/ship/farfleet/maintenance/upper/port)
 "Lr" = (
 /obj/machinery/pointdefense{
 	initial_id_tag = "patrol_pd"
@@ -5818,6 +5851,12 @@
 "VC" = (
 /obj/structure/closet/secure_closet/guncabinet/farfleet/antitank,
 /obj/item/stack/material/rods/fifty,
+/obj/structure/cable{
+	d1 = 2;
+	d2 = 4;
+	icon_state = "2-4";
+	dir = 1
+	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/farfleet/barracks/armory)
 "VE" = (
@@ -5900,6 +5939,18 @@
 	d1 = 1;
 	d2 = 2;
 	icon_state = "1-2"
+	},
+/obj/structure/cable{
+	d1 = 2;
+	d2 = 4;
+	icon_state = "2-4";
+	dir = 1
+	},
+/obj/structure/cable{
+	d1 = 2;
+	d2 = 4;
+	icon_state = "2-4";
+	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/farfleet/barracks/armory)
@@ -6045,6 +6096,13 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/farfleet/crew/brig)
+"Zy" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/constructable_frame/computerframe{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/monotile,
+/area/ship/farfleet/maintenance/upper/port)
 "ZH" = (
 /obj/structure/cable{
 	d2 = 4;
@@ -12119,7 +12177,7 @@ gt
 rY
 fG
 hl
-be
+JB
 hx
 KS
 mc
@@ -12241,7 +12299,7 @@ hd
 jx
 jx
 CW
-hd
+hr
 pw
 KS
 mc
@@ -16632,7 +16690,7 @@ Mw
 qQ
 Vb
 ev
-wR
+Zy
 Mw
 Mw
 ab
@@ -16876,7 +16934,7 @@ Mw
 qQ
 wR
 yO
-wR
+sq
 Mw
 Mw
 ab
@@ -16998,7 +17056,7 @@ Mw
 ED
 zu
 nL
-wR
+Ll
 Mw
 Mw
 aa

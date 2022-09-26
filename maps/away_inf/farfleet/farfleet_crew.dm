@@ -69,12 +69,12 @@
 	detail_color = "#447ab1"
 	access = list(access_away_iccgn)
 
-/obj/item/card/id/awayiccgndroptroops
+/obj/item/card/id/awayiccgn/droptroops
 	color = "#b10309c2"
 	detail_color = "#000000"
 	access = list(access_away_iccgn, access_away_iccgn_droptroops)
 
-/obj/item/card/id/awayiccgn/ops/sergeant
+/obj/item/card/id/awayiccgn/ops/droptroops/sergeant
 	access = list(access_away_iccgn, access_away_iccgn_droptroops, access_away_iccgn_sergeant)
 	extra_details = list("goldstripe")
 
@@ -89,7 +89,7 @@
 /datum/job/submap/iccgn_droptrooper
 	title = "ICCG Droptrooper"
 	total_positions = 2
-	outfit_type = /decl/hierarchy/outfit/job/iccgn_droptroops
+	outfit_type = /decl/hierarchy/outfit/job/iccgn/iccgn_droptroops
 	supervisors = "sergeant"
 	loadout_allowed = TRUE
 	is_semi_antagonist = TRUE
@@ -112,7 +112,7 @@
 /datum/job/submap/iccgn_sergeant
 	title = "ICCG Droptrooper Sergeant"
 	total_positions = 1
-	outfit_type = /decl/hierarchy/outfit/job/iccgn_sergeant
+	outfit_type = /decl/hierarchy/outfit/job/iccgn/iccgn_sergeant
 	supervisors = "recon captain, command of the Farfleet Recon Squadron , ICCGN"
 	loadout_allowed = TRUE
 	is_semi_antagonist = TRUE
@@ -136,7 +136,7 @@
 /datum/job/submap/iccgn_captain
 	title = "Farfleet Captain"
 	total_positions = 1
-	outfit_type = /decl/hierarchy/outfit/job/iccgn_captain
+	outfit_type = /decl/hierarchy/outfit/job/iccgn/iccgn_captain
 	supervisors = "command of the Farfleet Recon Squadron , ICCGN"
 	loadout_allowed = TRUE
 	info = "Вы просыпаетесь и выходите из криосна, ощущая прохладный воздух на своём лице, а также лёгкую тошноту. \
@@ -157,7 +157,7 @@
 /datum/job/submap/iccgn_medic
 	title = "Farfleet Medic"
 	total_positions = 1
-	outfit_type = /decl/hierarchy/outfit/job/iccgn_medic
+	outfit_type = /decl/hierarchy/outfit/job/iccgn/iccgn_medic
 	loadout_allowed = TRUE
 	info = "Вы просыпаетесь и выходите из криосна, ощущая прохладный воздух на своём лице, а также лёгкую тошноту. \
 	Являясь одним из членов экипажа разведывательного корабля Флота Дальнего Плавания ГКК, ваша задача состоит в медицинской поддержке экипажа. \
@@ -176,7 +176,7 @@
 /datum/job/submap/iccgn_gunner
 	title = "Ordnance Technician"
 	total_positions = 2
-	outfit_type = /decl/hierarchy/outfit/job/iccgn_gunner
+	outfit_type = /decl/hierarchy/outfit/job/iccgn/iccgn_gunner
 	supervisors = "captain"
 	loadout_allowed = TRUE
 	info = "Вы просыпаетесь и выходите из криосна, ощущая прохладный воздух на своём лице, а также лёгкую тошноту. \
@@ -262,38 +262,40 @@
 	backpack_contents = null
 	flags = OUTFIT_EXTENDED_SURVIVAL
 
-/decl/hierarchy/outfit/job/iccgn_droptroops
+/decl/hierarchy/outfit/job/iccgn/iccgn_droptroops
 	name = ICCGN_OUTFIT_JOB_NAME("Droptrooper")
 	head = /obj/item/clothing/head/terran/beret/grey
 	uniform = /obj/item/clothing/under/solgov/utility/army/urban/away_solpatrol
 	id_types = list(/obj/item/card/id/farfleet/droptroops)
+	belt = /obj/item/storage/belt/holster/security/farfleet
 	gloves = /obj/item/clothing/gloves/thick/combat/marine
 
-/decl/hierarchy/outfit/job/iccgn_sergeant
+/decl/hierarchy/outfit/job/iccgn/iccgn_sergeant
 	name = ICCGN_OUTFIT_JOB_NAME("Droptroops Sergeant")
 	head = /obj/item/clothing/head/terran/beret
 	uniform = /obj/item/clothing/under/solgov/utility/army/urban/away_solpatrol/captain
-	id_types = list(/obj/item/card/id/awaycavalry/ops/captain)
+	id_types = list(/obj/item/card/id/farfleet/droptroops/sergeant)
+	belt = /obj/item/storage/belt/holster/security/farfleet
 	gloves = /obj/item/clothing/gloves/thick/combat/marine
 
-/decl/hierarchy/outfit/job/iccgn_gunner
+/decl/hierarchy/outfit/job/iccgn/iccgn_gunner
 	name = ICCGN_OUTFIT_JOB_NAME("Ordnance Technician")
 	head = /obj/item/clothing/head/terran/navy/service
 	uniform = /obj/item/clothing/under/solgov/utility/fleet/engineering/away_solpatrol
-	belt = /obj/item/storage/belt/holster/security/away_solpatrol
+	belt = /obj/item/storage/belt/holster/security/farfleet
 	gloves = /obj/item/clothing/gloves/insulated/black
 
-/decl/hierarchy/outfit/job/iccgn_medic
+/decl/hierarchy/outfit/job/iccgn/iccgn_medic
 	name = ICCGN_OUTFIT_JOB_NAME("Doctor")
 	uniform = /obj/item/clothing/head/terran/navy/service
-	belt = /obj/item/storage/belt/holster/security/away_solpatrol
+	belt = /obj/item/storage/belt/holster/security/farfleet
 	gloves = /obj/item/clothing/gloves/latex/nitrile
 
-/decl/hierarchy/outfit/job/iccgn_captain
+/decl/hierarchy/outfit/job/iccgn/iccgn_captain
 	name = ICCGN_OUTFIT_JOB_NAME("Lieutenant Commander")
 	head = /obj/item/clothing/head/terran/navy/service/command
 	uniform = /obj/item/clothing/under/solgov/utility/fleet/officer/command/commander/away_solpatrol
-	belt = /obj/item/storage/belt/holster/security/away_solpatrol
+	belt = /obj/item/storage/belt/holster/security/farfleet
 	id_types = list(/obj/item/card/id/awayiccgn/fleet/captain)
 	gloves = /obj/item/clothing/gloves/terran
 

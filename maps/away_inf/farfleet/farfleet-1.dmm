@@ -31,8 +31,9 @@
 /obj/effect/paint/dark_gunmetal,
 /obj/structure/cable{
 	d1 = 1;
-	d2 = 4;
-	icon_state = "1-4"
+	d2 = 8;
+	icon_state = "1-8";
+	dir = 8
 	},
 /turf/simulated/wall,
 /area/ship/farfleet/engineering/storage)
@@ -222,14 +223,15 @@
 /obj/effect/floor_decal/industrial/warning/corner{
 	dir = 8
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 9
-	},
 /obj/structure/cable/yellow{
 	d1 = 2;
 	d2 = 4;
 	icon_state = "2-4"
 	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/tiled,
 /area/ship/farfleet/engineering/fussion/control)
 "aF" = (
@@ -389,13 +391,13 @@
 /area/ship/farfleet/crew/kitchen)
 "aX" = (
 /obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/cable{
 	d1 = 1;
 	d2 = 2;
 	icon_state = "1-2"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/tiled,
 /area/ship/farfleet/engineering/storage)
 "aZ" = (
@@ -645,7 +647,8 @@
 "bF" = (
 /obj/machinery/power/apc{
 	dir = 8;
-	pixel_x = -25
+	pixel_x = -25;
+	req_access = list("ACCESS_ICCGN")
 	},
 /obj/structure/cable{
 	d2 = 4;
@@ -956,7 +959,8 @@
 "cu" = (
 /obj/machinery/computer/telecomms/server{
 	dir = 4;
-	network = "senttcommsat"
+	network = "senttcommsat";
+	req_access = list("ACCESS_ICCGN")
 	},
 /obj/item/device/radio/intercom{
 	dir = 4;
@@ -1324,7 +1328,9 @@
 /turf/simulated/floor,
 /area/ship/farfleet/engineering/fussion/control)
 "dn" = (
-/obj/structure/closet/secure_closet/personal,
+/obj/structure/closet/secure_closet/personal{
+	req_access = list("ACCESS_ICCGN")
+	},
 /obj/machinery/light{
 	dir = 8
 	},
@@ -1848,7 +1854,7 @@
 "et" = (
 /obj/machinery/door/airlock/highsecurity{
 	name = "Telecommunications Server";
-	req_access = list("ACCESS_TELECOMS")
+	req_access = list("ACCESS_ICCGN")
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/cable{
@@ -1971,7 +1977,7 @@
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/hatch{
 	name = "Telecoms Server Access";
-	req_access = list("ACCESS_TELECOMS");
+	req_access = list("ACCESS_ICCGN");
 	secured_wires = 1
 	},
 /obj/effect/floor_decal/industrial/warning/half{
@@ -2186,7 +2192,8 @@
 /obj/machinery/power/apc/super/critical{
 	dir = 4;
 	name = "east bump";
-	pixel_x = 25
+	pixel_x = 25;
+	req_access = list("ACCESS_ICCGN")
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -2347,6 +2354,9 @@
 	name = "east bump";
 	pixel_x = 24;
 	pixel_y = 0
+	},
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 8
 	},
 /turf/simulated/floor/tiled,
 /area/ship/farfleet/engineering/storage)
@@ -2598,15 +2608,15 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/structure/cable{
-	d1 = 1;
-	d2 = 8;
-	icon_state = "1-8";
-	dir = 4
-	},
 /obj/machinery/light_switch{
 	pixel_y = 30;
 	pixel_x = -10
+	},
+/obj/structure/cable{
+	d1 = 2;
+	d2 = 4;
+	icon_state = "2-4";
+	dir = 8
 	},
 /turf/simulated/floor/tiled,
 /area/ship/farfleet/engineering/atmos_equipment)
@@ -2662,6 +2672,12 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 5
 	},
+/obj/structure/cable{
+	d1 = 1;
+	d2 = 8;
+	icon_state = "1-8";
+	dir = 8
+	},
 /turf/simulated/floor/tiled/white,
 /area/ship/farfleet/medbay)
 "gs" = (
@@ -2686,11 +2702,14 @@
 /turf/simulated/wall/r_wall/prepainted,
 /area/ship/farfleet/command/launcher/north)
 "gv" = (
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
-	dir = 8
-	},
 /obj/effect/floor_decal/corner/yellow{
 	dir = 9
+	},
+/obj/structure/cable{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8";
+	pixel_y = 0
 	},
 /turf/simulated/floor/tiled,
 /area/ship/farfleet/engineering/storage)
@@ -3234,10 +3253,11 @@
 	dir = 4
 	},
 /obj/structure/cable{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8";
-	pixel_x = 0
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2";
+	pixel_y = 0;
+	dir = 4
 	},
 /turf/simulated/floor,
 /area/ship/farfleet/maintenance/lower/starboard)
@@ -3484,13 +3504,13 @@
 /area/ship/farfleet/medbay)
 "jp" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 9
-	},
 /obj/structure/cable/green{
 	d1 = 4;
 	d2 = 8;
 	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+	dir = 4
 	},
 /turf/simulated/floor/tiled,
 /area/ship/farfleet/engineering/fussion/control)
@@ -3653,14 +3673,18 @@
 /turf/simulated/floor/tiled/white,
 /area/ship/farfleet/medbay)
 "jZ" = (
-/obj/structure/closet/secure_closet/personal,
+/obj/structure/closet/secure_closet/personal{
+	req_access = list("ACCESS_ICCGN")
+	},
 /turf/simulated/floor/tiled,
 /area/ship/farfleet/crew)
 "ka" = (
 /obj/structure/window/reinforced/bar{
 	dir = 4
 	},
-/obj/structure/closet/secure_closet/personal,
+/obj/structure/closet/secure_closet/personal{
+	req_access = list("ACCESS_ICCGN")
+	},
 /turf/simulated/floor/tiled,
 /area/ship/farfleet/crew)
 "kd" = (
@@ -3668,15 +3692,18 @@
 /area/turbolift/farfleet_first)
 "ke" = (
 /obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/cable{
+	d1 = 2;
+	d2 = 4;
+	icon_state = "2-4"
+	},
 /obj/structure/cable{
 	d1 = 1;
 	d2 = 2;
 	icon_state = "1-2"
 	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
-	dir = 8
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/tiled,
 /area/ship/farfleet/engineering/storage)
 "kf" = (
@@ -3730,7 +3757,8 @@
 /area/ship/farfleet/engineering/fussion/control)
 "ko" = (
 /obj/machinery/vending/medical/torch{
-	dir = 4
+	dir = 4;
+	req_access = list("ACCESS_ICCGN")
 	},
 /turf/simulated/floor/tiled/white,
 /area/ship/farfleet/medbay)
@@ -3745,6 +3773,16 @@
 "kt" = (
 /obj/structure/table/reinforced,
 /obj/item/clothing/gloves/latex,
+/obj/machinery/power/apc{
+	dir = 8;
+	pixel_x = -25;
+	req_access = list("ACCESS_ICCGN")
+	},
+/obj/structure/cable{
+	icon_state = "0-2";
+	d2 = 2;
+	dir = 4
+	},
 /turf/simulated/floor/tiled/white,
 /area/ship/farfleet/medbay/surgery)
 "ku" = (
@@ -3796,7 +3834,8 @@
 	id_tag = "missile_launcher_north";
 	name = "Chamber Containment";
 	dir = 8;
-	pixel_x = 22
+	pixel_x = 22;
+	req_access = list("ACCESS_ICCGN")
 	},
 /turf/simulated/floor/tiled,
 /area/ship/farfleet/crew/hallway/lower)
@@ -3831,7 +3870,8 @@
 /area/ship/farfleet/command/launcher/north)
 "kI" = (
 /obj/machinery/power/apc{
-	dir = 1
+	dir = 1;
+	req_access = list("ACCESS_ICCGN")
 	},
 /obj/effect/paint/nt_white,
 /turf/simulated/wall/r_wall,
@@ -3921,9 +3961,10 @@
 	dir = 8
 	},
 /obj/structure/cable{
-	d1 = 1;
-	d2 = 8;
-	icon_state = "1-8"
+	d1 = 2;
+	d2 = 4;
+	icon_state = "2-4";
+	dir = 1
 	},
 /turf/simulated/floor/tiled,
 /area/ship/farfleet/crew/hallway/lower)
@@ -4003,7 +4044,9 @@
 	icon_state = "alarm0";
 	pixel_x = -22
 	},
-/obj/machinery/vending/engivend,
+/obj/machinery/vending/engivend{
+	req_access = list("ACCESS_ICCGN")
+	},
 /turf/simulated/floor/tiled,
 /area/ship/farfleet/engineering/storage)
 "ll" = (
@@ -4050,6 +4093,8 @@
 	dir = 8
 	},
 /obj/structure/cable/yellow,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/tiled,
 /area/ship/farfleet/engineering/fussion/control)
 "lv" = (
@@ -4107,16 +4152,15 @@
 /obj/structure/cable{
 	d1 = 1;
 	d2 = 8;
-	icon_state = "1-8";
-	dir = 4
-	},
-/obj/structure/cable{
-	d1 = 1;
-	d2 = 8;
 	icon_state = "1-8"
 	},
 /obj/machinery/light{
 	dir = 4
+	},
+/obj/structure/cable{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
 	},
 /turf/simulated/floor/tiled,
 /area/ship/farfleet/crew/hallway/lower)
@@ -4187,6 +4231,11 @@
 	dir = 5
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/cable{
+	d1 = 1;
+	d2 = 8;
+	icon_state = "1-8"
+	},
 /turf/simulated/floor/tiled/white,
 /area/ship/farfleet/medbay/surgery)
 "lR" = (
@@ -4202,7 +4251,9 @@
 /turf/simulated/floor/reinforced/airless,
 /area/ship/farfleet/engineering/fussion/control)
 "lZ" = (
-/obj/structure/closet/secure_closet/guncabinet/farfleet/defence,
+/obj/structure/closet/secure_closet/guncabinet/farfleet/defence{
+	req_access = list("ACCESS_ICCGN")
+	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/farfleet/crew/brig/emergency_armory)
 "ma" = (
@@ -4292,13 +4343,14 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/structure/cable{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8";
-	pixel_x = 0
-	},
 /obj/machinery/door/airlock/hatch/maintenance,
+/obj/structure/cable{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2";
+	pixel_y = 0;
+	dir = 4
+	},
 /turf/simulated/floor,
 /area/ship/farfleet/engineering/atmos_equipment)
 "ml" = (
@@ -4569,10 +4621,6 @@
 /area/ship/farfleet/command/launcher/north)
 "nd" = (
 /obj/structure/cable,
-/obj/structure/cable{
-	d2 = 4;
-	icon_state = "0-4"
-	},
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/wallframe_spawn/reinforced,
 /obj/effect/paint/dark_gunmetal,
@@ -4772,7 +4820,7 @@
 "nG" = (
 /obj/machinery/vending/security{
 	dir = 1;
-	req_access = list("ACCESS_CAVALRY")
+	req_access = list("ACCESS_ICCGN")
 	},
 /obj/structure/cable{
 	d1 = 1;
@@ -5156,7 +5204,7 @@
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/medical{
 	name = "Operating Theatre";
-	req_access = list("ACCESS_SURGERY")
+	req_access = list("ACCESS_ICCGN")
 	},
 /obj/machinery/holosign,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -5321,7 +5369,8 @@
 	dir = 4;
 	name = "east bump";
 	pixel_x = 24;
-	pixel_y = 0
+	pixel_y = 0;
+	req_access = list("ACCESS_ICCGN")
 	},
 /turf/simulated/floor/tiled,
 /area/ship/farfleet/crew)
@@ -5425,15 +5474,25 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 5
 	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply,
 /obj/structure/cable{
 	d1 = 2;
 	d2 = 4;
 	icon_state = "2-4";
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/supply,
 /turf/simulated/floor/tiled,
 /area/ship/farfleet/engineering/storage)
+"pP" = (
+/obj/structure/cable{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2";
+	pixel_y = 0;
+	dir = 4
+	},
+/turf/simulated/floor,
+/area/ship/farfleet/maintenance/lower/starboard)
 "pS" = (
 /obj/machinery/door/firedoor,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -5716,14 +5775,14 @@
 	},
 /obj/effect/floor_decal/industrial/warning/full,
 /obj/structure/cable{
-	d1 = 16;
-	d2 = 0;
-	icon_state = "16-0"
-	},
-/obj/structure/cable{
 	d2 = 2;
 	icon_state = "0-2";
 	dir = 1
+	},
+/obj/structure/cable{
+	d1 = 16;
+	d2 = 0;
+	icon_state = "16-0"
 	},
 /turf/simulated/floor,
 /area/ship/farfleet/maintenance/lower/starboard)
@@ -5743,10 +5802,6 @@
 /obj/effect/floor_decal/iccglogo/corner,
 /turf/simulated/floor/tiled/dark,
 /area/ship/farfleet/command/bridge)
-"tb" = (
-/obj/effect/paint/dark_gunmetal,
-/turf/simulated/floor,
-/area/ship/farfleet/maintenance/lower/starboard)
 "th" = (
 /obj/machinery/door/firedoor{
 	dir = 4
@@ -5766,7 +5821,8 @@
 	},
 /obj/machinery/power/apc{
 	dir = 8;
-	pixel_x = -25
+	pixel_x = -25;
+	req_access = list("ACCESS_ICCGN")
 	},
 /turf/simulated/floor/tiled,
 /area/ship/farfleet/crew/toilet)
@@ -6110,6 +6166,12 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 10
 	},
+/obj/structure/cable{
+	d1 = 1;
+	d2 = 8;
+	icon_state = "1-8";
+	dir = 4
+	},
 /turf/simulated/floor/tiled/white,
 /area/ship/farfleet/medbay)
 "wZ" = (
@@ -6117,7 +6179,9 @@
 /turf/simulated/floor,
 /area/ship/farfleet/engineering/atmospherics)
 "xb" = (
-/obj/machinery/door/airlock/vault/bolted,
+/obj/machinery/door/airlock/vault/bolted{
+	req_access = list("ACCESS_ICCGN")
+	},
 /obj/machinery/door/firedoor{
 	dir = 4
 	},
@@ -6284,6 +6348,13 @@
 /area/ship/farfleet/crew/toilet)
 "yC" = (
 /obj/machinery/light/small,
+/obj/structure/cable{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2";
+	pixel_y = 0;
+	dir = 4
+	},
 /turf/simulated/floor,
 /area/ship/farfleet/maintenance/lower/starboard)
 "yG" = (
@@ -6419,7 +6490,9 @@
 /obj/machinery/door/firedoor{
 	dir = 8
 	},
-/obj/machinery/door/airlock/glass/terran,
+/obj/machinery/door/airlock/glass/terran{
+	req_access = list("ACCESS_ICCGN")
+	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
@@ -6480,15 +6553,15 @@
 	d2 = 8;
 	icon_state = "1-8"
 	},
-/obj/structure/cable{
-	d1 = 1;
-	d2 = 8;
-	icon_state = "1-8";
-	dir = 4
-	},
 /obj/machinery/firealarm{
 	dir = 2;
 	pixel_y = 24
+	},
+/obj/structure/cable{
+	d1 = 2;
+	d2 = 4;
+	icon_state = "2-4";
+	dir = 8
 	},
 /turf/simulated/floor,
 /area/ship/farfleet/maintenance/lower/starboard)
@@ -6561,7 +6634,7 @@
 /obj/item/gun/energy/stunrevolver/rifle,
 /obj/item/gun/energy/stunrevolver/rifle,
 /obj/structure/closet/secure_closet/guncabinet{
-	req_access = list("ACCESS_CAVALRY")
+	req_access = list("ACCESS_ICCGN")
 	},
 /turf/simulated/floor/tiled/dark/monotile,
 /area/ship/farfleet/crew/brig/emergency_armory)
@@ -6747,7 +6820,9 @@
 	icon_state = "4-8";
 	pixel_y = 0
 	},
-/obj/machinery/door/airlock/glass/terran,
+/obj/machinery/door/airlock/glass/terran{
+	req_access = list("ACCESS_ICCGN")
+	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
@@ -6849,6 +6924,7 @@
 	name = "south bump";
 	pixel_y = -25
 	},
+/obj/structure/cable,
 /turf/simulated/floor/tiled,
 /area/ship/farfleet/crew/hallway/lower)
 "Fm" = (
@@ -7135,7 +7211,8 @@
 	id_tag = "missile_launcher_south";
 	name = "Chamber Containment";
 	dir = 8;
-	pixel_x = 22
+	pixel_x = 22;
+	req_access = list("ACCESS_ICCGN")
 	},
 /turf/simulated/floor/tiled,
 /area/ship/farfleet/crew/hallway/lower)
@@ -7397,7 +7474,8 @@
 	dir = 1;
 	name = "north bump";
 	pixel_x = 0;
-	pixel_y = 23
+	pixel_y = 23;
+	req_access = list("ACCESS_ICCGN")
 	},
 /turf/simulated/floor/reinforced,
 /area/ship/farfleet/command/bsd)
@@ -7474,7 +7552,7 @@
 	id_tag = "patrol_dock_airlock";
 	pixel_x = 1;
 	pixel_y = 24;
-	req_access = list("ACCESS_CAVALRY");
+	req_access = list("ACCESS_ICCGN");
 	tag_airpump = "patrol_dock_pump";
 	tag_chamber_sensor = "patrol_dock_sensor";
 	tag_exterior_door = "patrol_dock_outer";
@@ -7525,6 +7603,11 @@
 "LH" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/cable{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
 /turf/simulated/floor/tiled/white,
 /area/ship/farfleet/medbay)
 "LW" = (
@@ -7561,7 +7644,8 @@
 	dir = 4;
 	name = "east bump";
 	pixel_x = 24;
-	pixel_y = 0
+	pixel_y = 0;
+	req_access = list("ACCESS_ICCGN")
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/farfleet/crew/brig/emergency_armory)
@@ -7832,7 +7916,8 @@
 	dir = 4;
 	name = "east bump";
 	pixel_x = 24;
-	pixel_y = 0
+	pixel_y = 0;
+	req_access = list("ACCESS_ICCGN")
 	},
 /obj/structure/cable{
 	d2 = 8;
@@ -7990,7 +8075,8 @@
 	},
 /obj/machinery/power/apc{
 	name = "south bump";
-	pixel_y = -25
+	pixel_y = -25;
+	req_access = list("ACCESS_ICCGN")
 	},
 /turf/simulated/floor,
 /area/ship/farfleet/maintenance/lower/port)
@@ -8019,6 +8105,13 @@
 	d1 = 1;
 	d2 = 4;
 	icon_state = "1-4"
+	},
+/obj/structure/cable{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2";
+	pixel_y = 0;
+	dir = 4
 	},
 /turf/simulated/floor,
 /area/ship/farfleet/maintenance/lower/starboard)
@@ -8100,14 +8193,14 @@
 	icon_state = "1-2";
 	pixel_y = 0
 	},
-/obj/structure/cable{
-	d1 = 1;
-	d2 = 8;
-	icon_state = "1-8";
-	dir = 4
-	},
 /obj/machinery/light{
 	dir = 4
+	},
+/obj/structure/cable{
+	d1 = 2;
+	d2 = 4;
+	icon_state = "2-4";
+	dir = 1
 	},
 /turf/simulated/floor/tiled,
 /area/ship/farfleet/crew/hallway/lower)
@@ -8257,6 +8350,25 @@
 	},
 /turf/simulated/floor,
 /area/ship/farfleet/maintenance/engine/starboard)
+"Ti" = (
+/obj/structure/cable{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/structure/cable{
+	d1 = 2;
+	d2 = 4;
+	icon_state = "2-4"
+	},
+/turf/simulated/floor/tiled,
+/area/ship/farfleet/crew/hallway/lower)
 "Tn" = (
 /obj/machinery/light{
 	dir = 1
@@ -8393,7 +8505,7 @@
 "Uc" = (
 /obj/machinery/pointdefense_control{
 	initial_id_tag = "merc_pd";
-	req_access = list("ACCESS_SYNDICATE")
+	req_access = list("ACCESS_ICCGN")
 	},
 /obj/structure/sign/double/iccgflag/left{
 	dir = 1;
@@ -8485,7 +8597,7 @@
 	id_tag = "bsa_space";
 	name = "Obstruction Field Disperser Space Shield";
 	pixel_x = -24;
-	req_access = list("ACCESS_GUN")
+	req_access = list("ACCESS_ICCGN")
 	},
 /obj/machinery/conveyor_switch{
 	id = "bsa";
@@ -8504,7 +8616,8 @@
 	dir = 4;
 	name = "east bump";
 	pixel_x = 24;
-	pixel_y = 0
+	pixel_y = 0;
+	req_access = list("ACCESS_ICCGN")
 	},
 /obj/structure/cable{
 	d2 = 8;
@@ -8865,7 +8978,8 @@
 	dir = 4;
 	name = "east bump";
 	pixel_x = 24;
-	pixel_y = 0
+	pixel_y = 0;
+	req_access = list("ACCESS_ICCGN")
 	},
 /obj/structure/cable{
 	d1 = 1;
@@ -8900,17 +9014,15 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
-/obj/structure/cable{
-	d1 = 1;
-	d2 = 8;
-	icon_state = "1-8";
-	dir = 4
-	},
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
-	dir = 4
+/obj/machinery/atmospherics/pipe/manifold4w/hidden/scrubbers,
+/obj/structure/cable{
+	d1 = 2;
+	d2 = 4;
+	icon_state = "2-4";
+	dir = 1
 	},
 /turf/simulated/floor/tiled,
 /area/ship/farfleet/engineering/storage)
@@ -8934,9 +9046,9 @@
 "Yr" = (
 /obj/structure/cable{
 	d1 = 2;
-	d2 = 8;
-	icon_state = "2-8";
-	dir = 1
+	d2 = 4;
+	icon_state = "2-4";
+	dir = 4
 	},
 /turf/simulated/floor/bluegrid,
 /area/ship/farfleet/command/bsd)
@@ -15575,7 +15687,7 @@ lN
 af
 DF
 kV
-tb
+ng
 ng
 ng
 MP
@@ -15588,7 +15700,7 @@ oY
 cu
 MP
 Nu
-hi
+Ti
 Fl
 bP
 bP
@@ -15697,7 +15809,7 @@ ng
 ng
 ng
 Se
-tb
+ng
 PR
 sE
 MP
@@ -16065,7 +16177,7 @@ ng
 Rr
 vn
 QI
-vn
+pP
 pi
 db
 dB
@@ -16309,7 +16421,7 @@ aa
 ng
 ng
 Vp
-vn
+pP
 pi
 dg
 vq
@@ -16431,7 +16543,7 @@ aa
 aa
 ng
 ng
-vn
+pP
 UZ
 de
 dC
@@ -16553,7 +16665,7 @@ aa
 aa
 aa
 ng
-vn
+pP
 pi
 HC
 dC
@@ -16675,7 +16787,7 @@ aa
 aa
 aa
 ng
-vn
+pP
 pi
 de
 dC
@@ -16919,7 +17031,7 @@ aa
 aa
 aa
 ng
-vn
+pP
 pi
 cB
 Em
