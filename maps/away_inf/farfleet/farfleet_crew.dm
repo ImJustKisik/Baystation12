@@ -79,7 +79,7 @@
 	extra_details = list("goldstripe")
 
 /obj/item/card/id/awayiccgn/fleet/captain
-	access = list(access_away_iccgn, access_away_iccgn_droptroops, access_away_iccgn_captain)
+	access = list(access_away_iccgn, access_away_iccgn_droptroops, access_away_iccgn_sergeant, access_away_iccgn_captain)
 	extra_details = list("goldstripe")
 
 /* JOBS
@@ -151,7 +151,7 @@
 					 SKILL_MEDICAL = SKILL_BASIC,
 					 SKILL_PILOT = SKILL_ADEPT,
 					 SKILL_EVA = SKILL_BASIC)
-	access = list(access_away_iccgn, access_away_iccgn_droptroops, access_away_iccgn_captain)
+	access = list(access_away_iccgn, access_away_iccgn_droptroops, access_away_iccgn_sergeant, access_away_iccgn_captain)
 	//required_role = null
 
 /datum/job/submap/iccgn_medic

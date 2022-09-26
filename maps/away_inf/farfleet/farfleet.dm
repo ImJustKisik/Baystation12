@@ -22,8 +22,8 @@
 	vessel_mass = 500
 	known_ships = list(/obj/effect/overmap/visitable/ship/landable/snz)
 	vessel_size = SHIP_SIZE_SMALL
-	start_x = 1
-	start_y = 1
+	start_x = 40
+	start_y = 40
 
 	initial_generic_waypoints = list(
 		"nav_farfleet_1",
