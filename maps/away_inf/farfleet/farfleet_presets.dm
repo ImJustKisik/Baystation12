@@ -95,6 +95,35 @@
 	_output_on = TRUE
 	_fully_charged = TRUE
 
+/obj/machinery/power/smes/buildable/preset/farfleet/engine_main/on_update_icon()
+
+	icon = 'icons/obj/smes.dmi'
+
+	overlays.Cut()
+	if(stat & BROKEN)	return
+
+	if(inputting == 2)
+		overlays += overlay_image(icon, "input-2", plane = EFFECTS_ABOVE_LIGHTING_PLANE, layer = ABOVE_LIGHTING_LAYER)
+	else if (inputting == 1)
+		overlays += overlay_image(icon, "input-1", plane = EFFECTS_ABOVE_LIGHTING_PLANE, layer = ABOVE_LIGHTING_LAYER)
+	else if (input_attempt)
+		overlays += overlay_image(icon, "input-0", plane = EFFECTS_ABOVE_LIGHTING_PLANE, layer = ABOVE_LIGHTING_LAYER)
+	else
+		overlays += overlay_image(icon, "input-off", plane = EFFECTS_ABOVE_LIGHTING_PLANE, layer = ABOVE_LIGHTING_LAYER)
+
+	var/clevel = chargedisplay()
+	if(clevel)
+		overlays += overlay_image(icon, "og[clevel]", plane = EFFECTS_ABOVE_LIGHTING_PLANE, layer = ABOVE_LIGHTING_LAYER)
+
+	if(outputting == 2)
+		overlays += overlay_image(icon, "output2", plane = EFFECTS_ABOVE_LIGHTING_PLANE, layer = ABOVE_LIGHTING_LAYER)
+	else if (outputting == 1)
+		overlays += overlay_image(icon, "output1", plane = EFFECTS_ABOVE_LIGHTING_PLANE, layer = ABOVE_LIGHTING_LAYER)
+	else
+		overlays += overlay_image(icon, "output0", plane = EFFECTS_ABOVE_LIGHTING_PLANE, layer = ABOVE_LIGHTING_LAYER)
+	if(panel_open)
+		overlays += overlay_image(icon, "smes-panel")
+
 /obj/machinery/power/smes/buildable/preset/farfleet/snz
 	uncreated_component_parts = list(/obj/item/stock_parts/smes_coil = 1)
 	_input_maxed = TRUE

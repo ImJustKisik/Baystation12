@@ -26,7 +26,8 @@
 
 /obj/structure/closet/secure_closet/guncabinet/farfleet/defence/WillContain()
 	return list(
-		/obj/item/ammo_casing/rifle = 8,
+		/obj/item/ammo_magazine/speedloader/clip = 6,
+		/obj/item/ammo_magazine/pistol/double = 6,
 		/obj/item/gun/projectile/heavysniper/boltaction = 2,
 		/obj/item/clothing/accessory/storage/bandolier = 1,
 		/obj/item/gun/projectile/shotgun/pump = 1,

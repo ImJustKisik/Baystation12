@@ -19,7 +19,7 @@
 	contact_class = /decl/ship_contact_class/nagashino
 	color = "#fc7a00"
 	fore_dir = WEST
-	vessel_mass = 500
+	vessel_mass = 5000
 	known_ships = list(/obj/effect/overmap/visitable/ship/landable/snz)
 	vessel_size = SHIP_SIZE_SMALL
 	start_x = 40
@@ -114,7 +114,7 @@
 	icon_state = "sec_cypherkey"
 	channels = list("ICCGN Farfleet" = 1)
 
-/decl/ship_contact_class/nagashino
+/decl/ship_contact_class/gagarin
 	class_short = "FRC"
 	class_long = "Gagarin-Class recon craft"
 	max_ship_mass = 5000

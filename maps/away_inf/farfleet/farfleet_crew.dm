@@ -100,7 +100,7 @@
 	 Вам крайне нежелательно приближаться к кораблям и станциям с опозновательными знаками, или вступать в огневой контакт с кораблями или войсками ЦПСС без разрешения от командования группировкой. \
 	 Исключением являются те ситуации, когда вы атакованы противником, терпите бедствие или на вашем судне аварийная ситуация."
 	required_language = LANGUAGE_HUMAN_RUSSIAN
-	whitelisted_species = list(SPECIES_HUMAN)
+	whitelisted_species = list(SPECIES_HUMAN, SPECIES_IPC)
 	min_skill = list(SKILL_COMBAT  = SKILL_BASIC,
 					 SKILL_WEAPONS = SKILL_BASIC,
 					 SKILL_HAULING = SKILL_BASIC,
@@ -145,6 +145,8 @@
 	\
 	 Вам крайне нежелательно приближаться к кораблям и станциям с опозновательными знаками, или вступать в огневой контакт с кораблями или войсками ЦПСС без разрешения от командования группировкой. \
 	 Исключением являются те ситуации, когда вы атакованы противником, терпите бедствие или на вашем судне аварийная ситуация."
+	required_language = LANGUAGE_HUMAN_RUSSIAN
+	whitelisted_species = list(SPECIES_HUMAN)
 	min_skill = list(SKILL_COMBAT  = SKILL_BASIC,
 					 SKILL_WEAPONS = SKILL_BASIC,
 					 SKILL_HAULING = SKILL_BASIC,
@@ -164,6 +166,8 @@
 	\
 	 Вам крайне нежелательно приближаться к кораблям и станциям с опозновательными знаками, или вступать в огневой контакт с кораблями или войсками ЦПСС без разрешения от командования группировкой. \
 	 Исключением являются те ситуации, когда вы атакованы противником, терпите бедствие или на вашем судне аварийная ситуация."
+	required_language = LANGUAGE_HUMAN_RUSSIAN
+	whitelisted_species = list(SPECIES_HUMAN, SPECIES_IPC)
 	min_skill = list(SKILL_COMBAT  = SKILL_BASIC,
 					 SKILL_WEAPONS = SKILL_BASIC,
 					 SKILL_HAULING = SKILL_ADEPT,
@@ -184,6 +188,8 @@
 	\
 	 Вам крайне нежелательно приближаться к кораблям и станциям с опозновательными знаками, или вступать в огневой контакт с кораблями или войсками ЦПСС без разрешения от командования группировкой. \
 	 Исключением являются те ситуации, когда вы атакованы противником,  терпите бедствие или на вашем судне аварийная ситуация."
+	required_language = LANGUAGE_HUMAN_RUSSIAN
+	whitelisted_species = list(SPECIES_HUMAN, SPECIES_IPC)
 	min_skill = list(SKILL_COMBAT  = SKILL_BASIC,
 					 SKILL_WEAPONS = SKILL_BASIC,
 					 SKILL_HAULING = SKILL_ADEPT,

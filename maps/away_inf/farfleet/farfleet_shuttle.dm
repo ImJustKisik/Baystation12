@@ -1,12 +1,13 @@
 /datum/shuttle/autodock/overmap/snz
 	name = "SNZ Speedboat"
-	warmup_time = 15
+	warmup_time = 5
 	current_location = "nav_dock_snz"
-	range = 2
+	range = 1
+	fuel_consumption = 7
 	shuttle_area = /area/ship/snz
 	defer_initialisation = TRUE
 	flags = SHUTTLE_FLAGS_PROCESS
-	skill_needed = SKILL_NONE
+	skill_needed = SKILL_BASIC
 	ceiling_type = /turf/simulated/floor/shuttle_ceiling/merc
 
 /obj/machinery/computer/shuttle_control/explore/away_farfleet/snz
@@ -21,10 +22,11 @@
 [i]Transponder[/i]: Transmitting (MIL), ICCG
 [b]Notice[/b]: SNZ-250 Speedboat. Space and atmosphere assault craft. The standard mass military production model of the Shipyards of Novaya Zemlya."}
 	shuttle = "SNZ Speedboat"
-	fore_dir = WEST
+	fore_dir = NORTH
 	color = "#ff7300"
-	vessel_mass = 250
-	vessel_size = SHIP_SIZE_TINY
+	vessel_mass = 5000
+	vessel_size = SHIP_SIZE_SMALL
+	contact_class = /decl/ship_contact_class/destroyer_escort
 
 /area/ship/snz
 	name = "\improper SNZ"
