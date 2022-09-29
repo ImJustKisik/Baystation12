@@ -22,7 +22,7 @@
 [b]Notice[/b]: SNZ-250 Speedboat. Space and atmosphere assault craft. The standard mass military production model of the Shipyards of Novaya Zemlya."}
 	shuttle = "SNZ Speedboat"
 	fore_dir = WEST
-	color = "#000000"
+	color = "#ff7300"
 	vessel_mass = 250
 	vessel_size = SHIP_SIZE_TINY
 
@@ -36,7 +36,7 @@
 
 /obj/effect/shuttle_landmark/snz/start
 	name = "Dock"
-	landmark_tag = "nav_dock_farfleet_snz"
+	landmark_tag = "nav_dock_snz"
 	base_area = /area/ship/farfleet/command/snz_exterior_dock
 	base_turf = /turf/simulated/floor/reinforced
 	movable_flags = MOVABLE_FLAG_EFFECTMOVE
