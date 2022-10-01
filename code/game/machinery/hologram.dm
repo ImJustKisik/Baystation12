@@ -74,13 +74,14 @@ var/const/HOLOPAD_MODE = RANGE_BASED
 	if(stat & NOPOWER)
 		for(var/mob/M in masters)
 			remove_holo(M)
-		end_call()
+		if(connected)
+			end_call()
 		update_use_power(POWER_USE_OFF)
 	else
 		update_use_power(POWER_USE_IDLE)
 
 /obj/machinery/hologram/holopad/attack_hand(var/mob/living/carbon/human/user) //Carn: Hologram requests.
-	if(!istype(user))
+	if(!istype(user) && !isrobot(user))
 		return
 	if(stat & NOPOWER)
 		return
@@ -117,6 +118,7 @@ var/const/HOLOPAD_MODE = RANGE_BASED
 				to_chat(user, "<span class='info'>Please step onto the holopad.</span>")
 				return
 			if(last_request + 200 < world.time) //don't spam other people with requests either, you jerk!
+				last_request = world.time
 				var/list/holopadlist = list()
 				var/zlevels = GetConnectedZlevels(z)
 				if(GLOB.using_map.use_overmap && map_range >= 0)
@@ -145,7 +147,6 @@ var/const/HOLOPAD_MODE = RANGE_BASED
 				if(targetpad.connected)
 					to_chat(user, "<span class='info'>The pad flashes a busy sign. Maybe you should try again later..</span>")
 					return
-				last_request = world.time
 				make_call(targetpad, conference ? null : user)
 			else
 				to_chat(user, "<span class='notice'>A request for holographic communication was already sent recently.</span>")
@@ -216,6 +217,9 @@ var/const/HOLOPAD_MODE = RANGE_BASED
 		remove_holo(user)
 	return
 
+/obj/machinery/hologram/holopad/attack_robot(var/mob/user)
+	if(Adjacent(user))
+		attack_hand(user)
 
 //HOLOGRAM STUFF//
 
