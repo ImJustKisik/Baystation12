@@ -17,6 +17,7 @@
 	var/listening = 1
 	var/list/channels = list() //see communications.dm for full list. First channel is a "default" for :h
 	var/subspace_transmission = 0
+	var/bluespace_radio = FALSE //can work across all Z levels
 	var/syndie = 0//Holder to see if it's a syndicate encrypted radio
 	var/intercept = 0 //can intercept other channels
 	obj_flags = OBJ_FLAG_CONDUCTIBLE
@@ -538,10 +539,12 @@
 	// Send a mundane broadcast with limited targets:
 
 	//THIS IS TEMPORARY. YEAH RIGHT
-	if(!connection)	return 0	//~Carn
+	if(!connection)	return FALSE	//~Carn
+
+	var/target_levels = bluespace_radio ? GetConnectedZlevels(position.z) : list(0)
 	return Broadcast_Message(connection, M, voicemask, pick(M.speak_emote),
 					  src, message, displayname, jobname, real_name, M.voice_name,
-					  filter_type, signal.data["compression"], GetConnectedZlevels(position.z), connection.frequency, verb, speaking,
+					  filter_type, signal.data["compression"], target_levels, connection.frequency, verb, speaking,
 					  "[connection.frequency]", channel_color_presets["Menacing Maroon"])
 
 
@@ -564,7 +567,7 @@
 		return -1
 	if(!(0 in level))
 		var/turf/position = get_turf(src)
-		if(!position || !(position.z in level))
+		if((!position || !(position.z in level)) && !bluespace_radio)
 			return -1
 	if(freq in ANTAG_FREQS)
 		if(!(src.syndie))//Checks to see if it's allowed on that frequency, based on the encryption keys
@@ -940,3 +943,132 @@
 
 /obj/item/device/radio/exosuit/ui_interact(mob/user, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = 1, datum/nanoui/master_ui = null, var/datum/topic_state/state = GLOB.mech_state)
 	. = ..()
+
+/obj/item/device/subspaceradio
+	name = "subspace radio"
+	desc = "This long range communications device has the ability to send and recieve transmissions from anywhere."
+	icon = 'icons/obj/radiopack.dmi'
+	icon_override = 'icons/mob/onmob/onmob_back.dmi'
+	icon_state = "radiopack"
+	item_state = "radiopack"
+	slot_flags = SLOT_BACK
+	force = 5
+	throwforce = 6
+	w_class = ITEM_SIZE_LARGE
+	action_button_name = "Remove/Replace Handset"
+
+	var/obj/item/device/radio/subspacehandset/linked/handset
+
+/obj/item/device/subspaceradio/Initialize()
+	. = ..()
+	if(ispath(handset))
+		handset = new handset(src, src)
+	else
+		handset = new(src, src)
+
+/obj/item/device/subspaceradio/Destroy()
+	. = ..()
+	QDEL_NULL(handset)
+
+/obj/item/device/subspaceradio/ui_action_click()
+	toggle_handset()
+
+/obj/item/device/subspaceradio/attack_hand(mob/user)
+	if(loc == user)
+		toggle_handset()
+	else
+		..()
+
+/obj/item/device/subspaceradio/MouseDrop()
+	if(ismob(loc))
+		if(!CanMouseDrop(src))
+			return
+		var/mob/M = loc
+		if(!M.unEquip(src))
+			return
+		src.add_fingerprint(usr)
+		M.put_in_any_hand_if_possible(src)
+
+/obj/item/device/subspaceradio/attackby(obj/item/W, mob/user, params)
+	if(W == handset)
+		reattach_handset(user)
+	else
+		return ..()
+
+/obj/item/device/subspaceradio/verb/toggle_handset()
+	set name = "Toggle Handset"
+	set category = "Object"
+
+	var/mob/living/carbon/human/user = usr
+	if(!handset)
+		to_chat(user, SPAN_WARNING("The handset is missing!"))
+		return
+
+	if(handset.loc != src)
+		reattach_handset(user) //Remove from their hands and back onto the defib unit
+		return
+
+	if(!slot_check())
+		to_chat(user, SPAN_WARNING("You need to equip [src] before taking out [handset]."))
+	else
+		if(!usr.put_in_hands(handset)) //Detach the handset into the user's hands
+			to_chat(user, SPAN_WARNING("You need a free hand to hold the handset!"))
+		update_icon() //success
+
+//checks that the base unit is in the correct slot to be used
+/obj/item/device/subspaceradio/proc/slot_check()
+	var/mob/M = loc
+	if(!istype(M))
+		return FALSE //not equipped
+
+	if((slot_flags & SLOT_BACK) && M.get_equipped_item(slot_back) == src)
+		return TRUE
+	if((slot_flags & SLOT_BELT) && M.get_equipped_item(slot_belt) == src)
+		return TRUE
+
+	return FALSE
+
+/obj/item/device/subspaceradio/dropped(mob/user)
+	..()
+	reattach_handset(user) //handset attached to a base unit should never exist outside of their base unit or the mob equipping the base unit
+
+/obj/item/device/subspaceradio/proc/reattach_handset(mob/user)
+	if(!handset) return
+
+	if(ismob(handset.loc))
+		var/mob/M = handset.loc
+		if(M.drop_from_inventory(handset, src))
+			to_chat(user, SPAN_NOTICE("\The [handset] snaps back into the main unit."))
+	else
+		handset.forceMove(src)
+
+//Subspace Radio Handset
+/obj/item/device/radio/subspacehandset
+	name = "subspace radio handset"
+	desc = "A large walkie talkie attached to the subspace radio by a retractable cord. It sits comfortably on a slot in the radio when not in use."
+	icon_state = "signaller"
+	slot_flags = 0
+	w_class = ITEM_SIZE_LARGE
+	power_usage = 7
+	on = 1
+	bluespace_radio = TRUE
+
+/obj/item/device/radio/subspacehandset/linked
+	var/obj/item/device/subspaceradio/base_unit
+
+/obj/item/device/radio/subspacehandset/linked/New(newloc, obj/item/device/subspaceradio/radio)
+	base_unit = radio
+	..(newloc)
+
+/obj/item/device/radio/subspacehandset/linked/Destroy()
+	if(base_unit)
+		//ensure the base unit's icon updates
+		if(base_unit.handset == src)
+			base_unit.handset = null
+		base_unit = null
+	return ..()
+
+/obj/item/device/radio/subspacehandset/linked/dropped(mob/user)
+	..() //update twohanding
+	if(base_unit)
+		base_unit.reattach_handset(user) //handset attached to a base unit should never exist outside of their base unit or the mob equipping the base unit
