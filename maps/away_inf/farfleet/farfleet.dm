@@ -19,11 +19,11 @@
 	contact_class = /decl/ship_contact_class/nagashino
 	color = "#fc7a00"
 	fore_dir = WEST
-	vessel_mass = 5000
+	vessel_mass = 10000
 	known_ships = list(/obj/effect/overmap/visitable/ship/landable/snz)
 	vessel_size = SHIP_SIZE_SMALL
-	start_x = 40
-	start_y = 40
+	start_x = 39
+	start_y = 39
 
 	initial_generic_waypoints = list(
 		"nav_farfleet_1",

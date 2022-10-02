@@ -4,7 +4,10 @@
 	current_location = "nav_dock_snz"
 	range = 1
 	fuel_consumption = 7
-	shuttle_area = /area/ship/snz
+	shuttle_area = list(/area/map_template/snz)
+	dock_target = "snz_shuttle"
+	current_location = "nav_dock_snz"
+	defer_initialisation = TRUE
 	defer_initialisation = TRUE
 	flags = SHUTTLE_FLAGS_PROCESS
 	skill_needed = SKILL_BASIC
@@ -24,24 +27,21 @@
 	shuttle = "SNZ Speedboat"
 	fore_dir = NORTH
 	color = "#ff7300"
-	vessel_mass = 5000
+	vessel_mass = 7000
 	vessel_size = SHIP_SIZE_SMALL
 	contact_class = /decl/ship_contact_class/destroyer_escort
 
-/area/ship/snz
-	name = "\improper SNZ"
-	icon_state = "iccgn-snz-250"
-	base_turf = /turf/simulated/floor
-	requires_power = 1
-	dynamic_lighting = 1
-	area_flags = AREA_FLAG_RAD_SHIELDED
+/area/map_template/snz
+	name = "\improper Fore Compartment"
+	icon_state = "yellow"
+	area_flags = AREA_FLAG_RAD_SHIELDED | AREA_FLAG_ION_SHIELDED
+	req_access = list(access_away_iccgn)
 
 /obj/effect/shuttle_landmark/snz/start
 	name = "Dock"
 	landmark_tag = "nav_dock_snz"
-	base_area = /area/ship/farfleet/command/snz_exterior_dock
+	docking_controller = "snz_dock"
 	base_turf = /turf/simulated/floor/reinforced
-	movable_flags = MOVABLE_FLAG_EFFECTMOVE
 
 /obj/effect/shuttle_landmark/snz/altdock
 	name = "Docking Port"

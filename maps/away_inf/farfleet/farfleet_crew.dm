@@ -16,6 +16,12 @@
 	)
 	call_webhook = WEBHOOK_SUBMAP_LOADED_ICCGN
 
+/decl/submap_archetype/away_iccgn_farfleet/New()
+	. = ..()
+	GLOB.using_map.map_admin_faxes.Add("ICCGN Farfleet Headquarters")
+	for(var/obj/machinery/photocopier/faxmachine/fax in SSmachines.machinery)
+		fax.admin_departments += "ICCGN Farfleet Headquarters"
+
 /obj/effect/submap_landmark/spawnpoint/away_iccg
 	name = "Army SCGSO Trooper"
 	movable_flags = MOVABLE_FLAG_EFFECTMOVE

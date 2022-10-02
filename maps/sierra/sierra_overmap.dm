@@ -21,6 +21,7 @@
 		"Guppy" = list("nav_hangar_guppy"),
 		"Mule" = list("nav_merchant_out"), //away_inf/liberia/liberia.dmm shuttle,
 		"Desperado" = list("nav_merc_dock"), //antag_spawn/mercenary/mercenary_inf.dmm shuttle,
+		"SNZ-250" = list("nav_merc_dock"), //antag_spawn/farfleet/farfleet.dmm shuttle,
 		"Reaper Gunboat" = list("nav_reaper_dock"), //away_inf/sentinel/sentinel.dmm shuttle,
 		"Sol Patrol Shuttle" = list("nav_deck3_patrol"), //away_inf/patrol/patrol.dmm shuttle,
 		"Skrellian Shuttle" = list("nav_deck3_skrellshuttle"), //away_inf/skrellscoutship.dm shuttle,
