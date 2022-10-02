@@ -118,6 +118,7 @@ var/const/DTH_FREQ	= 1341
 var/const/SYND_FREQ = 1213
 var/const/RAID_FREQ	= 1277
 var/const/ENT_FREQ	= 1461 //entertainment frequency. This is not a diona exclusive frequency.
+var/const/ICCGN_FREQ = 1344
 
 // department channels
 var/const/PUB_FREQ = 1459
@@ -169,12 +170,13 @@ var/list/radiochannels = list(
 	"AI Private"	= AI_FREQ,
 	"Entertainment" = ENT_FREQ,
 //[INF]
-	"Farfleet"		= ICCG_FREQ,
+	"ICCG"			= ICCG_FREQ,
 	"CCA EC"        = TAJSCISHIP_FREQ,
 	"SCG Patrol"	= SCG_FREQ,
 //[/INF]
 	"Medical (I)"	= MED_I_FREQ,
-	"Security (I)"	= SEC_I_FREQ
+	"Security (I)"	= SEC_I_FREQ,
+	"ICGN"   = ICCGN_FREQ
 )
 
 var/list/channel_color_presets = list(

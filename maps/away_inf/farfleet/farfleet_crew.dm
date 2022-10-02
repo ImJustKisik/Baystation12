@@ -262,7 +262,7 @@
 	hierarchy_type = /decl/hierarchy/outfit/job/iccgn
 	uniform = /obj/item/clothing/under/terran/navy/utility
 	shoes = /obj/item/clothing/shoes/terran
-	l_ear = /obj/item/device/radio/headset/away_iccg_recon
+	l_ear = /obj/item/device/radio/headset/iccgn
 	l_pocket = /obj/item/device/radio
 	r_pocket = /obj/item/crowbar/prybar
 	suit_store = /obj/item/tank/oxygen

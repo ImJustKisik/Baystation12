@@ -91,28 +91,31 @@
  * ======
  */
 
-/obj/machinery/telecomms/allinone/away_iccg_recon
-	listening_freqs = list(ICCG_FREQ)
-	channel_color = COMMS_COLOR_COMMAND
-	channel_name = "ICCGN Farfleet"
-	circuitboard = /obj/item/stock_parts/circuitboard/telecomms/allinone/away_iccg_recon
+/obj/machinery/telecomms/allinone/iccgn
+	listening_freqs = list(ICCGN_FREQ)
+	channel_color = COMMS_COLOR_ICCG
+	channel_name = "ICGN"
+	circuitboard = /obj/item/stock_parts/circuitboard/telecomms/allinone/iccgn
 
-/obj/item/stock_parts/circuitboard/telecomms/allinone/away_iccg_recon
-	build_path = /obj/machinery/telecomms/allinone/away_iccg_recon
 
-/obj/item/device/radio/headset/away_iccg_recon
-	name = "ICCGN farfleet headset"
-	icon_state = "sec_headset"
-	ks1type = /obj/item/device/encryptionkey/away_iccg_recon
+//Items
+/obj/item/device/radio/headset/iccgn
+	name = "iccgn headset"
+	desc = "Headset belonging to an ICCGN operative."
+	icon_state = "syndie_headset"
+	item_state = "headset"
+	ks1type = /obj/item/device/encryptionkey/iccgn
 
-/obj/item/device/radio/headset/away_iccg_recon/Initialize()
+/obj/item/device/radio/headset/iccgn/Initialize()
 	. = ..()
-	set_frequency(ICCG_FREQ)	//Not going to be random or just set to the common frequency, but can be set later.
+	set_frequency(ICCGN_FREQ)
 
-/obj/item/device/encryptionkey/away_iccg_recon
-	name = "ICCGN farfleet radio encryption key"
-	icon_state = "sec_cypherkey"
-	channels = list("ICCGN Farfleet" = 1)
+/obj/item/device/encryptionkey/iccgn
+	name = "\improper ICCGN radio encryption key"
+	channels = list("ICCGN" = 1)
+
+/obj/item/stock_parts/circuitboard/telecomms/allinone/iccgn
+	build_path = /obj/machinery/telecomms/allinone/iccgn
 
 /decl/ship_contact_class/gagarin
 	class_short = "FRC"
