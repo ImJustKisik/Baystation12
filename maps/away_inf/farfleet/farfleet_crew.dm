@@ -16,6 +16,12 @@
 	)
 	call_webhook = WEBHOOK_SUBMAP_LOADED_ICCGN
 
+/decl/submap_archetype/away_iccgn_farfleet/New()
+	. = ..()
+	GLOB.using_map.map_admin_faxes.Add("ICCGN Farfleet Headquarters")
+	for(var/obj/machinery/photocopier/faxmachine/fax in SSmachines.machinery)
+		fax.admin_departments += "ICCGN Farfleet Headquarters"
+
 /obj/effect/submap_landmark/spawnpoint/away_iccg
 	name = "Army SCGSO Trooper"
 	movable_flags = MOVABLE_FLAG_EFFECTMOVE
@@ -100,7 +106,7 @@
 	 Вам крайне нежелательно приближаться к кораблям и станциям с опозновательными знаками, или вступать в огневой контакт с кораблями или войсками ЦПСС без разрешения от командования группировкой. \
 	 Исключением являются те ситуации, когда вы атакованы противником, терпите бедствие или на вашем судне аварийная ситуация."
 	required_language = LANGUAGE_HUMAN_RUSSIAN
-	whitelisted_species = list(SPECIES_HUMAN)
+	whitelisted_species = list(SPECIES_HUMAN, SPECIES_IPC)
 	min_skill = list(SKILL_COMBAT  = SKILL_BASIC,
 					 SKILL_WEAPONS = SKILL_BASIC,
 					 SKILL_HAULING = SKILL_BASIC,
@@ -145,6 +151,8 @@
 	\
 	 Вам крайне нежелательно приближаться к кораблям и станциям с опозновательными знаками, или вступать в огневой контакт с кораблями или войсками ЦПСС без разрешения от командования группировкой. \
 	 Исключением являются те ситуации, когда вы атакованы противником, терпите бедствие или на вашем судне аварийная ситуация."
+	required_language = LANGUAGE_HUMAN_RUSSIAN
+	whitelisted_species = list(SPECIES_HUMAN)
 	min_skill = list(SKILL_COMBAT  = SKILL_BASIC,
 					 SKILL_WEAPONS = SKILL_BASIC,
 					 SKILL_HAULING = SKILL_BASIC,
@@ -164,6 +172,8 @@
 	\
 	 Вам крайне нежелательно приближаться к кораблям и станциям с опозновательными знаками, или вступать в огневой контакт с кораблями или войсками ЦПСС без разрешения от командования группировкой. \
 	 Исключением являются те ситуации, когда вы атакованы противником, терпите бедствие или на вашем судне аварийная ситуация."
+	required_language = LANGUAGE_HUMAN_RUSSIAN
+	whitelisted_species = list(SPECIES_HUMAN, SPECIES_IPC)
 	min_skill = list(SKILL_COMBAT  = SKILL_BASIC,
 					 SKILL_WEAPONS = SKILL_BASIC,
 					 SKILL_HAULING = SKILL_ADEPT,
@@ -184,6 +194,8 @@
 	\
 	 Вам крайне нежелательно приближаться к кораблям и станциям с опозновательными знаками, или вступать в огневой контакт с кораблями или войсками ЦПСС без разрешения от командования группировкой. \
 	 Исключением являются те ситуации, когда вы атакованы противником,  терпите бедствие или на вашем судне аварийная ситуация."
+	required_language = LANGUAGE_HUMAN_RUSSIAN
+	whitelisted_species = list(SPECIES_HUMAN, SPECIES_IPC)
 	min_skill = list(SKILL_COMBAT  = SKILL_BASIC,
 					 SKILL_WEAPONS = SKILL_BASIC,
 					 SKILL_HAULING = SKILL_ADEPT,
