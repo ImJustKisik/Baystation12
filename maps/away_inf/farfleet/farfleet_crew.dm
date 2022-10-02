@@ -260,8 +260,8 @@
 
 /decl/hierarchy/outfit/job/iccgn
 	hierarchy_type = /decl/hierarchy/outfit/job/iccgn
-	uniform = /obj/item/clothing/under/terran/navy/utility
-	shoes = /obj/item/clothing/shoes/terran
+	uniform = /obj/item/clothing/under/iccgn/utility
+	shoes = /obj/item/clothing/shoes/iccgn/utility
 	l_ear = /obj/item/device/radio/headset/iccgn
 	l_pocket = /obj/item/device/radio
 	r_pocket = /obj/item/crowbar/prybar
@@ -276,40 +276,43 @@
 
 /decl/hierarchy/outfit/job/iccgn/iccgn_droptroops
 	name = ICCGN_OUTFIT_JOB_NAME("Droptrooper")
-	head = /obj/item/clothing/head/terran/beret/grey
-	uniform = /obj/item/clothing/under/solgov/utility/army/urban/away_solpatrol
+	head = /obj/item/clothing/head/iccgn/beret
+	uniform = /obj/item/clothing/under/iccgn/pt
 	id_types = list(/obj/item/card/id/farfleet/droptroops)
 	belt = /obj/item/storage/belt/holster/security/farfleet
 	gloves = /obj/item/clothing/gloves/thick/combat/marine
 
 /decl/hierarchy/outfit/job/iccgn/iccgn_sergeant
 	name = ICCGN_OUTFIT_JOB_NAME("Droptroops Sergeant")
-	head = /obj/item/clothing/head/terran/beret
-	uniform = /obj/item/clothing/under/solgov/utility/army/urban/away_solpatrol/captain
+	head = /obj/item/clothing/head/iccgn/beret
+	uniform = /obj/item/clothing/under/iccgn/pt
+	suit= /obj/item/clothing/suit/iccgn/dress_enlisted
 	id_types = list(/obj/item/card/id/farfleet/droptroops/sergeant)
 	belt = /obj/item/storage/belt/holster/security/farfleet
 	gloves = /obj/item/clothing/gloves/thick/combat/marine
 
 /decl/hierarchy/outfit/job/iccgn/iccgn_gunner
 	name = ICCGN_OUTFIT_JOB_NAME("Ordnance Technician")
-	head = /obj/item/clothing/head/terran/navy/service
-	uniform = /obj/item/clothing/under/solgov/utility/fleet/engineering/away_solpatrol
+	head = /obj/item/clothing/head/iccgn/service
+	uniform = /obj/item/clothing/under/iccgn/utility
 	belt = /obj/item/storage/belt/holster/security/farfleet
 	gloves = /obj/item/clothing/gloves/insulated/black
 
 /decl/hierarchy/outfit/job/iccgn/iccgn_medic
 	name = ICCGN_OUTFIT_JOB_NAME("Doctor")
-	uniform = /obj/item/clothing/head/terran/navy/service
+	head = /obj/item/clothing/head/iccgn/service
+	uniform = /obj/item/clothing/under/iccgn/utility
 	belt = /obj/item/storage/belt/holster/security/farfleet
 	gloves = /obj/item/clothing/gloves/latex/nitrile
 
 /decl/hierarchy/outfit/job/iccgn/iccgn_captain
 	name = ICCGN_OUTFIT_JOB_NAME("Lieutenant Commander")
-	head = /obj/item/clothing/head/terran/navy/service/command
-	uniform = /obj/item/clothing/under/solgov/utility/fleet/officer/command/commander/away_solpatrol
+	head = /obj/item/clothing/head/iccgn/service_command
+	uniform = /obj/item/clothing/under/iccgn/service_command
+	suit = /obj/item/clothing/suit/iccgn/service_command
+	shoes = /obj/item/clothing/shoes/iccgn/service
+	gloves = /obj/item/clothing/gloves/iccgn/duty
 	belt = /obj/item/storage/belt/holster/security/farfleet
-	id_types = list(/obj/item/card/id/awayiccgn/fleet/captain)
-	gloves = /obj/item/clothing/gloves/terran
 
 #undef ICCGN_OUTFIT_JOB_NAME
 #undef WEBHOOK_SUBMAP_LOADED_ICCGN

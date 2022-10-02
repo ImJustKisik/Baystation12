@@ -2037,11 +2037,8 @@
 /turf/simulated/floor/tiled/techfloor,
 /area/map_template/snz)
 "eq" = (
-/obj/structure/lift/button{
-	dir = 1;
-	pixel_y = -33
-	},
 /obj/effect/floor_decal/corner/darkblue/half,
+/obj/machinery/light,
 /turf/simulated/floor/tiled,
 /area/ship/farfleet/crew/hallway/upper)
 "er" = (
@@ -2856,7 +2853,7 @@
 /area/map_template/snz)
 "gD" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/machinery/telecomms/allinone/away_iccg_recon,
+/obj/machinery/telecomms/allinone/iccgn,
 /turf/simulated/floor/tiled/techfloor/grid,
 /area/map_template/snz)
 "gE" = (
@@ -6042,11 +6039,12 @@
 /turf/simulated/floor/tiled/freezer,
 /area/ship/farfleet/crew/freezer)
 "Kr" = (
-/obj/machinery/door/firedoor,
-/obj/effect/floor_decal/industrial/warning/half{
-	dir = 4
+/obj/effect/floor_decal/corner/darkblue/half{
+	dir = 1
 	},
-/obj/machinery/light,
+/obj/structure/sign/iccg{
+	pixel_y = 32
+	},
 /turf/simulated/floor/tiled,
 /area/ship/farfleet/crew/hallway/upper)
 "Ks" = (
@@ -13908,11 +13906,11 @@ wj
 wj
 wj
 wj
-wj
+Oy
 tu
 dV
-Kr
-mc
+dv
+Oy
 eF
 RM
 nq
@@ -14033,7 +14031,7 @@ zK
 wj
 QU
 Uy
-OL
+eq
 mc
 mc
 mc
@@ -14277,7 +14275,7 @@ sc
 iR
 wZ
 Uy
-lU
+OL
 eG
 Jz
 UW
@@ -14641,9 +14639,9 @@ bP
 bP
 xl
 wj
-wZ
+Kr
 Uy
-OL
+eq
 eG
 hC
 hE
@@ -14762,11 +14760,11 @@ wj
 bz
 wj
 wj
-wj
+Oy
 Ri
 dV
 bZ
-eG
+Oy
 eG
 eG
 eG
@@ -14887,7 +14885,7 @@ KF
 iw
 wZ
 Uy
-lU
+OL
 Oy
 fJ
 fJ
@@ -16226,11 +16224,11 @@ Du
 Du
 Du
 Du
-Du
+Oy
 dv
 dV
 dv
-fw
+Oy
 fw
 fw
 fw
@@ -17324,11 +17322,11 @@ HZ
 EG
 aM
 cM
-dc
+Oy
 dv
 dV
 dv
-fw
+Oy
 fk
 Nu
 Le

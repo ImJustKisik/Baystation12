@@ -93,7 +93,6 @@
 		/obj/item/storage/firstaid/individual/military,
 		/obj/item/device/megaphone,
 		/obj/item/clothing/mask/balaclava,
-		/obj/item/clothing/accessory/armor/tag/solgov/com,
 		/obj/item/storage/fancy/cigarettes/case,
 		/obj/item/flame/lighter/zippo/gunmetal,
 		/obj/item/clothing/mask/gas/alt,
@@ -168,8 +167,6 @@
 	name = "captain cabinet"
 	closet_appearance = /decl/closet_appearance/secure_closet/farfleet
 	req_access = list(access_away_iccgn, access_away_iccgn_captain)
-
-/obj/structure/closet/secure_closet/patrol/fleet_com/WillContain()
 	return list(
 		/obj/item/melee/telebaton,
 		/obj/item/storage/firstaid/individual/military,

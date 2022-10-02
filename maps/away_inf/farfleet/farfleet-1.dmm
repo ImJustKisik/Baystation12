@@ -210,18 +210,6 @@
 /obj/effect/paint/dark_gunmetal,
 /turf/simulated/wall/r_wall,
 /area/ship/farfleet/crew/brig/emergency_armory)
-"aD" = (
-/obj/effect/floor_decal/corner/blue/diagonal{
-	dir = 4
-	},
-/obj/machinery/alarm{
-	dir = 8;
-	pixel_x = 25;
-	pixel_y = 0;
-	req_access = list("ACCESS_ICCGN")
-	},
-/turf/simulated/floor/tiled/white,
-/area/ship/farfleet/crew/kitchen)
 "aE" = (
 /obj/structure/bed/chair/office/dark{
 	dir = 4
@@ -680,10 +668,6 @@
 /obj/effect/floor_decal/industrial/warning/full,
 /turf/simulated/floor/tiled,
 /area/ship/farfleet/crew/hallway/lower)
-"bI" = (
-/obj/machinery/ntnet_relay,
-/turf/simulated/floor/greengrid,
-/area/ship/farfleet/crew/comms)
 "bJ" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 6
@@ -1225,14 +1209,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/farfleet/crew/comms)
-"cY" = (
-/obj/machinery/light{
-	icon_state = "tube1";
-	dir = 1
-	},
-/obj/machinery/telecomms/relay/preset/iccgn,
-/turf/simulated/floor/blackgrid,
-/area/ship/farfleet/crew/comms)
 "cZ" = (
 /obj/effect/floor_decal/industrial/outline/orange,
 /obj/structure/missile/impact{
@@ -1684,7 +1660,7 @@
 /turf/simulated/floor/plating,
 /area/ship/farfleet/engineering/fussion/control)
 "dR" = (
-/obj/machinery/telecomms/server/presets/farfleet/common,
+/obj/structure/decor/dominator/blue,
 /turf/simulated/floor/bluegrid,
 /area/ship/farfleet/crew/comms)
 "dS" = (
@@ -1704,12 +1680,12 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 10
 	},
-/obj/machinery/telecomms/server/presets/farfleet/droptroops,
 /obj/machinery/alarm/server{
 	dir = 8;
 	pixel_x = 22;
 	req_access = list("ACCESS_ICCGN")
 	},
+/obj/structure/decor/nt_solifier/starts_on,
 /turf/simulated/floor/bluegrid,
 /area/ship/farfleet/crew/comms)
 "dW" = (
@@ -1718,6 +1694,9 @@
 	},
 /obj/machinery/vending/sovietsoda{
 	dir = 4
+	},
+/obj/machinery/light{
+	dir = 8
 	},
 /turf/simulated/floor/tiled/white,
 /area/ship/farfleet/crew/kitchen)
@@ -1913,7 +1892,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 10
 	},
-/obj/machinery/telecomms/server/presets/farfleet/medical,
+/obj/machinery/telecomms/allinone/iccgn,
 /turf/simulated/floor/bluegrid,
 /area/ship/farfleet/crew/comms)
 "ev" = (
@@ -2120,9 +2099,13 @@
 /turf/simulated/floor/tiled/white,
 /area/ship/farfleet/crew/kitchen)
 "eX" = (
-/obj/machinery/message_server,
-/turf/simulated/floor/greengrid,
-/area/ship/farfleet/crew/comms)
+/obj/machinery/light,
+/obj/effect/floor_decal/corner/darkblue/half,
+/obj/structure/sign/greencross{
+	pixel_y = -30
+	},
+/turf/simulated/floor/tiled,
+/area/ship/farfleet/crew/hallway/lower)
 "eY" = (
 /obj/machinery/firealarm{
 	dir = 4;
@@ -2582,7 +2565,7 @@
 /obj/machinery/alarm{
 	dir = 1;
 	pixel_y = -24;
-	req_access = list("ACCESS_SYNDICATE")
+	req_access = list("ACCESS_ICCGN")
 	},
 /turf/simulated/floor/tiled/white,
 /area/ship/farfleet/crew/kitchen)
@@ -3083,7 +3066,7 @@
 /turf/simulated/floor/tiled,
 /area/ship/farfleet/engineering/reactor)
 "hf" = (
-/obj/machinery/telecomms/server/presets/farfleet/command,
+/obj/structure/decor/bsb_on,
 /turf/simulated/floor/bluegrid,
 /area/ship/farfleet/crew/comms)
 "hg" = (
@@ -3996,15 +3979,15 @@
 /obj/item/melee/telebaton,
 /obj/item/melee/telebaton,
 /obj/item/melee/telebaton,
-/obj/machinery/button/alternate{
-	dir = 4;
-	pixel_y = -5;
-	pixel_x = -23;
-	req_access = list("ACCESS_ICCGN");
-	id_tag = "iccgn_em_arm"
-	},
 /obj/effect/floor_decal/corner_techfloor_gray/diagonal,
 /obj/effect/floor_decal/industrial/outline/grey,
+/obj/machinery/button/blast_door{
+	id_tag = "iccgn_em_arm";
+	name = "Protective Shutters Control";
+	req_access = list("ACCESS_ICCGN");
+	dir = 4;
+	pixel_x = -24
+	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/farfleet/crew/brig/emergency_armory)
 "kx" = (
@@ -6349,10 +6332,6 @@
 /obj/effect/floor_decal/corner/blue/diagonal{
 	dir = 4
 	},
-/obj/item/device/radio/intercom/entertainment{
-	dir = 4;
-	pixel_x = -22
-	},
 /obj/structure/closet/crate/bin,
 /turf/simulated/floor/tiled/white,
 /area/ship/farfleet/crew/kitchen)
@@ -6693,13 +6672,6 @@
 	},
 /turf/simulated/floor/reinforced/airless,
 /area/ship/farfleet/engineering/fussion/control)
-"xH" = (
-/obj/effect/floor_decal/corner/darkblue/half,
-/obj/structure/sign/greencross{
-	pixel_y = -30
-	},
-/turf/simulated/floor/tiled,
-/area/ship/farfleet/crew/hallway/lower)
 "xK" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -7336,6 +7308,10 @@
 "Cu" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 4
+	},
+/obj/machinery/light{
+	icon_state = "tube1";
+	dir = 1
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/farfleet/crew/comms)
@@ -8580,15 +8556,12 @@
 	icon_state = "1-2";
 	pixel_y = 0
 	},
-/obj/machinery/light{
-	dir = 4
-	},
-/obj/machinery/button/alternate{
-	dir = 8;
-	pixel_y = -5;
-	pixel_x = 23;
+/obj/machinery/button/blast_door{
+	id_tag = "iccgn_em_arm";
+	name = "Protective Shutters Control";
 	req_access = list("ACCESS_ICCGN");
-	id_tag = "iccgn_em_arm"
+	dir = 8;
+	pixel_x = 24
 	},
 /turf/simulated/floor/tiled,
 /area/ship/farfleet/crew)
@@ -9254,9 +9227,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/farfleet/command/bridge)
-"SY" = (
-/turf/simulated/floor/tiled/dark,
-/area/ship/farfleet/crew/comms)
 "Ta" = (
 /obj/structure/cable{
 	icon_state = "0-2";
@@ -15754,7 +15724,7 @@ LD
 qM
 qM
 qM
-qM
+KS
 aG
 aw
 AU
@@ -16001,7 +15971,7 @@ Cq
 Yi
 sD
 XD
-AB
+eX
 Dc
 jn
 jS
@@ -16123,7 +16093,7 @@ Xa
 MO
 Ua
 TE
-xH
+DS
 Dc
 oU
 jT
@@ -16356,7 +16326,7 @@ KS
 KS
 KS
 bG
-TB
+KS
 Ax
 OV
 JM
@@ -16364,7 +16334,7 @@ qM
 qM
 qM
 qM
-qM
+KS
 Ei
 Oy
 iW
@@ -16489,7 +16459,7 @@ AT
 PU
 zM
 WD
-xH
+DS
 Dc
 yN
 jW
@@ -16611,7 +16581,7 @@ Al
 On
 Cd
 hi
-AB
+eX
 Dc
 ou
 js
@@ -16722,15 +16692,15 @@ IV
 Al
 AA
 bG
-MP
-MP
-MP
-MP
-MP
-MP
-MP
-MP
-MP
+KS
+KS
+KS
+KS
+KS
+KS
+KS
+KS
+KS
 QC
 tF
 Jm
@@ -16846,13 +16816,13 @@ ng
 ng
 MP
 MP
-bI
+MP
 dR
 hf
 eL
 oY
 cu
-MP
+KS
 Ei
 Ti
 Fl
@@ -16967,8 +16937,8 @@ ng
 PR
 sE
 MP
-cY
-SY
+MP
+MP
 Cu
 ho
 eN
@@ -17090,7 +17060,7 @@ Gw
 se
 MP
 MP
-eX
+MP
 dU
 eu
 eM
@@ -17338,8 +17308,8 @@ dB
 dW
 ew
 uv
-fn
 ft
+fn
 iO
 IX
 Gh
@@ -17471,7 +17441,7 @@ PP
 dX
 AE
 PP
-PP
+dX
 MZ
 NM
 wL
@@ -18066,7 +18036,7 @@ ng
 yC
 pi
 de
-aD
+ft
 ao
 ft
 ft
@@ -19174,7 +19144,7 @@ xw
 xw
 Nl
 Nl
-Nl
+KS
 Nl
 TL
 TL
