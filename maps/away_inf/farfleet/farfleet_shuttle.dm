@@ -41,6 +41,7 @@
 	name = "Dock"
 	landmark_tag = "nav_dock_snz"
 	docking_controller = "snz_dock"
+	base_area = /area/ship/farfleet/command/snz_exterior_dock
 	base_turf = /turf/simulated/floor/reinforced
 
 /obj/effect/shuttle_landmark/snz/altdock

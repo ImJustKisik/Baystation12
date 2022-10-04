@@ -167,6 +167,8 @@
 	name = "captain cabinet"
 	closet_appearance = /decl/closet_appearance/secure_closet/farfleet
 	req_access = list(access_away_iccgn, access_away_iccgn_captain)
+
+/obj/structure/closet/secure_closet/farfleet/fleet_cpt/WillContain()
 	return list(
 		/obj/item/melee/telebaton,
 		/obj/item/storage/firstaid/individual/military,

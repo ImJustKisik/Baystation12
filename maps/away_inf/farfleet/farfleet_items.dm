@@ -68,17 +68,17 @@
 
 /obj/item/clothing/under/iccgn/utility
 	starting_accessories = list(
-		/obj/item/clothing/accessory/iccgn_rank/or3
+		/obj/item/clothing/accessory/iccgn_rank/or3,
 		/obj/item/clothing/accessory/iccgn_patch/ordnance
 	)
 
 /obj/item/clothing/under/iccgn/pt
 	starting_accessories = list(
-		/obj/item/clothing/accessory/iccgn_rank/or3
+		/obj/item/clothing/accessory/iccgn_rank/or3,
 		/obj/item/clothing/accessory/iccgn_patch/pioneer
 	)
 
-/obj/item/storage/belt/holster/security/farfleet/New()
+/obj/item/storage/belt/holster/security/tactical/farfleet/New()
 	..()
 	new /obj/item/gun/projectile/pistol/military/alt(src)
 	new /obj/item/ammo_magazine/pistol/double(src)
