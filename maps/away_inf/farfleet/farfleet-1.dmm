@@ -11,8 +11,18 @@
 	d2 = 8;
 	icon_state = "2-8"
 	},
-/turf/simulated/floor,
-/area/ship/farfleet/maintenance/lower/starboard)
+/obj/structure/cable{
+	d2 = 2;
+	icon_state = "0-2"
+	},
+/obj/machinery/power/apc/super/critical{
+	dir = 4;
+	name = "east bump";
+	pixel_x = 25;
+	req_access = list("ACCESS_ICCGN")
+	},
+/turf/simulated/floor/tiled/dark,
+/area/ship/farfleet/dock)
 "ag" = (
 /obj/machinery/firealarm{
 	dir = 8;
@@ -77,7 +87,7 @@
 	icon_state = "railing0-1"
 	},
 /turf/simulated/floor,
-/area/ship/farfleet/maintenance/lower/port)
+/area/ship/farfleet/maintenance/lower)
 "as" = (
 /obj/structure/cable{
 	d1 = 1;
@@ -210,18 +220,6 @@
 /obj/effect/paint/dark_gunmetal,
 /turf/simulated/wall/r_wall,
 /area/ship/farfleet/crew/brig/emergency_armory)
-"aD" = (
-/obj/effect/floor_decal/corner/blue/diagonal{
-	dir = 4
-	},
-/obj/machinery/alarm{
-	dir = 8;
-	pixel_x = 25;
-	pixel_y = 0;
-	req_access = list("ACCESS_ICCGN")
-	},
-/turf/simulated/floor/tiled/white,
-/area/ship/farfleet/crew/kitchen)
 "aE" = (
 /obj/structure/bed/chair/office/dark{
 	dir = 4
@@ -680,10 +678,6 @@
 /obj/effect/floor_decal/industrial/warning/full,
 /turf/simulated/floor/tiled,
 /area/ship/farfleet/crew/hallway/lower)
-"bI" = (
-/obj/machinery/ntnet_relay,
-/turf/simulated/floor/greengrid,
-/area/ship/farfleet/crew/comms)
 "bJ" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 6
@@ -796,7 +790,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/catwalk,
 /turf/simulated/floor,
-/area/ship/farfleet/maintenance/lower/port)
+/area/ship/farfleet/maintenance/lower)
 "bX" = (
 /obj/machinery/fusion_fuel_injector/mapped{
 	dir = 4;
@@ -1175,11 +1169,9 @@
 /turf/simulated/wall/r_wall,
 /area/ship/farfleet/maintenance/lower/starboard)
 "cS" = (
-/obj/machinery/atmospherics/pipe/simple/hidden{
-	dir = 8
-	},
 /obj/machinery/alarm{
-	pixel_y = 24
+	pixel_y = 24;
+	req_access = list("ACCESS_ICCGN")
 	},
 /obj/structure/catwalk,
 /turf/simulated/floor,
@@ -1224,14 +1216,6 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
-/area/ship/farfleet/crew/comms)
-"cY" = (
-/obj/machinery/light{
-	icon_state = "tube1";
-	dir = 1
-	},
-/obj/machinery/telecomms/relay/preset/iccgn,
-/turf/simulated/floor/blackgrid,
 /area/ship/farfleet/crew/comms)
 "cZ" = (
 /obj/effect/floor_decal/industrial/outline/orange,
@@ -1654,7 +1638,7 @@
 	},
 /obj/structure/catwalk,
 /turf/simulated/floor,
-/area/ship/farfleet/maintenance/lower/port)
+/area/ship/farfleet/maintenance/lower)
 "dM" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor,
@@ -1671,7 +1655,7 @@
 	set_temperature = 700
 	},
 /turf/simulated/floor,
-/area/ship/farfleet/maintenance/lower/port)
+/area/ship/farfleet/maintenance/lower)
 "dQ" = (
 /obj/effect/floor_decal/industrial/warning/corner{
 	dir = 8
@@ -1684,7 +1668,7 @@
 /turf/simulated/floor/plating,
 /area/ship/farfleet/engineering/fussion/control)
 "dR" = (
-/obj/machinery/telecomms/server/presets/farfleet/common,
+/obj/structure/decor/dominator/blue,
 /turf/simulated/floor/bluegrid,
 /area/ship/farfleet/crew/comms)
 "dS" = (
@@ -1704,12 +1688,12 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 10
 	},
-/obj/machinery/telecomms/server/presets/farfleet/droptroops,
 /obj/machinery/alarm/server{
 	dir = 8;
 	pixel_x = 22;
 	req_access = list("ACCESS_ICCGN")
 	},
+/obj/structure/decor/nt_solifier/starts_on,
 /turf/simulated/floor/bluegrid,
 /area/ship/farfleet/crew/comms)
 "dW" = (
@@ -1718,6 +1702,9 @@
 	},
 /obj/machinery/vending/sovietsoda{
 	dir = 4
+	},
+/obj/machinery/light{
+	dir = 8
 	},
 /turf/simulated/floor/tiled/white,
 /area/ship/farfleet/crew/kitchen)
@@ -1839,7 +1826,7 @@
 	},
 /obj/structure/catwalk,
 /turf/simulated/floor,
-/area/ship/farfleet/maintenance/lower/port)
+/area/ship/farfleet/maintenance/lower)
 "ej" = (
 /obj/structure/cable{
 	d1 = 1;
@@ -1890,8 +1877,14 @@
 /obj/effect/floor_decal/corner/darkblue/half{
 	dir = 8
 	},
+/obj/machinery/alarm{
+	dir = 4;
+	icon_state = "alarm0";
+	pixel_x = -22;
+	req_access = list("ACCESS_ICCGN")
+	},
 /turf/simulated/floor/tiled,
-/area/ship/farfleet/crew/hallway/lower)
+/area/ship/farfleet/dock)
 "et" = (
 /obj/machinery/door/airlock/highsecurity{
 	name = "Telecommunications Server";
@@ -1913,13 +1906,13 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 10
 	},
-/obj/machinery/telecomms/server/presets/farfleet/medical,
+/obj/machinery/telecomms/allinone/iccgn,
 /turf/simulated/floor/bluegrid,
 /area/ship/farfleet/crew/comms)
 "ev" = (
 /obj/machinery/atmospherics/pipe/manifold4w/hidden/fuel,
 /turf/simulated/floor,
-/area/ship/farfleet/maintenance/lower/port)
+/area/ship/farfleet/maintenance/lower)
 "ew" = (
 /obj/effect/floor_decal/corner/blue/diagonal{
 	dir = 4
@@ -1996,9 +1989,6 @@
 /turf/simulated/floor/tiled,
 /area/ship/farfleet/crew/hallway/lower)
 "eI" = (
-/obj/machinery/computer/cryopod{
-	pixel_y = 32
-	},
 /obj/structure/cable{
 	d1 = 2;
 	d2 = 4;
@@ -2120,9 +2110,13 @@
 /turf/simulated/floor/tiled/white,
 /area/ship/farfleet/crew/kitchen)
 "eX" = (
-/obj/machinery/message_server,
-/turf/simulated/floor/greengrid,
-/area/ship/farfleet/crew/comms)
+/obj/machinery/light,
+/obj/effect/floor_decal/corner/darkblue/half,
+/obj/structure/sign/greencross{
+	pixel_y = -30
+	},
+/turf/simulated/floor/tiled,
+/area/ship/farfleet/crew/hallway/lower)
 "eY" = (
 /obj/machinery/firealarm{
 	dir = 4;
@@ -2135,7 +2129,8 @@
 /turf/simulated/floor/tiled/white,
 /area/ship/farfleet/crew/kitchen)
 "eZ" = (
-/obj/effect/submap_landmark/spawnpoint/away_iccg/droptrooper,
+/obj/effect/submap_landmark/spawnpoint/away_iccgn_farfleet,
+/obj/effect/submap_landmark/spawnpoint/away_iccgn_farfleet,
 /turf/simulated/floor/tiled,
 /area/ship/farfleet/crew)
 "fb" = (
@@ -2420,7 +2415,8 @@
 	dir = 4;
 	name = "east bump";
 	pixel_x = 24;
-	pixel_y = 0
+	pixel_y = 0;
+	req_access = list("ACCESS_ICCGN")
 	},
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 8
@@ -2482,7 +2478,7 @@
 	},
 /obj/effect/paint/dark_gunmetal,
 /turf/simulated/wall/r_wall,
-/area/ship/farfleet/maintenance/lower/port)
+/area/ship/farfleet/maintenance/lower)
 "fH" = (
 /obj/effect/floor_decal/industrial/warning{
 	icon_state = "warning";
@@ -2497,14 +2493,12 @@
 /turf/simulated/floor/reinforced/airless,
 /area/ship/farfleet/engineering/fussion/control)
 "fK" = (
-/obj/machinery/door/airlock/external{
-	id_tag = "farfleet_sensor_interior"
+/obj/machinery/door/firedoor{
+	dir = 8
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden{
-	dir = 4
-	},
+/obj/machinery/door/airlock/hatch/maintenance,
 /turf/simulated/floor,
-/area/ship/farfleet/maintenance/lower/port)
+/area/ship/farfleet/maintenance/lower)
 "fL" = (
 /obj/machinery/cryopod,
 /turf/simulated/floor/tiled,
@@ -2582,7 +2576,7 @@
 /obj/machinery/alarm{
 	dir = 1;
 	pixel_y = -24;
-	req_access = list("ACCESS_SYNDICATE")
+	req_access = list("ACCESS_ICCGN")
 	},
 /turf/simulated/floor/tiled/white,
 /area/ship/farfleet/crew/kitchen)
@@ -2606,10 +2600,10 @@
 	dir = 5;
 	icon_state = "warning"
 	},
-/obj/machinery/atmospherics/unary/vent_pump/high_volume{
-	id_tag = "patrol_dock_pump"
-	},
 /obj/structure/catwalk,
+/obj/machinery/atmospherics/unary/vent_pump/high_volume/airlock{
+	id_tag = "recon_dock_airlock_pump"
+	},
 /turf/simulated/floor,
 /area/ship/farfleet/dock)
 "fT" = (
@@ -2713,7 +2707,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/catwalk,
 /turf/simulated/floor,
-/area/ship/farfleet/maintenance/lower/port)
+/area/ship/farfleet/maintenance/lower)
 "gg" = (
 /obj/machinery/fusion_fuel_compressor,
 /obj/structure/cable/yellow{
@@ -2783,6 +2777,7 @@
 /obj/effect/floor_decal/industrial/warning/half{
 	icon_state = "warninghalf"
 	},
+/obj/machinery/door/airlock/multi_tile/glass/terran,
 /turf/simulated/floor/tiled,
 /area/ship/farfleet/crew/hallway/lower)
 "gs" = (
@@ -3083,7 +3078,7 @@
 /turf/simulated/floor/tiled,
 /area/ship/farfleet/engineering/reactor)
 "hf" = (
-/obj/machinery/telecomms/server/presets/farfleet/command,
+/obj/structure/decor/bsb_on,
 /turf/simulated/floor/bluegrid,
 /area/ship/farfleet/crew/comms)
 "hg" = (
@@ -3169,8 +3164,8 @@
 	pixel_x = 26;
 	pixel_y = 0;
 	req_access = list("ACCESS_ICCGN");
-	tag_exterior_door = "prototype_exterior_pat";
-	tag_interior_door = "prototype_interior_pat";
+	tag_exterior_door = "tokamak_exterior_farfleet";
+	tag_interior_door = "tokamak_interior_farfleet";
 	dir = 8
 	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
@@ -3294,7 +3289,7 @@
 	},
 /obj/machinery/door/firedoor,
 /turf/simulated/floor,
-/area/ship/farfleet/maintenance/lower/port)
+/area/ship/farfleet/maintenance/lower)
 "hI" = (
 /obj/machinery/cryopod{
 	icon_state = "body_scanner_0";
@@ -3431,12 +3426,9 @@
 /area/ship/farfleet/engineering/fussion/control)
 "ik" = (
 /obj/effect/floor_decal/industrial/warning/half,
-/obj/machinery/door/airlock/external{
-	frequency = 1332;
-	icon_state = "door_locked";
-	id_tag = "iccg_dock_inner";
-	locked = 1;
-	name = "Docking Port Airlock"
+/obj/machinery/door/airlock/external/bolted/cycling{
+	name = "Docking Port Airlock";
+	id_tag = "recon_dock_airlock_inner"
 	},
 /turf/simulated/floor,
 /area/ship/farfleet/dock)
@@ -3519,16 +3511,11 @@
 /turf/simulated/floor/reinforced,
 /area/ship/farfleet/command/launcher/north)
 "iI" = (
-/obj/machinery/door/airlock/multi_tile/glass{
-	id_tag = "MedbayFoyer";
-	name = "Infirmary";
-	req_access = newlist();
-	req_one_access = list(5,80)
-	},
 /obj/machinery/door/firedoor,
 /obj/effect/floor_decal/industrial/warning/half{
 	icon_state = "warninghalf"
 	},
+/obj/machinery/door/airlock/multi_tile/glass/medical,
 /turf/simulated/floor/tiled/white,
 /area/ship/farfleet/medbay)
 "iK" = (
@@ -3568,7 +3555,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/farfleet/command/bridge)
 "iO" = (
-/obj/machinery/door/airlock/multi_tile/glass/civilian,
+/obj/machinery/door/airlock/multi_tile/glass/terran,
 /turf/simulated/floor/tiled,
 /area/ship/farfleet/crew/kitchen)
 "iQ" = (
@@ -3701,17 +3688,6 @@
 /obj/effect/paint/dark_gunmetal,
 /turf/simulated/wall/r_wall,
 /area/ship/farfleet/engineering/atmospherics)
-"jr" = (
-/obj/machinery/alarm{
-	dir = 8;
-	pixel_x = 24
-	},
-/obj/effect/floor_decal/industrial/danger{
-	dir = 1
-	},
-/obj/effect/floor_decal/industrial/danger,
-/turf/simulated/floor/reinforced,
-/area/ship/farfleet/command/launcher/north)
 "js" = (
 /obj/machinery/body_scanconsole{
 	icon_state = "body_scannerconsole";
@@ -3996,15 +3972,15 @@
 /obj/item/melee/telebaton,
 /obj/item/melee/telebaton,
 /obj/item/melee/telebaton,
-/obj/machinery/button/alternate{
-	dir = 4;
-	pixel_y = -5;
-	pixel_x = -23;
-	req_access = list("ACCESS_ICCGN");
-	id_tag = "iccgn_em_arm"
-	},
 /obj/effect/floor_decal/corner_techfloor_gray/diagonal,
 /obj/effect/floor_decal/industrial/outline/grey,
+/obj/machinery/button/blast_door{
+	id_tag = "iccgn_em_arm";
+	name = "Protective Shutters Control";
+	req_access = list("ACCESS_ICCGN");
+	dir = 4;
+	pixel_x = -24
+	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/farfleet/crew/brig/emergency_armory)
 "kx" = (
@@ -4088,14 +4064,11 @@
 /area/ship/farfleet/command/launcher/north)
 "kL" = (
 /obj/effect/floor_decal/industrial/warning/half,
-/obj/machinery/door/airlock/external{
-	frequency = 1332;
-	icon_state = "door_locked";
-	id_tag = "iccg_dock_inner";
-	locked = 1;
-	name = "Docking Port Airlock"
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden,
+/obj/machinery/door/airlock/external/bolted/cycling{
+	name = "Docking Port Airlock";
+	id_tag = "recon_dock_airlock_inner"
+	},
 /turf/simulated/floor,
 /area/ship/farfleet/dock)
 "kN" = (
@@ -4170,34 +4143,25 @@
 /turf/simulated/wall/r_wall,
 /area/ship/farfleet/engineering/atmospherics)
 "kV" = (
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/structure/cable{
+	d1 = 1;
+	d2 = 8;
+	icon_state = "1-8"
+	},
+/obj/structure/cable{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/structure/cable{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8";
-	pixel_x = 0
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden{
-	dir = 8
-	},
-/obj/structure/cable{
-	d1 = 1;
-	d2 = 8;
-	icon_state = "1-8"
-	},
-/obj/effect/floor_decal/corner/darkblue/three_quarters{
-	dir = 4
-	},
-/obj/effect/floor_decal/corner/darkblue{
-	dir = 1
-	},
 /turf/simulated/floor/tiled,
-/area/ship/farfleet/crew/hallway/lower)
+/area/ship/farfleet/dock)
 "kX" = (
 /obj/effect/wingrille_spawn/reinforced,
 /obj/machinery/door/firedoor,
@@ -4237,25 +4201,17 @@
 	},
 /turf/simulated/floor/tiled,
 /area/ship/farfleet/engineering/fussion/control)
+"le" = (
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/machinery/light{
+	dir = 4
+	},
+/turf/simulated/floor/tiled,
+/area/ship/farfleet/dock)
 "lh" = (
 /obj/effect/paint/dark_gunmetal,
 /turf/simulated/wall/r_wall,
 /area/ship/farfleet/engineering/atmos_equipment)
-"li" = (
-/obj/effect/floor_decal/industrial/warning/half,
-/obj/machinery/door/airlock/external{
-	frequency = 1332;
-	icon_state = "door_locked";
-	id_tag = "patrol_dock_outer";
-	locked = 1;
-	name = "Docking Port Airlock"
-	},
-/obj/machinery/door/blast/regular{
-	id_tag = "iccg_main_airlock_blast";
-	name = "Protective Blast Doors"
-	},
-/turf/simulated/floor,
-/area/ship/farfleet/dock)
 "lj" = (
 /obj/structure/cable{
 	d1 = 1;
@@ -4267,13 +4223,14 @@
 	},
 /obj/structure/catwalk,
 /turf/simulated/floor,
-/area/ship/farfleet/maintenance/lower/port)
+/area/ship/farfleet/maintenance/lower)
 "lk" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/machinery/alarm{
 	dir = 4;
 	icon_state = "alarm0";
-	pixel_x = -22
+	pixel_x = -22;
+	req_access = list("ACCESS_ICCGN")
 	},
 /obj/machinery/vending/engivend{
 	req_access = list("ACCESS_ICCGN")
@@ -4443,16 +4400,15 @@
 	icon_state = "tube1"
 	},
 /obj/machinery/embedded_controller/radio/airlock/docking_port{
-	display_name = "Port Patrol Dock";
-	frequency = 1332;
-	id_tag = "iccg_dock_airlock";
+	display_name = "Port Recon Dock";
+	id_tag = "recon_dock_airlock";
 	pixel_x = 1;
 	pixel_y = -5;
 	req_access = list("ACCESS_ICCGN");
-	tag_airpump = "patrol_dock_pump";
-	tag_chamber_sensor = "patrol_dock_sensor";
-	tag_exterior_door = "patrol_dock_outer";
-	tag_interior_door = "patrol_dock_inner"
+	tag_chamber_sensor = "recon_dock_airlock_sensor";
+	tag_exterior_door = "recon_dock_airlock_outer";
+	tag_interior_door = "recon_dock_airlock_inner";
+	tag_airpump = "recon_dock_airlock_pump"
 	},
 /obj/item/device/radio/intercom{
 	pixel_x = -8;
@@ -4460,13 +4416,13 @@
 	},
 /obj/machinery/button/blast_door{
 	desc = "A remote control-switch for the observation shutters";
-	id_tag = "iccg_main_airlock_blast";
+	id_tag = "recon_main_airlock_blast";
 	name = "Main Airlock Lockdown";
 	pixel_x = 8;
 	pixel_y = 24
 	},
 /turf/simulated/floor/tiled/dark,
-/area/ship/farfleet/maintenance/lower/starboard)
+/area/ship/farfleet/dock)
 "lO" = (
 /obj/effect/floor_decal/industrial/warning/corner{
 	icon_state = "warningcorner";
@@ -4545,7 +4501,8 @@
 /area/ship/farfleet/engineering/storage)
 "mf" = (
 /obj/machinery/alarm{
-	pixel_y = 24
+	pixel_y = 24;
+	req_access = list("ACCESS_ICCGN")
 	},
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
@@ -4668,19 +4625,14 @@
 	icon_state = "warning"
 	},
 /obj/machinery/airlock_sensor{
-	frequency = 1332;
-	id_tag = "iccg_dock_sensor";
-	pixel_x = -24
-	},
-/obj/machinery/atmospherics/unary/vent_pump/high_volume{
-	dir = 4;
-	id_tag = "patrol_dock_pump"
+	id_tag = "recon_dock_airlock_sensor";
+	pixel_x = -24;
+	master_tag = "patrol_dock_airlock"
 	},
 /obj/structure/catwalk,
-/obj/structure/cable{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
+/obj/machinery/atmospherics/unary/vent_pump/high_volume/airlock{
+	id_tag = "recon_dock_airlock_pump";
+	dir = 4
 	},
 /turf/simulated/floor,
 /area/ship/farfleet/dock)
@@ -4763,7 +4715,7 @@
 /obj/machinery/door/airlock/autoname/maintenance,
 /obj/effect/floor_decal/industrial/warning/half,
 /turf/simulated/floor,
-/area/ship/farfleet/maintenance/lower/port)
+/area/ship/farfleet/maintenance/lower)
 "mG" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/structure/reagent_dispensers/fueltank,
@@ -4897,14 +4849,13 @@
 /area/ship/farfleet/command/launcher/north)
 "nd" = (
 /obj/structure/cable,
+/obj/structure/cable{
+	d2 = 4;
+	icon_state = "0-4"
+	},
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/wallframe_spawn/reinforced,
 /obj/effect/paint/dark_gunmetal,
-/obj/structure/cable{
-	d1 = 1;
-	d2 = 4;
-	icon_state = "1-4"
-	},
 /turf/simulated/floor,
 /area/ship/farfleet/dock)
 "ne" = (
@@ -4963,22 +4914,6 @@
 	},
 /turf/simulated/floor/reinforced/airless,
 /area/ship/farfleet/command/launcher/north)
-"ns" = (
-/obj/effect/floor_decal/industrial/warning/half,
-/obj/machinery/door/airlock/external{
-	frequency = 1332;
-	icon_state = "door_locked";
-	id_tag = "iccg_dock_outer";
-	locked = 1;
-	name = "Docking Port Airlock"
-	},
-/obj/machinery/shield_diffuser,
-/obj/machinery/door/blast/regular{
-	id_tag = "iccg_main_airlock_blast";
-	name = "Protective Blast Doors"
-	},
-/turf/simulated/floor,
-/area/ship/farfleet/dock)
 "nt" = (
 /obj/effect/floor_decal/corner/grey/diagonal{
 	dir = 4
@@ -5088,7 +5023,7 @@
 /obj/machinery/alarm{
 	dir = 1;
 	pixel_y = -24;
-	req_access = list("ACCESS_SYNDICATE")
+	req_access = list("ACCESS_ICCGN")
 	},
 /obj/effect/floor_decal/corner_techfloor_gray/diagonal,
 /obj/effect/floor_decal/industrial/outline/grey,
@@ -5397,7 +5332,7 @@
 	},
 /obj/effect/paint/dark_gunmetal,
 /turf/simulated/wall/r_wall,
-/area/ship/farfleet/maintenance/lower/port)
+/area/ship/farfleet/maintenance/lower)
 "ox" = (
 /obj/machinery/computer/operating{
 	dir = 8
@@ -5552,7 +5487,7 @@
 /obj/machinery/alarm{
 	dir = 1;
 	pixel_y = -24;
-	req_access = list("ACCESS_SYNDICATE")
+	req_access = list("ACCESS_ICCGN")
 	},
 /turf/simulated/floor/tiled/white,
 /area/ship/farfleet/medbay/surgery)
@@ -5645,7 +5580,7 @@
 "pf" = (
 /obj/effect/wingrille_spawn/reinforced,
 /turf/simulated/floor,
-/area/ship/farfleet/maintenance/lower/port)
+/area/ship/farfleet/maintenance/lower)
 "pi" = (
 /obj/effect/paint/dark_gunmetal,
 /turf/simulated/wall,
@@ -5753,10 +5688,10 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/farfleet/command/launcher/north)
 "pA" = (
-/obj/machinery/door/airlock/multi_tile/glass/civilian,
 /obj/machinery/door/firedoor,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/door/airlock/multi_tile/terran,
 /turf/simulated/floor/tiled,
 /area/ship/farfleet/crew)
 "pB" = (
@@ -5765,7 +5700,7 @@
 	},
 /obj/machinery/shield_diffuser,
 /turf/simulated/floor,
-/area/ship/farfleet/maintenance/lower/port)
+/area/ship/farfleet/maintenance/lower)
 "pF" = (
 /obj/structure/cable{
 	d1 = 1;
@@ -5776,7 +5711,7 @@
 	dir = 8
 	},
 /turf/simulated/floor,
-/area/ship/farfleet/maintenance/lower/port)
+/area/ship/farfleet/maintenance/lower)
 "pH" = (
 /obj/machinery/door/firedoor,
 /obj/effect/floor_decal/industrial/warning/half{
@@ -5887,7 +5822,7 @@
 /area/ship/farfleet/crew/hallway/lower)
 "qr" = (
 /obj/structure/window/reinforced/bar,
-/obj/effect/submap_landmark/spawnpoint/away_iccg/droptrooper,
+/obj/effect/submap_landmark/spawnpoint/away_iccgn_farfleet/sergeant,
 /turf/simulated/floor/tiled,
 /area/ship/farfleet/crew)
 "qy" = (
@@ -5900,7 +5835,7 @@
 	icon_state = "railing0-1"
 	},
 /turf/simulated/floor,
-/area/ship/farfleet/maintenance/lower/port)
+/area/ship/farfleet/maintenance/lower)
 "qB" = (
 /obj/effect/floor_decal/industrial/outline/blue,
 /obj/structure/missile/he{
@@ -5946,7 +5881,7 @@
 	set_temperature = 700
 	},
 /turf/simulated/floor,
-/area/ship/farfleet/maintenance/lower/port)
+/area/ship/farfleet/maintenance/lower)
 "rn" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 6
@@ -5997,7 +5932,7 @@
 /obj/structure/window/reinforced/bar{
 	dir = 1
 	},
-/obj/effect/submap_landmark/spawnpoint/away_iccg/sergeant,
+/obj/effect/submap_landmark/spawnpoint/away_iccgn_farfleet,
 /turf/simulated/floor/tiled,
 /area/ship/farfleet/crew)
 "rS" = (
@@ -6015,7 +5950,6 @@
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden,
 /obj/machinery/button/blast_door{
 	dir = 4;
 	pixel_y = -5;
@@ -6031,7 +5965,7 @@
 	icon_state = "railing0-1"
 	},
 /turf/simulated/floor,
-/area/ship/farfleet/maintenance/lower/port)
+/area/ship/farfleet/maintenance/lower)
 "sc" = (
 /obj/machinery/firealarm{
 	dir = 2;
@@ -6094,17 +6028,22 @@
 /turf/simulated/floor/tiled,
 /area/ship/farfleet/crew)
 "su" = (
-/obj/machinery/atmospherics/unary/vent_pump/high_volume{
-	dir = 4;
-	frequency = 1332;
-	id_tag = "patrol_dock_pump"
-	},
 /obj/machinery/light/small{
 	icon_state = "bulb1";
 	dir = 8
 	},
+/obj/machinery/airlock_sensor{
+	frequency = 1332;
+	id_tag = "farfleet_sensor_sensor";
+	pixel_x = -24
+	},
+/obj/machinery/button/blast_door{
+	id_tag = "sensor_iccg";
+	req_access = list("ACCESS_ICCGN");
+	pixel_y = 33
+	},
 /turf/simulated/floor,
-/area/ship/farfleet/maintenance/lower/port)
+/area/ship/farfleet/maintenance/lower)
 "sv" = (
 /obj/machinery/mass_driver{
 	id_tag = "missisles";
@@ -6349,10 +6288,6 @@
 /obj/effect/floor_decal/corner/blue/diagonal{
 	dir = 4
 	},
-/obj/item/device/radio/intercom/entertainment{
-	dir = 4;
-	pixel_x = -22
-	},
 /obj/structure/closet/crate/bin,
 /turf/simulated/floor/tiled/white,
 /area/ship/farfleet/crew/kitchen)
@@ -6518,7 +6453,7 @@
 	icon_state = "railing0-1"
 	},
 /turf/simulated/floor,
-/area/ship/farfleet/maintenance/lower/port)
+/area/ship/farfleet/maintenance/lower)
 "wz" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/structure/cable{
@@ -6613,6 +6548,19 @@
 	},
 /turf/simulated/floor,
 /area/ship/farfleet/maintenance/engine/port)
+"wT" = (
+/obj/effect/floor_decal/industrial/warning/half,
+/obj/machinery/shield_diffuser,
+/obj/machinery/door/blast/regular{
+	id_tag = "recon_main_airlock_blast";
+	name = "Protective Blast Doors"
+	},
+/obj/machinery/door/airlock/external/bolted/cycling{
+	name = "Docking Port Airlock";
+	id_tag = "recon_dock_airlock_outer"
+	},
+/turf/simulated/floor,
+/area/ship/farfleet/dock)
 "wY" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 10
@@ -6693,13 +6641,6 @@
 	},
 /turf/simulated/floor/reinforced/airless,
 /area/ship/farfleet/engineering/fussion/control)
-"xH" = (
-/obj/effect/floor_decal/corner/darkblue/half,
-/obj/structure/sign/greencross{
-	pixel_y = -30
-	},
-/turf/simulated/floor/tiled,
-/area/ship/farfleet/crew/hallway/lower)
 "xK" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -6885,6 +6826,7 @@
 	dir = 8
 	},
 /obj/effect/floor_decal/industrial/warning/half,
+/obj/machinery/door/airlock/multi_tile/glass/terran,
 /turf/simulated/floor/tiled,
 /area/ship/farfleet/crew/hallway/lower)
 "yY" = (
@@ -6950,6 +6892,9 @@
 	d2 = 8;
 	icon_state = "0-8"
 	},
+/obj/machinery/computer/cryopod{
+	pixel_y = 32
+	},
 /turf/simulated/floor/tiled,
 /area/ship/farfleet/crew/cryo)
 "zz" = (
@@ -7014,9 +6959,15 @@
 /turf/simulated/floor/tiled,
 /area/ship/farfleet/crew/hallway/lower)
 "zN" = (
-/obj/machinery/atmospherics/pipe/simple/hidden{
-	dir = 5;
-	icon_state = "intact"
+/obj/machinery/atmospherics/pipe/simple/hidden,
+/obj/effect/floor_decal/industrial/warning{
+	dir = 4;
+	icon_state = "warning"
+	},
+/obj/structure/cable{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -7024,17 +6975,8 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/structure/cable{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8";
-	pixel_x = 0
-	},
-/obj/effect/floor_decal/corner/darkblue/half{
-	dir = 1
-	},
 /turf/simulated/floor/tiled,
-/area/ship/farfleet/crew/hallway/lower)
+/area/ship/farfleet/dock)
 "zO" = (
 /obj/structure/cable{
 	d1 = 4;
@@ -7046,7 +6988,7 @@
 	},
 /obj/structure/catwalk,
 /turf/simulated/floor,
-/area/ship/farfleet/maintenance/lower/port)
+/area/ship/farfleet/maintenance/lower)
 "zT" = (
 /obj/structure/hygiene/sink,
 /obj/structure/cable{
@@ -7116,8 +7058,19 @@
 /obj/effect/floor_decal/corner/darkblue/three_quarters{
 	dir = 4
 	},
+/obj/machinery/portable_atmospherics/canister/air/airlock,
+/obj/machinery/atmospherics/portables_connector{
+	dir = 1
+	},
+/obj/structure/window/reinforced,
+/obj/structure/window/reinforced{
+	dir = 1
+	},
+/obj/machinery/door/window{
+	dir = 8
+	},
 /turf/simulated/floor/tiled,
-/area/ship/farfleet/crew/hallway/lower)
+/area/ship/farfleet/dock)
 "AB" = (
 /obj/machinery/light,
 /obj/effect/floor_decal/corner/darkblue/half,
@@ -7143,9 +7096,6 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 10
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden{
-	dir = 8
 	},
 /obj/structure/cable{
 	d1 = 1;
@@ -7221,7 +7171,7 @@
 "Bz" = (
 /obj/effect/paint/dark_gunmetal,
 /turf/simulated/wall/r_wall,
-/area/ship/farfleet/maintenance/lower/port)
+/area/ship/farfleet/maintenance/lower)
 "BH" = (
 /obj/structure/cable{
 	d1 = 1;
@@ -7330,12 +7280,16 @@
 /turf/simulated/floor/reinforced,
 /area/ship/farfleet/command/launcher)
 "Cq" = (
-/obj/effect/submap_landmark/spawnpoint/away_iccg/medic,
+/obj/effect/submap_landmark/spawnpoint/away_iccgn_farfleet/captain,
 /turf/simulated/floor/tiled,
 /area/ship/farfleet/crew/cryo)
 "Cu" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 4
+	},
+/obj/machinery/light{
+	icon_state = "tube1";
+	dir = 1
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/farfleet/crew/comms)
@@ -7405,7 +7359,7 @@
 /turf/simulated/floor/reinforced,
 /area/ship/farfleet/command/launcher)
 "Du" = (
-/obj/effect/submap_landmark/spawnpoint/away_iccg/captain,
+/obj/effect/submap_landmark/spawnpoint/away_iccgn_farfleet/medic,
 /turf/simulated/floor/tiled,
 /area/ship/farfleet/crew/cryo)
 "Dx" = (
@@ -7450,18 +7404,14 @@
 	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/machinery/door/airlock/glass/terran,
-/obj/structure/cable{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
-	},
-/turf/simulated/floor,
-/area/ship/farfleet/maintenance/lower/starboard)
+/turf/simulated/floor/tiled/dark/monotile,
+/area/ship/farfleet/dock)
 "DH" = (
 /obj/machinery/alarm{
 	dir = 8;
 	pixel_x = 25;
-	pixel_y = 0
+	pixel_y = 0;
+	req_access = list("ACCESS_ICCGN")
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/farfleet/command/launcher/north)
@@ -7534,7 +7484,8 @@
 /obj/machinery/alarm{
 	dir = 4;
 	icon_state = "alarm0";
-	pixel_x = -22
+	pixel_x = -22;
+	req_access = list("ACCESS_ICCGN")
 	},
 /obj/structure/catwalk,
 /turf/simulated/floor,
@@ -7736,7 +7687,8 @@
 	dir = 1
 	},
 /obj/machinery/alarm{
-	pixel_y = 24
+	pixel_y = 24;
+	req_access = list("ACCESS_ICCGN")
 	},
 /turf/simulated/floor/tiled/dark/monotile,
 /area/ship/farfleet/command/eva)
@@ -7768,7 +7720,7 @@
 /obj/item/stack/material/phoron/ten,
 /obj/structure/closet/crate/secure/phoron,
 /turf/simulated/floor/plating,
-/area/ship/farfleet/maintenance/lower/port)
+/area/ship/farfleet/maintenance/lower)
 "Gv" = (
 /obj/structure/cable{
 	d1 = 1;
@@ -7841,7 +7793,7 @@
 /obj/machinery/alarm{
 	dir = 1;
 	pixel_y = -24;
-	req_access = list("ACCESS_SYNDICATE")
+	req_access = list("ACCESS_ICCGN")
 	},
 /turf/simulated/floor/tiled,
 /area/ship/farfleet/crew/toilet)
@@ -7890,11 +7842,11 @@
 /obj/effect/wingrille_spawn/reinforced,
 /obj/machinery/door/firedoor,
 /turf/simulated/floor,
-/area/ship/farfleet/maintenance/lower/port)
+/area/ship/farfleet/maintenance/lower)
 "Hr" = (
 /obj/machinery/floodlight,
 /turf/simulated/floor,
-/area/ship/farfleet/maintenance/lower/port)
+/area/ship/farfleet/maintenance/lower)
 "Hu" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/fuel{
 	icon_state = "intact";
@@ -7974,7 +7926,8 @@
 /obj/machinery/alarm{
 	dir = 1;
 	pixel_y = -25;
-	req_one_access = list(24,11)
+	req_one_access = list(24,11);
+	req_access = list("ACCESS_ICCGN")
 	},
 /obj/machinery/light_switch{
 	pixel_y = 30;
@@ -8099,8 +8052,15 @@
 /turf/simulated/floor/tiled,
 /area/ship/farfleet/crew/hallway/lower)
 "IV" = (
-/obj/machinery/atmospherics/pipe/simple/hidden{
-	dir = 8
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/machinery/light{
+	dir = 1;
+	icon_state = "tube1"
+	},
+/obj/structure/cable{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -8108,18 +8068,8 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/structure/cable{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8";
-	pixel_x = 0
-	},
-/obj/effect/floor_decal/corner/darkblue,
-/obj/effect/floor_decal/corner/darkblue/half{
-	dir = 1
-	},
 /turf/simulated/floor/tiled,
-/area/ship/farfleet/crew/hallway/lower)
+/area/ship/farfleet/dock)
 "IX" = (
 /obj/effect/floor_decal/corner/darkblue{
 	dir = 1
@@ -8215,7 +8165,7 @@
 	},
 /obj/machinery/power/port_gen/pacman,
 /turf/simulated/floor/plating,
-/area/ship/farfleet/maintenance/lower/port)
+/area/ship/farfleet/maintenance/lower)
 "Kd" = (
 /obj/machinery/computer/station_alert/engineering,
 /obj/structure/cable{
@@ -8292,6 +8242,10 @@
 /obj/effect/floor_decal/corner/darkblue,
 /turf/simulated/floor/tiled,
 /area/ship/farfleet/crew/hallway/lower)
+"KE" = (
+/obj/effect/paint/dark_gunmetal,
+/turf/simulated/wall,
+/area/ship/farfleet/dock)
 "KK" = (
 /obj/structure/cable{
 	d1 = 4;
@@ -8333,26 +8287,6 @@
 /obj/effect/floor_decal/industrial/outline/grey,
 /turf/simulated/floor/tiled/dark/monotile,
 /area/ship/farfleet/crew/brig/emergency_armory)
-"Li" = (
-/obj/machinery/atmospherics/pipe/simple/hidden{
-	dir = 10;
-	icon_state = "intact"
-	},
-/obj/machinery/embedded_controller/radio/airlock/docking_port{
-	display_name = "Port Patrol Dock";
-	frequency = 1332;
-	id_tag = "farfleet_sensor_airlock";
-	pixel_x = 1;
-	pixel_y = 24;
-	req_access = list("ACCESS_ICCGN");
-	tag_airpump = "patrol_dock_pump";
-	tag_chamber_sensor = "patrol_dock_sensor";
-	tag_exterior_door = "patrol_dock_outer";
-	tag_interior_door = "patrol_dock_inner"
-	},
-/obj/structure/catwalk,
-/turf/simulated/floor,
-/area/ship/farfleet/maintenance/lower/port)
 "Lm" = (
 /obj/machinery/door/airlock/civilian{
 	autoset_access = 0;
@@ -8408,6 +8342,18 @@
 /obj/effect/floor_decal/corner/green/bordercorner,
 /turf/simulated/floor/tiled/white,
 /area/ship/farfleet/medbay)
+"LQ" = (
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 9
+	},
+/obj/effect/floor_decal/industrial/warning{
+	dir = 6
+	},
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 8
+	},
+/turf/simulated/floor/tiled,
+/area/ship/farfleet/dock)
 "LW" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -8443,7 +8389,7 @@
 	icon_state = "railing0-1"
 	},
 /turf/simulated/floor,
-/area/ship/farfleet/maintenance/lower/port)
+/area/ship/farfleet/maintenance/lower)
 "Ml" = (
 /obj/structure/cable{
 	d2 = 8;
@@ -8580,15 +8526,12 @@
 	icon_state = "1-2";
 	pixel_y = 0
 	},
-/obj/machinery/light{
-	dir = 4
-	},
-/obj/machinery/button/alternate{
-	dir = 8;
-	pixel_y = -5;
-	pixel_x = 23;
+/obj/machinery/button/blast_door{
+	id_tag = "iccgn_em_arm";
+	name = "Protective Shutters Control";
 	req_access = list("ACCESS_ICCGN");
-	id_tag = "iccgn_em_arm"
+	dir = 8;
+	pixel_x = 24
 	},
 /turf/simulated/floor/tiled,
 /area/ship/farfleet/crew)
@@ -8691,7 +8634,7 @@
 	icon_state = "1-2"
 	},
 /turf/simulated/wall/r_wall,
-/area/ship/farfleet/maintenance/lower/port)
+/area/ship/farfleet/maintenance/lower)
 "Ok" = (
 /obj/effect/paint/black,
 /turf/simulated/wall/ocp_wall,
@@ -8707,7 +8650,7 @@
 	},
 /obj/structure/closet/crate/bin,
 /turf/simulated/floor,
-/area/ship/farfleet/maintenance/lower/port)
+/area/ship/farfleet/maintenance/lower)
 "On" = (
 /obj/machinery/door/firedoor{
 	dir = 4
@@ -8716,11 +8659,21 @@
 /turf/simulated/floor/tiled,
 /area/ship/farfleet/crew/hallway/lower)
 "Oo" = (
-/obj/machinery/door/airlock/external,
+/obj/machinery/door/window/brigdoor{
+	dir = 1;
+	req_access = list("ACCESS_ICCGN")
+	},
+/obj/machinery/door/window/brigdoor{
+	req_access = list("ACCESS_ICCGN")
+	},
+/obj/machinery/door/blast/regular{
+	dir = 4;
+	id_tag = "sensor_iccg"
+	},
 /turf/simulated/floor{
 	id_tag = "farfleet_sensor_exterior"
 	},
-/area/ship/farfleet/maintenance/lower/port)
+/area/ship/farfleet/maintenance/lower)
 "Oq" = (
 /obj/structure/cable{
 	d1 = 4;
@@ -8925,7 +8878,7 @@
 	},
 /obj/effect/floor_decal/corner/darkblue,
 /turf/simulated/floor/tiled,
-/area/ship/farfleet/crew/hallway/lower)
+/area/ship/farfleet/dock)
 "PU" = (
 /obj/machinery/door/firedoor{
 	dir = 4
@@ -8939,6 +8892,7 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/effect/floor_decal/industrial/warning/half,
+/obj/machinery/door/airlock/multi_tile/glass/terran,
 /turf/simulated/floor/tiled,
 /area/ship/farfleet/crew/hallway/lower)
 "PV" = (
@@ -8988,7 +8942,7 @@
 /obj/structure/cable,
 /obj/structure/catwalk,
 /turf/simulated/floor,
-/area/ship/farfleet/maintenance/lower/port)
+/area/ship/farfleet/maintenance/lower)
 "Qn" = (
 /obj/effect/floor_decal/industrial/outline/blue,
 /turf/simulated/floor/reinforced,
@@ -9091,11 +9045,6 @@
 /turf/simulated/floor/tiled/white,
 /area/ship/farfleet/medbay)
 "Rr" = (
-/obj/effect/floor_decal/industrial/outline/blue,
-/obj/machinery/atmospherics/portables_connector{
-	dir = 8
-	},
-/obj/machinery/portable_atmospherics/canister/air,
 /obj/structure/railing/mapped{
 	dir = 8;
 	icon_state = "railing0-1"
@@ -9170,15 +9119,20 @@
 	icon_state = "4-8";
 	pixel_x = 0
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden{
-	dir = 8
-	},
 /obj/machinery/door/airlock/autoname/maintenance,
 /obj/effect/floor_decal/industrial/warning/half{
 	dir = 4
 	},
 /turf/simulated/floor,
 /area/ship/farfleet/maintenance/lower/starboard)
+"Sj" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/portable_atmospherics/canister/air,
+/obj/machinery/atmospherics/portables_connector{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/monotile,
+/area/ship/farfleet/dock)
 "Sr" = (
 /obj/structure/table/rack,
 /obj/item/clothing/accessory/storage/holster/thigh,
@@ -9204,7 +9158,7 @@
 	icon_state = "railing0-1"
 	},
 /turf/simulated/floor,
-/area/ship/farfleet/maintenance/lower/port)
+/area/ship/farfleet/maintenance/lower)
 "Sw" = (
 /obj/machinery/atmospherics/unary/heater{
 	dir = 4;
@@ -9216,7 +9170,7 @@
 "SI" = (
 /obj/structure/catwalk,
 /turf/simulated/floor,
-/area/ship/farfleet/maintenance/lower/port)
+/area/ship/farfleet/maintenance/lower)
 "SK" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 6
@@ -9254,9 +9208,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/farfleet/command/bridge)
-"SY" = (
-/turf/simulated/floor/tiled/dark,
-/area/ship/farfleet/crew/comms)
 "Ta" = (
 /obj/structure/cable{
 	icon_state = "0-2";
@@ -9347,10 +9298,6 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/farfleet/command/bridge)
 "TA" = (
-/obj/machinery/firealarm{
-	dir = 2;
-	pixel_y = 24
-	},
 /turf/simulated/floor/tiled,
 /area/ship/farfleet/crew/cryo)
 "TB" = (
@@ -9430,7 +9377,7 @@
 	},
 /obj/structure/catwalk,
 /turf/simulated/floor,
-/area/ship/farfleet/maintenance/lower/port)
+/area/ship/farfleet/maintenance/lower)
 "TQ" = (
 /obj/effect/paint/dark_gunmetal,
 /turf/simulated/wall/r_wall,
@@ -9460,7 +9407,7 @@
 "TZ" = (
 /obj/machinery/shipsensors,
 /turf/simulated/floor/airless,
-/area/ship/farfleet/maintenance/lower/port)
+/area/ship/farfleet/maintenance/lower)
 "Ua" = (
 /obj/structure/cable{
 	d1 = 1;
@@ -9534,7 +9481,7 @@
 	},
 /obj/structure/railing/mapped,
 /turf/simulated/floor,
-/area/ship/farfleet/maintenance/lower/port)
+/area/ship/farfleet/maintenance/lower)
 "Us" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/fuel{
 	dir = 6
@@ -9584,7 +9531,7 @@
 	},
 /obj/structure/catwalk,
 /turf/simulated/floor,
-/area/ship/farfleet/maintenance/lower/port)
+/area/ship/farfleet/maintenance/lower)
 "UH" = (
 /obj/structure/window/reinforced/bar{
 	dir = 1
@@ -9659,17 +9606,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/farfleet/command/launcher/north)
-"Vj" = (
-/obj/machinery/portable_atmospherics/canister/air,
-/obj/machinery/atmospherics/portables_connector{
-	dir = 1
-	},
-/obj/structure/railing/mapped{
-	dir = 4;
-	icon_state = "railing0-1"
-	},
-/turf/simulated/floor,
-/area/ship/farfleet/maintenance/lower/port)
 "Vp" = (
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 8
@@ -9721,6 +9657,7 @@
 /obj/effect/floor_decal/corner/darkblue/half{
 	dir = 8
 	},
+/obj/machinery/door/airlock/multi_tile/glass/terran,
 /turf/simulated/floor/tiled,
 /area/ship/farfleet/crew/hallway/lower)
 "VL" = (
@@ -9784,22 +9721,23 @@
 /turf/simulated/wall/r_titanium,
 /area/ship/farfleet/command/bridge)
 "Wf" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 4
+	},
+/obj/effect/floor_decal/industrial/warning{
+	dir = 10
+	},
 /obj/structure/cable{
 	d1 = 1;
 	d2 = 2;
-	icon_state = "1-2";
-	pixel_y = 0
+	icon_state = "1-2"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/light{
-	dir = 8
-	},
-/obj/effect/floor_decal/corner/darkblue/half{
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
 	dir = 8
 	},
 /turf/simulated/floor/tiled,
-/area/ship/farfleet/crew/hallway/lower)
+/area/ship/farfleet/dock)
 "Wn" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -9863,7 +9801,7 @@
 /obj/machinery/alarm{
 	dir = 1;
 	pixel_y = -24;
-	req_access = list("ACCESS_SYNDICATE")
+	req_access = list("ACCESS_ICCGN")
 	},
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 1
@@ -9874,14 +9812,14 @@
 /obj/machinery/alarm{
 	dir = 1;
 	pixel_y = -24;
-	req_access = list("ACCESS_SYNDICATE")
+	req_access = list("ACCESS_ICCGN")
 	},
 /obj/structure/railing/mapped{
 	dir = 1;
 	icon_state = "railing0-1"
 	},
 /turf/simulated/floor,
-/area/ship/farfleet/maintenance/lower/port)
+/area/ship/farfleet/maintenance/lower)
 "WN" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -9915,12 +9853,12 @@
 /turf/space,
 /area/space)
 "Xa" = (
-/obj/effect/submap_landmark/spawnpoint/away_iccg/gunner,
 /obj/structure/cable{
 	d1 = 1;
 	d2 = 2;
 	icon_state = "1-2"
 	},
+/obj/effect/submap_landmark/spawnpoint/away_iccgn_farfleet/gunner,
 /turf/simulated/floor/tiled,
 /area/ship/farfleet/crew/cryo)
 "Xc" = (
@@ -9929,7 +9867,7 @@
 	dir = 1
 	},
 /turf/simulated/floor,
-/area/ship/farfleet/maintenance/lower/port)
+/area/ship/farfleet/maintenance/lower)
 "Xj" = (
 /obj/structure/cable{
 	d1 = 1;
@@ -10028,7 +9966,8 @@
 /obj/machinery/power/apc/critical{
 	dir = 8;
 	name = "west bump";
-	pixel_x = -24
+	pixel_x = -24;
+	req_access = list("ACCESS_ICCGN")
 	},
 /obj/structure/cable{
 	icon_state = "0-2";
@@ -10056,14 +9995,19 @@
 	},
 /obj/structure/catwalk,
 /turf/simulated/floor,
-/area/ship/farfleet/maintenance/lower/port)
+/area/ship/farfleet/maintenance/lower)
 "XO" = (
 /obj/machinery/alarm{
 	dir = 4;
 	icon_state = "alarm0";
-	pixel_x = -22
+	pixel_x = -22;
+	req_access = list("ACCESS_ICCGN")
 	},
 /obj/structure/table/steel_reinforced,
+/obj/machinery/firealarm{
+	dir = 2;
+	pixel_y = 24
+	},
 /turf/simulated/floor/tiled,
 /area/ship/farfleet/crew/cryo)
 "XQ" = (
@@ -10125,7 +10069,7 @@
 	},
 /obj/structure/catwalk,
 /turf/simulated/floor,
-/area/ship/farfleet/maintenance/lower/port)
+/area/ship/farfleet/maintenance/lower)
 "Yi" = (
 /obj/machinery/door/firedoor{
 	dir = 4
@@ -10184,7 +10128,6 @@
 /obj/machinery/computer/cryopod{
 	pixel_y = 32
 	},
-/obj/structure/closet/crate/bin,
 /turf/simulated/floor/tiled,
 /area/ship/farfleet/crew)
 "Yz" = (
@@ -10261,7 +10204,7 @@
 	icon_state = "railing0-1"
 	},
 /turf/simulated/floor,
-/area/ship/farfleet/maintenance/lower/port)
+/area/ship/farfleet/maintenance/lower)
 "Zj" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -10279,25 +10222,26 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/farfleet/crew/brig/emergency_armory)
 "Zm" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 6
+/obj/effect/floor_decal/industrial/warning{
+	dir = 8
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 6
+/obj/structure/sign/warning/airlock{
+	dir = 4;
+	pixel_x = -32
 	},
 /obj/structure/cable{
 	d1 = 2;
 	d2 = 4;
 	icon_state = "2-4"
 	},
-/obj/effect/floor_decal/corner/darkblue/half{
-	dir = 8
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 6
 	},
-/obj/effect/floor_decal/corner/darkblue{
-	dir = 4
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 6
 	},
 /turf/simulated/floor/tiled,
-/area/ship/farfleet/crew/hallway/lower)
+/area/ship/farfleet/dock)
 "Zn" = (
 /obj/effect/floor_decal/industrial/danger{
 	dir = 1
@@ -15754,7 +15698,7 @@ LD
 qM
 qM
 qM
-qM
+KS
 aG
 aw
 AU
@@ -16001,7 +15945,7 @@ Cq
 Yi
 sD
 XD
-AB
+eX
 Dc
 jn
 jS
@@ -16107,7 +16051,7 @@ aa
 LD
 LD
 iK
-jr
+lE
 RD
 lE
 bD
@@ -16123,7 +16067,7 @@ Xa
 MO
 Ua
 TE
-xH
+DS
 Dc
 oU
 jT
@@ -16352,11 +16296,11 @@ TQ
 TQ
 TQ
 TQ
-KS
-KS
-KS
+KE
+Sj
+TQ
 bG
-TB
+KS
 Ax
 OV
 JM
@@ -16364,7 +16308,7 @@ qM
 qM
 qM
 qM
-qM
+KS
 Ei
 Oy
 iW
@@ -16470,7 +16414,7 @@ aa
 aa
 aa
 aa
-li
+wT
 bO
 mu
 ik
@@ -16489,7 +16433,7 @@ AT
 PU
 zM
 WD
-xH
+DS
 Dc
 yN
 jW
@@ -16592,12 +16536,12 @@ aa
 aa
 aa
 aa
-ns
+wT
 fS
 kR
 kL
 zN
-Nu
+LQ
 PS
 Nu
 hS
@@ -16611,7 +16555,7 @@ Al
 On
 Cd
 hi
-AB
+eX
 Dc
 ou
 js
@@ -16719,18 +16663,18 @@ UQ
 nd
 TQ
 IV
-Al
+le
 AA
 bG
-MP
-MP
-MP
-MP
-MP
-MP
-MP
-MP
-MP
+KS
+KS
+KS
+KS
+KS
+KS
+KS
+KS
+KS
 QC
 tF
 Jm
@@ -16836,23 +16780,23 @@ aa
 aa
 aa
 aa
-ng
+TQ
 lN
 af
 DF
 kV
-ng
-ng
+TQ
+TQ
 ng
 MP
 MP
-bI
+MP
 dR
 hf
 eL
 oY
 cu
-MP
+KS
 Ei
 Ti
 Fl
@@ -16967,8 +16911,8 @@ ng
 PR
 sE
 MP
-cY
-SY
+MP
+MP
 Cu
 ho
 eN
@@ -17090,7 +17034,7 @@ Gw
 se
 MP
 MP
-eX
+MP
 dU
 eu
 eM
@@ -17338,8 +17282,8 @@ dB
 dW
 ew
 uv
-fn
 ft
+fn
 iO
 IX
 Gh
@@ -17471,7 +17415,7 @@ PP
 dX
 AE
 PP
-PP
+dX
 MZ
 NM
 wL
@@ -18066,7 +18010,7 @@ ng
 yC
 pi
 de
-aD
+ft
 ao
 ft
 ft
@@ -18937,9 +18881,9 @@ ZT
 CU
 qn
 Bz
-Li
+SI
 sa
-Vj
+Sv
 Bz
 aa
 aa
@@ -19174,7 +19118,7 @@ xw
 xw
 Nl
 Nl
-Nl
+KS
 Nl
 TL
 TL

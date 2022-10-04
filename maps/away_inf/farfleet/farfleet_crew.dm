@@ -8,11 +8,11 @@
 	descriptor = "ICCGN Farfleet Recon Ship"
 	map = "Recon Ship"
 	crew_jobs = list(
-		/datum/job/submap/iccgn_captain,
-		/datum/job/submap/iccgn_droptrooper,
-		/datum/job/submap/iccgn_sergeant,
-		/datum/job/submap/iccgn_medic,
-		/datum/job/submap/iccgn_gunner
+		/datum/job/submap/away_iccgn_farfleet,
+		/datum/job/submap/away_iccgn_farfleet/iccgn_captain,
+		/datum/job/submap/away_iccgn_farfleet/iccgn_sergeant,
+		/datum/job/submap/away_iccgn_farfleet/iccgn_medic,
+		/datum/job/submap/away_iccgn_farfleet/iccgn_gunner
 	)
 	call_webhook = WEBHOOK_SUBMAP_LOADED_ICCGN
 
@@ -22,24 +22,21 @@
 	for(var/obj/machinery/photocopier/faxmachine/fax in SSmachines.machinery)
 		fax.admin_departments += "ICCGN Farfleet Headquarters"
 
-/obj/effect/submap_landmark/spawnpoint/away_iccg
-	name = "Army SCGSO Trooper"
+/obj/effect/submap_landmark/spawnpoint/away_iccgn_farfleet
+	name = "ICCG Droptrooper"
 	movable_flags = MOVABLE_FLAG_EFFECTMOVE
 
-/obj/effect/submap_landmark/spawnpoint/away_iccg/sergeant
-	name = "ICCGN Droptroops Sergeant "
+/obj/effect/submap_landmark/spawnpoint/away_iccgn_farfleet/sergeant
+	name = "ICCG Droptrooper Sergeant"
 
-/obj/effect/submap_landmark/spawnpoint/away_iccg/captain
+/obj/effect/submap_landmark/spawnpoint/away_iccgn_farfleet/captain
 	name = "Farfleet Captain"
 
-/obj/effect/submap_landmark/spawnpoint/away_iccg/droptrooper
-	name = "ICCGN Droptrooper"
-
-/obj/effect/submap_landmark/spawnpoint/away_iccg/medic
+/obj/effect/submap_landmark/spawnpoint/away_iccgn_farfleet/medic
 	name = "Farfleet Medic"
 
-/obj/effect/submap_landmark/spawnpoint/away_iccg/gunner
-	name = "Ordnance Specialist"
+/obj/effect/submap_landmark/spawnpoint/away_iccgn_farfleet/gunner
+	name = "Ordnance Technician"
 
 /* ACCESS
  * =======
@@ -73,26 +70,26 @@
 /obj/item/card/id/awayiccgn/fleet
 	color = COLOR_GRAY40
 	detail_color = "#447ab1"
-	access = list(access_away_iccgn)
+	access = list(access_away_iccgn, access_engine_equip)
 
 /obj/item/card/id/awayiccgn/droptroops
-	color = "#b10309c2"
-	detail_color = "#000000"
-	access = list(access_away_iccgn, access_away_iccgn_droptroops)
+	color = COLOR_GRAY40
+	detail_color = "#0018a0"
+	access = list(access_away_iccgn, access_away_iccgn_droptroops, access_engine_equip)
 
-/obj/item/card/id/awayiccgn/ops/droptroops/sergeant
+/obj/item/card/id/awayiccgn/droptroops/sergeant
 	access = list(access_away_iccgn, access_away_iccgn_droptroops, access_away_iccgn_sergeant)
 	extra_details = list("goldstripe")
 
 /obj/item/card/id/awayiccgn/fleet/captain
-	access = list(access_away_iccgn, access_away_iccgn_droptroops, access_away_iccgn_sergeant, access_away_iccgn_captain)
+	access = list(access_away_iccgn, access_away_iccgn_droptroops, access_away_iccgn_sergeant, access_away_iccgn_captain, access_engine_equip)
 	extra_details = list("goldstripe")
 
 /* JOBS
  * =======
  */
 
-/datum/job/submap/iccgn_droptrooper
+/datum/job/submap/away_iccgn_farfleet
 	title = "ICCG Droptrooper"
 	total_positions = 2
 	outfit_type = /decl/hierarchy/outfit/job/iccgn/iccgn_droptroops
@@ -112,14 +109,14 @@
 					 SKILL_HAULING = SKILL_BASIC,
 					 SKILL_MEDICAL = SKILL_BASIC,
 					 SKILL_EVA = SKILL_BASIC)
-	access = list(access_away_iccgn, access_away_iccgn_droptroops)
+	access = list(access_away_iccgn, access_away_iccgn_droptroops, access_engine_equip)
 	//required_role = list("Sub-Lieutenant", "Ensign")
 
-/datum/job/submap/iccgn_sergeant
+/datum/job/submap/away_iccgn_farfleet/iccgn_sergeant
 	title = "ICCG Droptrooper Sergeant"
 	total_positions = 1
 	outfit_type = /decl/hierarchy/outfit/job/iccgn/iccgn_sergeant
-	supervisors = "recon captain, command of the Farfleet Recon Squadron , ICCGN"
+	supervisors = "Recon captain, Command of the Farfleet Recon Squadron , ICCGN"
 	loadout_allowed = TRUE
 	is_semi_antagonist = TRUE
 	info = "Вы просыпаетесь и выходите из криосна, ощущая прохладный воздух на своём лице, а также лёгкую тошноту. \
@@ -136,10 +133,10 @@
 					 SKILL_MEDICAL = SKILL_BASIC,
 					 SKILL_PILOT = SKILL_ADEPT,
 					 SKILL_EVA = SKILL_BASIC)
-	access = list(access_away_iccgn, access_away_iccgn_droptroops, access_away_iccgn_sergeant)
+	access = list(access_away_iccgn, access_away_iccgn_droptroops, access_away_iccgn_sergeant, access_engine_equip)
 	//required_role = list("Sub-Lieutenant", "Ensign")
 
-/datum/job/submap/iccgn_captain
+/datum/job/submap/away_iccgn_farfleet/iccgn_captain
 	title = "Farfleet Captain"
 	total_positions = 1
 	outfit_type = /decl/hierarchy/outfit/job/iccgn/iccgn_captain
@@ -159,10 +156,10 @@
 					 SKILL_MEDICAL = SKILL_BASIC,
 					 SKILL_PILOT = SKILL_ADEPT,
 					 SKILL_EVA = SKILL_BASIC)
-	access = list(access_away_iccgn, access_away_iccgn_droptroops, access_away_iccgn_sergeant, access_away_iccgn_captain)
+	access = list(access_away_iccgn, access_away_iccgn_droptroops, access_away_iccgn_sergeant, access_away_iccgn_captain, access_engine_equip)
 	//required_role = null
 
-/datum/job/submap/iccgn_medic
+/datum/job/submap/away_iccgn_farfleet/iccgn_medic
 	title = "Farfleet Medic"
 	total_positions = 1
 	outfit_type = /decl/hierarchy/outfit/job/iccgn/iccgn_medic
@@ -181,9 +178,9 @@
 					 SKILL_ANATOMY = SKILL_BASIC,
 					 SKILL_CHEMISTRY = SKILL_BASIC,
 					 SKILL_EVA = SKILL_BASIC)
-	access = list(access_away_iccgn)
+	access = list(access_away_iccgn, access_engine_equip)
 
-/datum/job/submap/iccgn_gunner
+/datum/job/submap/away_iccgn_farfleet/iccgn_gunner
 	title = "Ordnance Technician"
 	total_positions = 2
 	outfit_type = /decl/hierarchy/outfit/job/iccgn/iccgn_gunner
@@ -207,7 +204,7 @@
 					 SKILL_ATMOS  = SKILL_BASIC,
 					 SKILL_ENGINES = SKILL_ADEPT,
 					 SKILL_DEVICES = SKILL_BASIC)
-	access = list(access_away_iccgn)
+	access = list(access_away_iccgn, access_engine_equip)
 
 
 /* BRANCH & RANKS
@@ -260,13 +257,13 @@
 
 /decl/hierarchy/outfit/job/iccgn
 	hierarchy_type = /decl/hierarchy/outfit/job/iccgn
-	uniform = /obj/item/clothing/under/terran/navy/utility
-	shoes = /obj/item/clothing/shoes/terran
+	uniform = /obj/item/clothing/under/iccgn/utility
+	shoes = /obj/item/clothing/shoes/iccgn/utility
 	l_ear = /obj/item/device/radio/headset/iccgn
 	l_pocket = /obj/item/device/radio
 	r_pocket = /obj/item/crowbar/prybar
 	suit_store = /obj/item/tank/oxygen
-	id_types = list(/obj/item/card/id/farfleet/fleet)
+	id_types = list(/obj/item/card/id/awayiccgn/fleet)
 	id_slot = slot_wear_id
 	pda_type = null
 	belt = null
@@ -276,40 +273,43 @@
 
 /decl/hierarchy/outfit/job/iccgn/iccgn_droptroops
 	name = ICCGN_OUTFIT_JOB_NAME("Droptrooper")
-	head = /obj/item/clothing/head/terran/beret/grey
-	uniform = /obj/item/clothing/under/solgov/utility/army/urban/away_solpatrol
-	id_types = list(/obj/item/card/id/farfleet/droptroops)
-	belt = /obj/item/storage/belt/holster/security/farfleet
+	head = /obj/item/clothing/head/iccgn/beret
+	uniform = /obj/item/clothing/under/iccgn/pt
+	id_types = list(/obj/item/card/id/awayiccgn/droptroops)
+	belt = /obj/item/storage/belt/holster/security/tactical/farfleet
 	gloves = /obj/item/clothing/gloves/thick/combat/marine
 
 /decl/hierarchy/outfit/job/iccgn/iccgn_sergeant
 	name = ICCGN_OUTFIT_JOB_NAME("Droptroops Sergeant")
-	head = /obj/item/clothing/head/terran/beret
-	uniform = /obj/item/clothing/under/solgov/utility/army/urban/away_solpatrol/captain
-	id_types = list(/obj/item/card/id/farfleet/droptroops/sergeant)
-	belt = /obj/item/storage/belt/holster/security/farfleet
+	head = /obj/item/clothing/head/iccgn/beret
+	uniform = /obj/item/clothing/under/iccgn/pt
+	id_types = list(/obj/item/card/id/awayiccgn/droptroops/sergeant)
+	belt = /obj/item/storage/belt/holster/security/tactical/farfleet
 	gloves = /obj/item/clothing/gloves/thick/combat/marine
 
 /decl/hierarchy/outfit/job/iccgn/iccgn_gunner
 	name = ICCGN_OUTFIT_JOB_NAME("Ordnance Technician")
-	head = /obj/item/clothing/head/terran/navy/service
-	uniform = /obj/item/clothing/under/solgov/utility/fleet/engineering/away_solpatrol
-	belt = /obj/item/storage/belt/holster/security/farfleet
+	head = /obj/item/clothing/head/iccgn/service
+	uniform = /obj/item/clothing/under/iccgn/utility
+	belt = /obj/item/storage/belt/utility/full
 	gloves = /obj/item/clothing/gloves/insulated/black
 
 /decl/hierarchy/outfit/job/iccgn/iccgn_medic
 	name = ICCGN_OUTFIT_JOB_NAME("Doctor")
-	uniform = /obj/item/clothing/head/terran/navy/service
-	belt = /obj/item/storage/belt/holster/security/farfleet
+	head = /obj/item/clothing/head/iccgn/service
+	uniform = /obj/item/clothing/under/iccgn/utility
+	belt = /obj/item/storage/belt/medical/emt
 	gloves = /obj/item/clothing/gloves/latex/nitrile
 
 /decl/hierarchy/outfit/job/iccgn/iccgn_captain
-	name = ICCGN_OUTFIT_JOB_NAME("Lieutenant Commander")
-	head = /obj/item/clothing/head/terran/navy/service/command
-	uniform = /obj/item/clothing/under/solgov/utility/fleet/officer/command/commander/away_solpatrol
-	belt = /obj/item/storage/belt/holster/security/farfleet
+	name = ICCGN_OUTFIT_JOB_NAME("Farfleet Captain")
+	head = /obj/item/clothing/head/iccgn/service_command
+	uniform = /obj/item/clothing/under/iccgn/service_command
+	suit = /obj/item/clothing/suit/iccgn/service_command
 	id_types = list(/obj/item/card/id/awayiccgn/fleet/captain)
-	gloves = /obj/item/clothing/gloves/terran
+	shoes = /obj/item/clothing/shoes/iccgn/service
+	gloves = /obj/item/clothing/gloves/iccgn/duty
+	belt = /obj/item/storage/belt/holster/security/tactical/farfleet
 
 #undef ICCGN_OUTFIT_JOB_NAME
 #undef WEBHOOK_SUBMAP_LOADED_ICCGN
