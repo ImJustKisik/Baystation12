@@ -78,6 +78,7 @@
 	icon = 'icons/effects/vomit.dmi'
 	icon_state = "vomit_1"
 	persistent = TRUE
+	var/list/viruses = list()
 	generic_filth = TRUE
 
 /obj/effect/decal/cleanable/vomit/New()

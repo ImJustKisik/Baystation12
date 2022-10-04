@@ -260,6 +260,10 @@ Keeping them simple for now, just spawning with basic EC uniforms, and pretty mu
 	name = OUTFIT_JOB_NAME("Orderly")
 	uniform = /obj/item/clothing/under/rank/orderly
 
+/decl/hierarchy/outfit/job/sierra/crew/medical/virologist
+	name = OUTFIT_JOB_NAME("Virologist - Sierra")
+	uniform = /obj/item/clothing/under/rank/virologist_new
+
 /decl/hierarchy/outfit/job/sierra/crew/medical/doctor/mortus
 	name = OUTFIT_JOB_NAME("Mortician")
 	uniform = /obj/item/clothing/under/rank/medical/scrubs/black

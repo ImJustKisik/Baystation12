@@ -18,6 +18,7 @@
 	flesh_color =             "#009999"
 	hud_type =                /datum/hud_data/mantid
 	move_trail =              /obj/effect/decal/cleanable/blood/tracks/snake
+	virus_immune = TRUE
 
 	speech_chance = 100
 	speech_sounds = list(

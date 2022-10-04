@@ -40,7 +40,7 @@
 	/datum/job/senior_engineer, /datum/job/engineer, /datum/job/infsys, /datum/job/roboticist, /datum/job/engineer_trainee, \
 	/datum/job/officer, /datum/job/warden, /datum/job/detective, /datum/job/security_assistant, \
 	/datum/job/senior_doctor, /datum/job/doctor, /datum/job/doctor_trainee,/datum/job/chemist, \
-	/datum/job/psychiatrist, \
+	/datum/job/psychiatrist, /datum/job/doctor/virologist, \
 	/datum/job/qm, /datum/job/cargo_tech, /datum/job/cargo_assistant,\
 	/datum/job/janitor, /datum/job/chef, /datum/job/bartender,\
 	/datum/job/senior_scientist, /datum/job/scientist, /datum/job/mining,\
@@ -59,13 +59,13 @@
 
 //For members of the medical department
 #define MEDICAL_ROLES list(\
-	/datum/job/cmo, /datum/job/senior_doctor, /datum/job/doctor,\
+	/datum/job/cmo, /datum/job/senior_doctor, /datum/job/doctor, /datum/job/doctor/virologist,\
 	/datum/job/doctor_trainee, /datum/job/explorer_medic,\
 	/datum/job/psychiatrist, /datum/job/chemist, /datum/job/roboticist)
 
 //For members of the medical department, roboticists, and some Research
 #define STERILE_ROLES list(\
-	/datum/job/cmo, /datum/job/senior_doctor, /datum/job/doctor,\
+	/datum/job/cmo, /datum/job/senior_doctor, /datum/job/doctor, /datum/job/doctor/virologist,\
 	/datum/job/doctor_trainee, /datum/job/chemist, /datum/job/psychiatrist,\
 	/datum/job/chemist, /datum/job/explorer_medic, /datum/job/roboticist,\
 	/datum/job/rd, /datum/job/senior_scientist, /datum/job/scientist, /datum/job/scientist_assistant)
@@ -117,7 +117,7 @@
 	/datum/job/explorer, /datum/job/explorer_pilot, /datum/job/explorer_medic, /datum/job/explorer_engineer, \
 	/datum/job/engineer, /datum/job/engineer_trainee, \
 	/datum/job/officer, /datum/job/detective, \
-	/datum/job/senior_doctor, /datum/job/doctor, /datum/job/doctor_trainee,/datum/job/chemist, /datum/job/psychiatrist, \
+	/datum/job/senior_doctor, /datum/job/doctor, /datum/job/doctor_trainee,/datum/job/chemist, /datum/job/psychiatrist, /datum/job/doctor/virologist,\
 	/datum/job/cargo_tech,  /datum/job/cargo_assistant, /datum/job/mining, \
 	/datum/job/janitor, /datum/job/chef, /datum/job/bartender, /datum/job/infsys,\
 	/datum/job/scientist, /datum/job/roboticist, /datum/job/scientist_assistant)

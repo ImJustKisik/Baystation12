@@ -94,7 +94,7 @@
 	if (ishuman(M))
 		var/mob/living/carbon/human/H = M
 		var/obj/item/organ/external/temp = H.organs_by_name[BP_R_HAND]
-			
+
 		if(guards && !(M.a_intent == I_HELP))
 			for(var/mob/living/simple_animal/hostile/commanded/guard in (guards & hearers(src,10)))
 				guard.hunt_on(H)
@@ -381,6 +381,9 @@
 	if(now_pushing || !yes)
 		return
 	..()
+
+	if(istype(AM, /mob/living/carbon) && prob(10))
+		src.spread_disease_to(AM, "Contact")
 
 /mob/living/carbon/slip(slipped_on, stun_duration = 8)
 	var/area/A = get_area(src)

@@ -55,6 +55,7 @@
 	var/strength    = STR_MEDIUM
 	var/show_ssd = "fast asleep"
 	var/show_coma = "completely comatose"
+	var/virus_immune
 	var/short_sighted                         // Permanent weldervision.
 	var/light_sensitive                       // Ditto, but requires sunglasses to fix
 	var/blood_volume = SPECIES_BLOOD_DEFAULT  // Initial blood volume.

@@ -1093,6 +1093,10 @@ GLOBAL_LIST_EMPTY(compatable_genomes_owners)
 						H.brainmob.mind.transfer_to(src)
 						qdel(H)
 
+	for (var/ID in virus2)
+		var/datum/disease2/disease/V = virus2[ID]
+		V.cure(src)
+
 	losebreath = 0
 
 	..()

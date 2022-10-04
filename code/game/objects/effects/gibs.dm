@@ -6,6 +6,7 @@
 	var/list/gibtypes = list()
 	var/list/gibamounts = list()
 	var/list/gibdirections = list() //of lists
+	var/virusProb = 20 //the chance for viruses to spread on the gibs
 	var/fleshcolor //Used for gibbed humans.
 	var/bloodcolor //Used for gibbed humans.
 	var/datum/dna/MobDNA

@@ -501,6 +501,15 @@
 	color = "#e8dfd0"
 	taste_mult = 3
 
+/datum/reagent/nutriment/virus_food
+	name = "Virus Food"
+	description = "A mixture of water, milk, and oxygen. Virus cells can use this mixture to reproduce."
+	taste_description = "vomit"
+	taste_mult = 2
+	reagent_state = LIQUID
+	nutriment_factor = 2
+	color = "#899613"
+
 /datum/reagent/nutriment/mayo
 	name = "Mayonnaise"
 	description = "A mixture of egg yolk with lemon juice or vinegar. Usually put on bland food to make it more edible."

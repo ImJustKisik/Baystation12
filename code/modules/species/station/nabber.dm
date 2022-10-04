@@ -429,6 +429,7 @@
 	deform = 'icons/mob/human_races/species/nabber/body_msw.dmi'
 	spawn_flags = SPECIES_IS_RESTRICTED | SPECIES_NO_FBP_CONSTRUCTION | SPECIES_NO_FBP_CHARGEN
 	appearance_flags = 0
+	virus_immune = TRUE
 	base_skin_colours = null
 	has_organ = list(
 		BP_BRAIN =             /obj/item/organ/internal/brain/insectoid/nabber,

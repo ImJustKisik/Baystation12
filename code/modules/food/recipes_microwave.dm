@@ -925,6 +925,13 @@ I said no!
 	)
 	result = /obj/item/reagent_containers/food/snacks/tofurkey
 
+// Fuck Science!
+/datum/recipe/ruinedvirusdish
+	items = list(
+		/obj/item/virusdish
+	)
+	result = /obj/item/ruinedvirusdish
+
 //////////////////////////////////////////
 // bs12 food port stuff
 //////////////////////////////////////////

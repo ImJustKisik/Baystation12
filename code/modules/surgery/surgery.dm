@@ -6,6 +6,7 @@ GLOBAL_LIST_INIT(surgery_tool_exceptions, list(
 	/obj/item/reagent_containers/hypospray,
 	/obj/item/modular_computer,
 	/obj/item/reagent_containers/syringe,
+	/obj/item/device/antibody_scanner,
 	/obj/item/reagent_containers/borghypo
 ))
 GLOBAL_LIST_INIT(surgery_tool_exception_cache, new)

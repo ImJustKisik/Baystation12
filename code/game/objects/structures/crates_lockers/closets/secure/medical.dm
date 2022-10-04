@@ -118,6 +118,32 @@
 		RANDOM_SCRUBS
 	)
 
+/obj/structure/closet/secure_closet/medical_viro
+	name = "virologist's locker"
+	req_access = list(access_virology)
+	icon_state = "med"
+
+/obj/structure/closet/secure_closet/medical_viro/WillContain()
+	return list(
+		/obj/item/clothing/under/sterile,
+		/obj/item/clothing/suit/storage/toggle/labcoat/virologist,
+		/obj/item/clothing/shoes/white,
+		/obj/item/device/radio/headset/headset_med,
+		/obj/item/taperoll/medical,
+		/obj/item/clothing/mask/surgical,
+		/obj/item/device/scanner/health,
+		/obj/item/clothing/accessory/stethoscope,
+		/obj/item/device/flashlight/pen,
+		/obj/item/clothing/glasses/hud/health,
+		/obj/item/device/flash,
+		/obj/item/device/megaphone,
+		/obj/item/storage/firstaid/adv,
+		/obj/item/material/knife/folding/swiss,
+		new /datum/atom_creator/weighted(list(/obj/item/storage/backpack/medic, /obj/item/storage/backpack/satchel/med)),
+		new /datum/atom_creator/weighted(list(/obj/item/storage/backpack/dufflebag/med, /obj/item/storage/backpack/messenger/med)),
+		RANDOM_SCRUBS = 2
+	)
+
 /obj/structure/closet/secure_closet/chemical
 	name = "chemical closet"
 	desc = "Store dangerous chemicals in here."

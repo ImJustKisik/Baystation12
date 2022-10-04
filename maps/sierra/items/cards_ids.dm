@@ -35,6 +35,9 @@
 	job_access_type = /datum/job/doctor
 	detail_color = COLOR_PALE_BLUE_GRAY
 
+/obj/item/card/id/sierra/crew/medical/virology
+	job_access_type = /datum/job/doctor/virologist
+
 /obj/item/card/id/sierra/silver/medical
 	job_access_type = /datum/job/cmo
 	detail_color = COLOR_PALE_BLUE_GRAY

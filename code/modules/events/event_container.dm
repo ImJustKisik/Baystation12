@@ -144,6 +144,7 @@ var/global/list/severity_to_string = list(EVENT_LEVEL_MUNDANE = "Mundane", EVENT
 		new /datum/event_meta(EVENT_LEVEL_MUNDANE, "Vermin Infestation",			/datum/event/infestation, 			100,	list(ASSIGNMENT_JANITOR = 100)),
 		new /datum/event_meta(EVENT_LEVEL_MUNDANE, "Wallrot",						/datum/event/wallrot, 				0,		list(ASSIGNMENT_ENGINEER = 30, ASSIGNMENT_GARDENER = 50)),
 		new /datum/event_meta/no_overmap(EVENT_LEVEL_MUNDANE, "Electrical Storm",	/datum/event/electrical_storm, 		20,		list(ASSIGNMENT_ENGINEER = 20, ASSIGNMENT_JANITOR = 100)),
+		new /datum/event_meta(EVENT_LEVEL_MUNDANE, "Space Cold Outbreak",           /datum/event/space_cold,            100,    list(ASSIGNMENT_MEDICAL = 20)),
 		new /datum/event_meta(EVENT_LEVEL_MUNDANE, "Toilet Clog",					/datum/event/toilet_clog,			50, 	list(ASSIGNMENT_JANITOR = 20)),
 		new /datum/event_meta(EVENT_LEVEL_MUNDANE, "Drone Malfunction",				/datum/event/rogue_maint_drones/,	10,		list(ASSIGNMENT_ENGINEER = 30)),
 		new /datum/event_meta(EVENT_LEVEL_MUNDANE, "Disposals Explosion",			/datum/event/disposals_explosion/,	50,		list(ASSIGNMENT_ENGINEER = 40)),
@@ -188,7 +189,7 @@ var/global/list/severity_to_string = list(EVENT_LEVEL_MUNDANE = "Mundane", EVENT
 		new /datum/event_meta/no_overmap(EVENT_LEVEL_MAJOR, "Electrical Storm",		/datum/event/electrical_storm, 		0,	list(ASSIGNMENT_ENGINEER = 10, ASSIGNMENT_JANITOR = 5)),
 		new /datum/event_meta(EVENT_LEVEL_MAJOR, "Drone Revolution",				/datum/event/rogue_maint_drones/,	0,	list(ASSIGNMENT_ENGINEER = 10,ASSIGNMENT_MEDICAL = 10,ASSIGNMENT_SECURITY = 10)),
 		// new /datum/event_meta(EVENT_LEVEL_MAJOR, "Alien Infestation",				/datum/event/aliens, 				0,	list(ASSIGNMENT_SECURITY = 10)),  // INF  Broken random-event ~ SidVeld
-		new /datum/event_meta(EVENT_LEVEL_MAJOR, "Psionic Signal",                  /datum/event/minispasm,             0,  list(ASSIGNMENT_MEDICAL = 10), 1),	
+		new /datum/event_meta(EVENT_LEVEL_MAJOR, "Psionic Signal",                  /datum/event/minispasm,             0,  list(ASSIGNMENT_MEDICAL = 10), 1),
 		new /datum/event_meta(EVENT_LEVEL_MAJOR, "Exoplanet Awakening",				/datum/event/exo_awakening,         0,  list(ASSIGNMENT_ANY = 45))
 	)
 

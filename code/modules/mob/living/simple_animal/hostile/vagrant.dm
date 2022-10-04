@@ -23,10 +23,11 @@
 	min_gas = null
 	max_gas = null
 	minbodytemp = 0
+	var/datum/disease2/disease/carried
 	var/cloaked = 0
-	var/mob/living/carbon/human/gripping = null
 	var/blood_per_tick = 3
 	var/health_per_tick = 0.8
+	var/mob/living/carbon/human/gripping = null
 	pass_flags = PASS_FLAG_TABLE
 
 	bleed_colour = "#aad9de"
@@ -34,6 +35,13 @@
 	ai_holder_type = /datum/ai_holder/hostile/melee/vagrant
 
 /datum/ai_holder/hostile/melee/vagrant
+
+/mob/living/simple_animal/hostile/vagrant/Initialize()
+	. = ..()
+	if(prob(25))
+		carried = new/datum/disease2/disease()
+		carried.makerandom(rand(2, 4))
+
 
 /datum/ai_holder/hostile/melee/vagrant/engage_target()
 	. = ..()
@@ -54,6 +62,7 @@
 			H.Weaken(1)
 			H.Stun(1)
 			H.visible_message("<span class='danger'>\the [src] latches onto \the [H], pulsating!</span>")
+
 			V.forceMove(V.gripping.loc)
 
 /mob/living/simple_animal/hostile/vagrant/Allow_Spacemove(var/check_drift = 0)

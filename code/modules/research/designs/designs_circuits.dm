@@ -90,6 +90,20 @@
 	sort_string = "FACAF"
 	category_items = "Medical Machinery"
 
+/datum/design/circuit/centrifuge
+	name = "isolation centrifuge console"
+	id = "iso_centrifuge"
+	req_tech = list(TECH_DATA = 2, TECH_BIO = 3)
+	build_path = /obj/item/stock_parts/circuitboard/centrifuge
+	sort_string = "FACAG"
+
+/datum/design/circuit/splicer
+	name = "disease splicer"
+	id = "isplicer"
+	req_tech = list(TECH_DATA = 5, TECH_BIO = 5)
+	build_path = /obj/item/stock_parts/circuitboard/splicer
+	sort_string = "FACAH"
+
 /datum/design/circuit/crewconsole
 	name = "crew monitoring console"
 	id = "crewconsole"
@@ -153,7 +167,7 @@
 	build_path = /obj/item/stock_parts/circuitboard/comm_monitor
 	sort_string = "HAACA"
 	category_items = "Computer Boards"
-	
+
 /datum/design/circuit/comm_server
 	name = "telecommunications server monitoring console"
 	id = "comm_server"

@@ -1,6 +1,8 @@
 // THIS FILE IS AUTOMATICALLY CREATED BY tools/gen_globals.py
 /proc/readglobal(which)
 	switch(which)
+		if("ALL_ANTIGENS")
+			return global.ALL_ANTIGENS;
 		if("ANTAG_FREQS")
 			return global.ANTAG_FREQS;
 		if("AWAY_FREQS_ASSIGNED")
@@ -865,6 +867,8 @@
 			return global.view_variables_dont_expand;
 		if("view_variables_no_assoc")
 			return global.view_variables_no_assoc;
+		if("virusDB")
+			return global.virusDB;
 		if("visual_nets")
 			return global.visual_nets;
 		if("vsc")
@@ -892,6 +896,8 @@
 
 /proc/writeglobal(which, newval)
 	switch(which)
+		if("ALL_ANTIGENS")
+			global.ALL_ANTIGENS=newval;
 		if("ANTAG_FREQS")
 			global.ANTAG_FREQS=newval;
 		if("AWAY_FREQS_ASSIGNED")
@@ -1756,6 +1762,8 @@
 			global.view_variables_dont_expand=newval;
 		if("view_variables_no_assoc")
 			global.view_variables_no_assoc=newval;
+		if("virusDB")
+			global.virusDB=newval;
 		if("visual_nets")
 			global.visual_nets=newval;
 		if("vsc")
@@ -1782,6 +1790,7 @@
 			global.zone_blocked=newval;
 
 /var/list/_all_globals=list(
+	"ALL_ANTIGENS",
 	"ANTAG_FREQS",
 	"AWAY_FREQS_ASSIGNED",
 	"AWAY_FREQS_UNASSIGNED",
@@ -2214,6 +2223,7 @@
 	"ventcrawl_machinery",
 	"view_variables_dont_expand",
 	"view_variables_no_assoc",
+	"virusDB",
 	"visual_nets",
 	"vsc",
 	"wax_recipes",

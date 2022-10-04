@@ -108,6 +108,42 @@
 /datum/job/doctor/get_description_blurb()
 	return "В отличии от хирургов, врач, а также парамедик, занимаются лечением обычных ранений и травм. Обычно они не имеют высшего медицинского образования, но они всё равно являются опорой медбея."
 
+/datum/job/doctor/virologist
+	title = "Вирусолог" //Highly specialized role for handling viruses only. Not a physician. Not a medtech.
+	total_positions = 1
+	spawn_positions = 1
+	supervisors = "Главному Врачу"
+	economic_power = 8
+	minimum_character_age = list(SPECIES_HUMAN = 25)
+	minimal_player_age = 0
+	alt_titles = list()
+	outfit_type = /decl/hierarchy/outfit/job/sierra/crew/medical/virologist
+	allowed_branches = list(
+		/datum/mil_branch/employee,
+		/datum/mil_branch/contractor
+	)
+	allowed_ranks = list(
+		/datum/mil_rank/civ/nt,
+		/datum/mil_rank/civ/contractor
+	)
+	min_skill = list(   SKILL_EVA      = SKILL_BASIC,
+	                    SKILL_MEDICAL  = SKILL_BASIC,
+	                    SKILL_ANATOMY  = SKILL_BASIC,
+						SKILL_VIROLOGY = HAS_PERK)
+
+	max_skill = list(   SKILL_MEDICAL     = SKILL_MAX,
+	                    SKILL_CHEMISTRY   = SKILL_MAX)
+
+	access = list(access_medical, access_morgue, access_virology, access_maint_tunnels, access_emergency_storage,
+			            access_crematorium, access_surgery,
+			            access_medical_equip, access_medical_equip, access_hangar)
+	minimal_access = list()
+
+	software_on_spawn = list(/datum/computer_file/program/suit_sensors,
+							 /datum/computer_file/program/camera_monitor)
+	skill_points = 22
+
+
 /datum/job/doctor_trainee
 	title = "Intern"
 	supervisors = "Главному Врачу и остальному медицинскому персоналу"

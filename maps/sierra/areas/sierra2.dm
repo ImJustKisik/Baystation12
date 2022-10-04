@@ -403,11 +403,11 @@
 /* MEDBAY AREAS
  * ============
  */
-/*
-/area/medical/virology
-	name = "Second Deck - Abandoned - Virology"
-	req_access = list()
 
+/area/medical/virology
+	name = "Virology"
+	req_access = list(access_virology)
+/*
 /area/medical/virologyaccess
 	name = "Second Deck - Abandoned - Virology Access"
 	req_access = list()
