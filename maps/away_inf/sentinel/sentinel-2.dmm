@@ -1026,8 +1026,7 @@
 /turf/simulated/floor/plating,
 /area/ship/patrol/maintenance/upper/aft)
 "cm" = (
-/obj/effect/floor_decal/industrial/outline/blue,
-/obj/structure/ship_munition/disperser_charge/emp,
+/obj/effect/floor_decal/industrial/outline/red,
 /obj/structure/railing/mapped{
 	dir = 8
 	},
@@ -1038,26 +1037,26 @@
 	pixel_y = 24;
 	req_access = list("access_away_cavalry")
 	},
+/obj/structure/missile/he,
 /turf/simulated/floor/tiled/techfloor/grid,
 /area/ship/patrol/maintenance/upper/munition)
 "cn" = (
-/obj/effect/floor_decal/industrial/outline/blue,
-/obj/structure/ship_munition/disperser_charge/emp,
+/obj/effect/floor_decal/industrial/outline/red,
 /turf/simulated/floor/tiled/techfloor/grid,
 /area/ship/patrol/maintenance/upper/munition)
 "co" = (
-/obj/effect/floor_decal/industrial/outline/yellow,
-/obj/structure/ship_munition/disperser_charge/explosive,
+/obj/effect/floor_decal/industrial/outline/red,
+/obj/structure/missile/he,
 /turf/simulated/floor/tiled/techfloor/grid,
 /area/ship/patrol/maintenance/upper/munition)
 "cp" = (
-/obj/effect/floor_decal/industrial/outline/yellow,
-/obj/structure/ship_munition/disperser_charge/explosive,
+/obj/effect/floor_decal/industrial/outline/red,
 /obj/structure/cable{
 	d1 = 1;
 	d2 = 2;
 	icon_state = "1-2"
 	},
+/obj/structure/missile/he,
 /turf/simulated/floor/tiled/techfloor/grid,
 /area/ship/patrol/maintenance/upper/munition)
 "cr" = (
@@ -1621,21 +1620,24 @@
 /turf/simulated/floor/plating,
 /area/ship/patrol/maintenance/upper/aft)
 "dh" = (
-/obj/effect/floor_decal/industrial/outline/red,
-/obj/structure/ship_munition/disperser_charge/fire,
+/obj/effect/floor_decal/industrial/outline/yellow,
 /obj/structure/railing/mapped{
 	dir = 8
 	},
+/obj/structure/table/rack,
+/obj/item/missile_equipment/passenger,
+/obj/item/missile_equipment/passenger,
+/obj/item/missile_equipment/passenger,
 /turf/simulated/floor/tiled/techfloor/grid,
 /area/ship/patrol/maintenance/upper/munition)
 "di" = (
-/obj/effect/floor_decal/industrial/outline/orange,
-/obj/structure/ship_munition/disperser_charge/mining,
+/obj/effect/floor_decal/industrial/outline/green,
 /obj/machinery/alarm{
 	dir = 1;
 	pixel_y = -25;
 	req_access = list("ACCESS_CAVALRY")
 	},
+/obj/structure/missile/diffusive,
 /turf/simulated/floor/tiled/techfloor/grid,
 /area/ship/patrol/maintenance/upper/munition)
 "dj" = (
@@ -2510,10 +2512,9 @@
 /obj/structure/railing/mapped{
 	dir = 8
 	},
-/obj/structure/railing/mapped{
-	dir = 1
-	},
-/turf/simulated/floor/plating,
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/structure/missile,
+/turf/simulated/floor/tiled/techfloor/grid,
 /area/ship/patrol/maintenance/upper/aft)
 "eV" = (
 /obj/structure/cable{
@@ -2913,10 +2914,13 @@
 /turf/simulated/floor/tiled/techfloor/grid,
 /area/ship/patrol/maintenance/upper/aft)
 "fE" = (
-/obj/item/toy/plushie/dakimakura,
 /obj/structure/railing/mapped{
 	dir = 1
 	},
+/obj/structure/table/rack,
+/obj/item/missile_equipment/autoarm,
+/obj/item/missile_equipment/autoarm,
+/obj/item/missile_equipment/autoarm,
 /turf/simulated/floor/plating,
 /area/ship/patrol/maintenance/upper/aft)
 "fF" = (
@@ -4193,15 +4197,13 @@
 	pixel_x = 24;
 	req_access = list("ACCESS_CAVALRY")
 	},
-/obj/structure/railing/mapped{
-	dir = 1
-	},
 /obj/structure/cable{
 	d1 = 1;
 	d2 = 2;
 	icon_state = "1-2"
 	},
-/turf/simulated/floor/plating,
+/obj/effect/floor_decal/industrial/outline/yellow,
+/turf/simulated/floor/tiled/techfloor/grid,
 /area/ship/patrol/maintenance/upper/aft)
 "mn" = (
 /obj/machinery/portable_atmospherics/powered/scrubber,
@@ -4209,8 +4211,7 @@
 /turf/simulated/floor/tiled/techfloor,
 /area/ship/patrol/maintenance/upper/aft)
 "ms" = (
-/obj/effect/floor_decal/industrial/outline/yellow,
-/obj/structure/ship_munition/disperser_charge/explosive,
+/obj/effect/floor_decal/industrial/outline/red,
 /obj/structure/cable{
 	d2 = 2;
 	icon_state = "0-2"
@@ -4310,6 +4311,7 @@
 /area/ship/patrol/maintenance/upper)
 "oM" = (
 /obj/structure/railing/mapped,
+/obj/item/toy/plushie/dakimakura,
 /turf/simulated/floor/plating,
 /area/ship/patrol/maintenance/upper/aft)
 "pk" = (
@@ -4330,7 +4332,12 @@
 /area/ship/patrol/maintenance/upper/aft)
 "pm" = (
 /obj/machinery/light/small,
-/turf/simulated/floor/plating,
+/obj/structure/railing/mapped{
+	dir = 8
+	},
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/structure/missile,
+/turf/simulated/floor/tiled/techfloor/grid,
 /area/ship/patrol/maintenance/upper/aft)
 "pp" = (
 /obj/machinery/firealarm{
@@ -4370,8 +4377,7 @@
 /turf/simulated/floor/plating,
 /area/ship/patrol/maintenance/upper/port)
 "qG" = (
-/obj/effect/floor_decal/industrial/outline/orange,
-/obj/structure/ship_munition/disperser_charge/mining,
+/obj/effect/floor_decal/industrial/outline/green,
 /turf/simulated/floor/tiled/techfloor/grid,
 /area/ship/patrol/maintenance/upper/munition)
 "qJ" = (
@@ -4400,8 +4406,15 @@
 /area/ship/patrol/maintenance/upper)
 "rx" = (
 /obj/structure/railing/mapped{
-	dir = 8
+	dir = 1
 	},
+/obj/structure/table/rack,
+/obj/item/missile_equipment/payload/emp,
+/obj/item/missile_equipment/payload/emp,
+/obj/item/missile_equipment/payload/emp,
+/obj/item/missile_equipment/payload/explosive,
+/obj/item/missile_equipment/payload/explosive,
+/obj/item/missile_equipment/payload/explosive,
 /turf/simulated/floor/plating,
 /area/ship/patrol/maintenance/upper/aft)
 "rC" = (
@@ -4517,12 +4530,12 @@
 /turf/simulated/floor/plating,
 /area/ship/patrol/maintenance/upper/starboard)
 "tE" = (
-/obj/effect/floor_decal/industrial/outline/red,
-/obj/structure/ship_munition/disperser_charge/fire,
+/obj/effect/floor_decal/industrial/outline/blue,
 /obj/machinery/light,
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 1
 	},
+/obj/structure/missile/antispace,
 /turf/simulated/floor/tiled/techfloor/grid,
 /area/ship/patrol/maintenance/upper/munition)
 "tL" = (
@@ -4989,8 +5002,7 @@
 /turf/simulated/floor/plating,
 /area/ship/patrol/maintenance/upper/aft)
 "GS" = (
-/obj/effect/floor_decal/industrial/outline/red,
-/obj/structure/ship_munition/disperser_charge/fire,
+/obj/effect/floor_decal/industrial/outline/blue,
 /obj/machinery/firealarm{
 	dir = 1;
 	pixel_y = -24
@@ -5059,13 +5071,13 @@
 /turf/simulated/floor/plating,
 /area/ship/patrol/maintenance/upper/port)
 "In" = (
-/obj/random/trash,
 /obj/structure/cable{
 	d1 = 1;
 	d2 = 2;
 	icon_state = "1-2"
 	},
-/turf/simulated/floor/plating,
+/obj/effect/floor_decal/industrial/outline/yellow,
+/turf/simulated/floor/tiled/techfloor/grid,
 /area/ship/patrol/maintenance/upper/aft)
 "Ix" = (
 /obj/structure/cable{
@@ -5271,6 +5283,10 @@
 	},
 /turf/simulated/floor/tiled/techfloor,
 /area/ship/patrol/maintenance/upper/waste)
+"NC" = (
+/obj/structure/lattice,
+/turf/simulated/floor/reinforced/airless,
+/area/space)
 "NR" = (
 /obj/effect/paint/meatstation/lab,
 /turf/simulated/wall/r_wall,
@@ -5335,6 +5351,13 @@
 /obj/structure/railing/mapped{
 	dir = 1
 	},
+/obj/structure/table/rack,
+/obj/item/missile_equipment/thruster,
+/obj/item/missile_equipment/thruster,
+/obj/item/missile_equipment/thruster,
+/obj/item/missile_equipment/thruster/point,
+/obj/item/missile_equipment/thruster/point,
+/obj/item/missile_equipment/thruster/point,
 /turf/simulated/floor/plating,
 /area/ship/patrol/maintenance/upper/aft)
 "PK" = (
@@ -5421,14 +5444,6 @@
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/airless,
 /area/ship/patrol/maintenance/upper/waste)
-"SX" = (
-/obj/structure/cable{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
-	},
-/turf/simulated/floor/plating,
-/area/ship/patrol/maintenance/upper/aft)
 "Tm" = (
 /obj/structure/table/rack,
 /obj/structure/railing/mapped,
@@ -10273,10 +10288,10 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
+ab
+ab
+ab
+ab
 ab
 ab
 ab
@@ -10286,10 +10301,10 @@ ab
 ab
 ab
 ab
-aa
-aa
-aa
-aa
+ab
+ab
+ab
+ab
 aa
 aa
 aa
@@ -10394,11 +10409,11 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
+ab
+ab
+ab
+ab
+ab
 ab
 ab
 ab
@@ -10408,15 +10423,15 @@ ab
 ab
 ab
 ab
+ab
+ab
+ab
+ab
+ab
+aa
+aa
 aa
 hj
-aa
-aa
-aa
-aa
-aa
-aa
-aa
 aa
 aa
 aa
@@ -10515,12 +10530,12 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
+ab
+ab
+ab
+ab
+ab
+ab
 ab
 ab
 ab
@@ -10530,12 +10545,12 @@ ab
 ab
 ab
 ab
-aa
-aa
-aa
-aa
-aa
-aa
+ab
+ab
+ab
+ab
+ab
+ab
 aa
 aa
 aa
@@ -10637,12 +10652,12 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
+ab
+ab
+ab
+ab
+ab
+ab
 ab
 ab
 ab
@@ -10652,12 +10667,12 @@ ab
 ab
 ab
 ab
-aa
-aa
-aa
-aa
-aa
-aa
+ab
+ab
+ab
+ab
+ab
+ab
 aa
 aa
 aa
@@ -10762,9 +10777,9 @@ FT
 ab
 ab
 ab
-if
-if
-if
+NC
+NC
+NC
 ab
 ab
 ae
@@ -10884,9 +10899,9 @@ lD
 ab
 ab
 ab
-if
-if
-if
+NC
+NC
+NC
 ab
 ab
 dj
@@ -15896,7 +15911,7 @@ aM
 CW
 Aq
 rJ
-ay
+rx
 ax
 TX
 ad
@@ -16383,7 +16398,7 @@ bJ
 Tq
 cj
 eS
-rx
+eS
 pm
 JD
 AF
@@ -16498,7 +16513,7 @@ aa
 ab
 ad
 bK
-co
+cn
 zX
 qG
 bI
@@ -16506,7 +16521,7 @@ oM
 xT
 ma
 In
-SX
+In
 dD
 ad
 ab

@@ -8,41 +8,38 @@
 
 /obj/structure/closet/secure_closet/guncabinet/farfleet/antitank/WillContain()
 	return list(
-		/obj/item/gun/launcher/rocket = 1,
-		/obj/item/ammo_casing/rocket = 5,
+		/obj/item/gun/launcher/rocket/rpg18 = 6,
 		/obj/item/gun/magnetic/railgun/tcc  = 2
 	)
 
 /obj/structure/closet/secure_closet/guncabinet/farfleet/assault/WillContain()
 	return list(
-		/obj/item/ammo_magazine/rifle = 15,
-		/obj/item/gun/projectile/automatic/iccg_rifle = 3,
-		/obj/item/gun/projectile/shotgun/magazine = 1,
-		/obj/item/clothing/accessory/storage/bandolier = 1,
-		/obj/item/ammo_magazine/c12m = 6,
-		/obj/item/ammo_magazine/c12m/buckshot = 4,
-		/obj/item/ammo_magazine/c12m/shock = 4
+		/obj/item/ammo_magazine/rifle = 9,
+		/obj/item/gun/projectile/automatic/iccg_rifle = 3
+	)
+
+/obj/structure/closet/secure_closet/guncabinet/farfleet/aks_cabinet/WillContain()
+	return list(
+		/obj/item/ammo_magazine/rifle/ak = 9,
+		/obj/item/gun/projectile/automatic/aks74u = 3
 	)
 
 /obj/structure/closet/secure_closet/guncabinet/farfleet/defence/WillContain()
 	return list(
-		/obj/item/ammo_magazine/speedloader/clip = 6,
-		/obj/item/ammo_magazine/pistol/double = 6,
-		/obj/item/gun/projectile/heavysniper/boltaction = 2,
-		/obj/item/clothing/accessory/storage/bandolier = 1,
-		/obj/item/gun/projectile/shotgun/pump = 1,
-		/obj/item/gun/projectile/pistol/military/alt = 3
+		/obj/item/ammo_magazine/speedloader/clip = 3,
+		/obj/item/ammo_magazine/rifle/ak = 6,
+		/obj/item/gun/projectile/automatic/akrifle = 1,
+		/obj/item/gun/projectile/automatic/aksu = 1,
+		/obj/item/gun/projectile/heavysniper/boltaction = 1
 	)
 
 /obj/structure/closet/secure_closet/guncabinet/farfleet/utility/WillContain()
 	return list(
-		/obj/item/storage/box/teargas = 1,
-		/obj/item/storage/box/frags = 1,
+		/obj/item/storage/box/teargas = 2,
+		/obj/item/storage/box/frags = 2,
 		/obj/item/storage/box/smokes = 2,
-		/obj/item/storage/box/ammo/flashshells = 2,
-		/obj/item/storage/box/ammo/shotgunshells = 2,
-		/obj/item/storage/box/ammo/shotgunammo = 2,
-		/obj/item/storage/box/ammo/stunshells = 2,
+		/obj/item/storage/box/flashbangs = 2,
+		/obj/item/storage/box/emps = 2,
 		/obj/item/plastique/super = 6
 	)
 
@@ -52,8 +49,8 @@
 
 /obj/structure/closet/secure_closet/farfleet
 	name = "trooper locker"
-	closet_appearance = /decl/closet_appearance/secure_closet/farfleet/two
 	req_access = list(access_away_iccgn_droptroops)
+	icon_state = "syndicate1"
 
 /obj/structure/closet/secure_closet/patrol/WillContain()
 	return list(
@@ -77,9 +74,8 @@
 
 /obj/structure/closet/secure_closet/farfleet/sergeant
 	name = "droptroops sergeant locker"
-	closet_appearance = /decl/closet_appearance/secure_closet/farfleet/two
 	req_access = list(access_away_iccgn_sergeant)
-
+	icon_state = "syndicate1"
 
 /obj/structure/closet/secure_closet/farfleet/sergeant/WillContain()
 	return list(
@@ -107,8 +103,8 @@
 
 /obj/structure/closet/secure_closet/farfleet/fleet
 	name = "fleet cabinet"
-	closet_appearance = /decl/closet_appearance/secure_closet/farfleet
 	req_access = list(access_away_iccgn)
+	icon_state = "syndicate1"
 
 /obj/structure/closet/secure_closet/farfleet/fleet/WillContain()
 	return list(
@@ -122,8 +118,8 @@
 
 /obj/structure/closet/secure_closet/farfleet/fleet/engi
 	name = "fleet technician cabinet"
-	closet_appearance = /decl/closet_appearance/secure_closet/farfleet
 	req_access = list(access_away_iccgn)
+	icon_state = "syndicate1"
 
 /obj/structure/closet/secure_closet/farfleet/fleet/engi/WillContain()
 	return list(
@@ -142,8 +138,8 @@
 
 /obj/structure/closet/secure_closet/farfleet/fleet/med
 	name = "medic cabinet"
-	closet_appearance = /decl/closet_appearance/secure_closet/farfleet
 	req_access = list(access_away_iccgn)
+	icon_state = "med"
 
 /obj/structure/closet/secure_closet/farfleet/fleet/med/WillContain()
 	return list(
@@ -165,8 +161,8 @@
 
 /obj/structure/closet/secure_closet/farfleet/fleet_cpt
 	name = "captain cabinet"
-	closet_appearance = /decl/closet_appearance/secure_closet/farfleet
 	req_access = list(access_away_iccgn, access_away_iccgn_captain)
+	icon_state = "syndicate1"
 
 /obj/structure/closet/secure_closet/farfleet/fleet_cpt/WillContain()
 	return list(
@@ -182,36 +178,6 @@
 		/obj/item/combitool,
 		/obj/item/clothing/gloves/wristwatch/gold,
 		/obj/item/storage/backpack/satchel/pocketbook/navy
-	)
-
-
-/obj/structure/closet/wardrobe/patrol
-	name = "military attire closet"
-	closet_appearance = /decl/closet_appearance/tactical
-
-
-/obj/structure/closet/wardrobe/patrol/desert
-	name = "desert attire closet"
-	closet_appearance = /decl/closet_appearance/tactical
-
-/obj/structure/closet/wardrobe/patrol/desert/WillContain()
-	return list(
-	/obj/item/clothing/under/solgov/utility/army/tan = 3,
-	/obj/item/clothing/head/solgov/utility/army/tan = 3,
-	/obj/item/clothing/shoes/tactical = 3,
-	/obj/item/clothing/gloves/thick/combat = 3
-	)
-
-/obj/structure/closet/wardrobe/patrol/army
-	name = "woodland attire closet"
-	closet_appearance = /decl/closet_appearance/tactical
-
-/obj/structure/closet/wardrobe/patrol/army/WillContain()
-	return list(
-	/obj/item/clothing/under/solgov/utility/army  = 3,
-	/obj/item/clothing/head/solgov/utility/army = 3,
-	/obj/item/clothing/shoes/jungleboots = 3,
-	/obj/item/clothing/gloves/thick/combat = 3
 	)
 
 	////////
