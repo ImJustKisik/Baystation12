@@ -933,6 +933,7 @@
 	},
 /obj/effect/floor_decal/borderfloorblack,
 /obj/effect/floor_decal/corner/darkblue/border,
+/obj/item/storage/fancy/cigarettes/yava,
 /turf/simulated/floor/tiled/dark,
 /area/ship/farfleet/command/bridge)
 "cu" = (
@@ -1628,7 +1629,9 @@
 /turf/simulated/floor/plating,
 /area/ship/farfleet/engineering/fussion/control)
 "dR" = (
-/obj/structure/decor/dominator/blue,
+/obj/structure/decor/dominator/blue{
+	name = "Long-range Relay"
+	},
 /turf/simulated/floor/bluegrid,
 /area/ship/farfleet/crew/comms)
 "dS" = (
@@ -1653,7 +1656,10 @@
 	pixel_x = 22;
 	req_access = list("ACCESS_ICCGN")
 	},
-/obj/structure/decor/nt_solifier/starts_on,
+/obj/structure/decor/nt_solifier/starts_on{
+	desc = "Long-range bluespace hub";
+	name = "Long-range Hub"
+	},
 /turf/simulated/floor/bluegrid,
 /area/ship/farfleet/crew/comms)
 "dW" = (
@@ -3020,7 +3026,10 @@
 /turf/simulated/floor/tiled,
 /area/ship/farfleet/engineering/reactor)
 "hf" = (
-/obj/structure/decor/bsb_on,
+/obj/structure/decor/bsb_on{
+	desc = "Bluespace Receiver, a vital part of ship triangulating";
+	name = "Bluespace Receiver"
+	},
 /turf/simulated/floor/bluegrid,
 /area/ship/farfleet/crew/comms)
 "hg" = (
@@ -3915,6 +3924,7 @@
 	dir = 4;
 	pixel_x = -24
 	},
+/obj/item/storage/fancy/cigarettes/prima,
 /turf/simulated/floor/tiled/dark,
 /area/ship/farfleet/crew/brig/emergency_armory)
 "kx" = (
@@ -5917,6 +5927,14 @@
 	},
 /turf/simulated/floor,
 /area/ship/farfleet/maintenance/engine/starboard)
+"sd" = (
+/obj/structure/table/standard,
+/obj/effect/floor_decal/corner/blue/diagonal{
+	dir = 4
+	},
+/obj/item/storage/fancy/cigarettes/prima,
+/turf/simulated/floor/tiled/white,
+/area/ship/farfleet/crew/kitchen)
 "se" = (
 /obj/machinery/firealarm{
 	dir = 1;
@@ -6362,6 +6380,14 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/farfleet/command/bridge)
+"vX" = (
+/obj/structure/table/standard,
+/obj/effect/floor_decal/corner/blue/diagonal{
+	dir = 4
+	},
+/obj/item/storage/fancy/cigarettes/yava,
+/turf/simulated/floor/tiled/white,
+/area/ship/farfleet/crew/kitchen)
 "vZ" = (
 /turf/simulated/floor/tiled,
 /area/ship/farfleet/crew)
@@ -6998,17 +7024,6 @@
 "AA" = (
 /obj/effect/floor_decal/corner/darkblue/three_quarters{
 	dir = 4
-	},
-/obj/machinery/portable_atmospherics/canister/air/airlock,
-/obj/machinery/atmospherics/portables_connector{
-	dir = 1
-	},
-/obj/structure/window/reinforced,
-/obj/structure/window/reinforced{
-	dir = 1
-	},
-/obj/machinery/door/window{
-	dir = 8
 	},
 /turf/simulated/floor/tiled,
 /area/ship/farfleet/dock)
@@ -17470,7 +17485,7 @@ dz
 pi
 dg
 vq
-dY
+sd
 dY
 eS
 fp
@@ -17715,7 +17730,7 @@ pi
 HC
 dC
 dY
-dY
+vX
 eS
 ft
 fP

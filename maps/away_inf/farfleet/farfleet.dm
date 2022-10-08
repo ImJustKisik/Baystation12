@@ -39,7 +39,7 @@
 
 
 /obj/effect/overmap/visitable/ship/farfleet/New()
-	scanner_name = "SFV [pick("Onyx","Zircon","Grad","Zirkel","Odessa","Gomel","Uragan","Shilka","Omsk","Krondstatt","Topol","Iron Dmitry","Buratino","Kerch","Kherson","Proryv","Triumph","Sochi","Elisarov","Engels","Magnitogorsk")], \a [name]"
+	scanner_name = "FRC [pick("Onyx","Zircon","Grad","Zirkel","Odessa","Gomel","Uragan","Shilka","Omsk","Krondstatt","Topol","Iron Dmitry","Buratino","Kerch","Kherson","Proryv","Triumph","Sochi","Elisarov","Engels","Magnitogorsk")], \a [name]"
 	for(var/area/ship/farfleet/A)
 		A.name = "\improper [name] - [A.name]"
 		GLOB.using_map.area_purity_test_exempt_areas += A.type
