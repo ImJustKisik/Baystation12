@@ -172,6 +172,12 @@ You can set verify to TRUE if you want send() to sleep until the client has the 
 /datum/asset/simple/send(client)
 	send_asset_list(client,assets,verify)
 
+/datum/asset/simple/tgui
+	assets = list(
+		"tgui.bundle.js" = 'tgui/packages/tgui/public/tgui.bundle.js',
+		"tgui.bundle.css" = 'tgui/packages/tgui/public/tgui.bundle.css'
+	)
+
 // For registering or sending multiple others at once
 /datum/asset/group
 	var/list/children
@@ -283,3 +289,15 @@ You can set verify to TRUE if you want send() to sleep until the client has the 
 		// Doing this to a client too soon after they've connected can cause issues, also the proc we call sleeps.
 		spawn(10)
 			getFilesSlow(C, cache, FALSE)
+
+// Fontawesome
+/datum/asset/simple/fontawesome
+	verify = FALSE
+	assets = list(
+		"fa-regular-400.eot"  = 'html/font-awesome/webfonts/fa-regular-400.eot',
+		"fa-regular-400.woff" = 'html/font-awesome/webfonts/fa-regular-400.woff',
+		"fa-solid-900.eot"    = 'html/font-awesome/webfonts/fa-solid-900.eot',
+		"fa-solid-900.woff"   = 'html/font-awesome/webfonts/fa-solid-900.woff',
+		"font-awesome.css"    = 'html/font-awesome/css/all.min.css',
+		"v4shim.css"          = 'html/font-awesome/css/v4-shims.min.css'
+	)
