@@ -1,11 +1,9 @@
 /*
 Asset cache quick users guide:
-
 Make a datum at the bottom of this file with your assets for your thing.
 The simple subsystem will most like be of use for most cases.
 Then call get_asset_datum() with the type of the datum you created and store the return
 Then call .send(client) on that stored return value.
-
 You can set verify to TRUE if you want send() to sleep until the client has the assets.
 */
 
@@ -17,6 +15,9 @@ You can set verify to TRUE if you want send() to sleep until the client has the 
 //When sending mutiple assets, how many before we give the client a quaint little sending resources message
 #define ASSET_CACHE_TELL_CLIENT_AMOUNT 8
 
+//When passively preloading assets, how many to send at once? Too high creates noticable lag where as too low can flood the client's cache with "verify" files
+#define ASSET_CACHE_PRELOAD_CONCURRENT 3
+
 /client
 	var/list/cache = list() // List of all assets sent to this client by the asset cache.
 	var/list/completed_asset_jobs = list() // List of all completed jobs, awaiting acknowledgement.
@@ -25,7 +26,7 @@ You can set verify to TRUE if you want send() to sleep until the client has the 
 
 //This proc sends the asset to the client, but only if it needs it.
 //This proc blocks(sleeps) unless verify is set to false
-/proc/send_asset(var/client/client, var/asset_name, var/verify = TRUE, var/check_cache = TRUE)
+/proc/send_asset(var/client/client, var/asset_name, var/verify = TRUE)
 	if(!istype(client))
 		if(ismob(client))
 			var/mob/M = client
@@ -38,26 +39,26 @@ You can set verify to TRUE if you want send() to sleep until the client has the 
 		else
 			return 0
 
-	if(check_cache && (list_find(client.cache, asset_name) || list_find(client.sending, asset_name)))
+	if(client.cache.Find(asset_name) || client.sending.Find(asset_name))
 		return 0
 
-	var/decl/asset_cache/asset_cache = decls_repository.get_decl(/decl/asset_cache)
-	send_rsc(client, asset_cache.cache[asset_name], asset_name)
-	if(!verify || !winexists(client, "asset_cache_browser")) // Can't access the asset cache browser, rip.
-		if (client)
-			client.cache += asset_name
+	client << browse_rsc(SSassets.cache[asset_name], asset_name)
+	if(!verify) // Can't access the asset cache browser, rip.
+		client.cache += asset_name
 		return 1
-	if (!client)
-		return 0
 
 	client.sending |= asset_name
 	var/job = ++client.last_asset_job
 
-	show_browser(client, "<script>window.location.href=\"?asset_cache_confirm_arrival=[job]\"</script>", "window=asset_cache_browser")
+	client << browse({"
+	<script>
+		window.location.href="?asset_cache_confirm_arrival=[job]"
+	</script>
+	"}, "window=asset_cache_browser")
 
 	var/t = 0
 	var/timeout_time = (ASSET_CACHE_SEND_TIMEOUT * client.sending.len) + ASSET_CACHE_SEND_TIMEOUT
-	while(client && !list_find(client.completed_asset_jobs, job) && t < timeout_time) // Reception is handled in Topic()
+	while(client && !client.completed_asset_jobs.Find(job) && t < timeout_time) // Reception is handled in Topic()
 		sleep(1) // Lock up the caller until this is received.
 		t++
 
@@ -85,27 +86,28 @@ You can set verify to TRUE if you want send() to sleep until the client has the 
 	var/list/unreceived = asset_list - (client.cache + client.sending)
 	if(!unreceived || !unreceived.len)
 		return 0
-	if (unreceived.len >= ASSET_CACHE_TELL_CLIENT_AMOUNT)
+	if(unreceived.len >= ASSET_CACHE_TELL_CLIENT_AMOUNT)
 		to_chat(client, "Sending Resources...")
-	var/decl/asset_cache/asset_cache = decls_repository.get_decl(/decl/asset_cache)
 	for(var/asset in unreceived)
-		if (asset in asset_cache.cache)
-			send_rsc(client, asset_cache.cache[asset], asset)
+		if(asset in SSassets.cache)
+			client << browse_rsc(SSassets.cache[asset], asset)
 
-	if(!verify || !winexists(client, "asset_cache_browser")) // Can't access the asset cache browser, rip.
-		if (client)
-			client.cache += unreceived
+	if(!verify) // Can't access the asset cache browser, rip.
+		client.cache += unreceived
 		return 1
-	if (!client)
-		return 0
+
 	client.sending |= unreceived
 	var/job = ++client.last_asset_job
 
-	show_browser(client, "<script>window.location.href=\"?asset_cache_confirm_arrival=[job]\"</script>", "window=asset_cache_browser")
+	client << browse({"
+	<script>
+		window.location.href="?asset_cache_confirm_arrival=[job]"
+	</script>
+	"}, "window=asset_cache_browser")
 
 	var/t = 0
 	var/timeout_time = ASSET_CACHE_SEND_TIMEOUT * client.sending.len
-	while(client && !list_find(client.completed_asset_jobs, job) && t < timeout_time) // Reception is handled in Topic()
+	while(client && !client.completed_asset_jobs.Find(job) && t < timeout_time) // Reception is handled in Topic()
 		sleep(1) // Lock up the caller until this is received.
 		t++
 
@@ -119,23 +121,25 @@ You can set verify to TRUE if you want send() to sleep until the client has the 
 //This proc will download the files without clogging up the browse() queue, used for passively sending files on connection start.
 //The proc calls procs that sleep for long times.
 /proc/getFilesSlow(var/client/client, var/list/files, var/register_asset = TRUE)
+	var/concurrent_tracker = 1
 	for(var/file in files)
-		if (!client)
+		if(!client)
 			break
-		if (register_asset)
-			register_asset(file,files[file])
-		send_asset(client,file)
+		if(register_asset)
+			register_asset(file, files[file])
+		if(concurrent_tracker >= ASSET_CACHE_PRELOAD_CONCURRENT)
+			concurrent_tracker = 1
+			send_asset(client, file)
+		else
+			concurrent_tracker++
+			send_asset(client, file, verify = FALSE)
 		sleep(0) //queuing calls like this too quickly can cause issues in some client versions
 
 //This proc "registers" an asset, it adds it to the cache for further use, you cannot touch it from this point on or you'll fuck things up.
 //if it's an icon or something be careful, you'll have to copy it before further use.
 /proc/register_asset(var/asset_name, var/asset)
-	var/decl/asset_cache/asset_cache = decls_repository.get_decl(/decl/asset_cache)
-	asset_cache.cache[asset_name] = asset
+	SSassets.cache[asset_name] = asset
 
-//Generated names do not include file extention.
-//Used mainly for code that deals with assets in a generic way
-//The same asset will always lead to the same asset name
 /proc/generate_asset_name(file)
 	return "asset.[md5(fcopy_rsc(file))]"
 
@@ -146,13 +150,12 @@ You can set verify to TRUE if you want send() to sleep until the client has the 
 
 //get a assetdatum or make a new one
 /proc/get_asset_datum(var/type)
-	if (!(type in asset_datums))
+	if(!(type in asset_datums))
 		return new type()
 	return asset_datums[type]
 
 /datum/asset/New()
 	asset_datums[type] = src
-	register()
 
 /datum/asset/proc/register()
 	return
@@ -168,28 +171,8 @@ You can set verify to TRUE if you want send() to sleep until the client has the 
 /datum/asset/simple/register()
 	for(var/asset_name in assets)
 		register_asset(asset_name, assets[asset_name])
-
 /datum/asset/simple/send(client)
 	send_asset_list(client,assets,verify)
-
-/datum/asset/simple/tgui
-	assets = list(
-		"tgui.bundle.js" = 'tgui/packages/tgui/public/tgui.bundle.js',
-		"tgui.bundle.css" = 'tgui/packages/tgui/public/tgui.bundle.css'
-	)
-
-// For registering or sending multiple others at once
-/datum/asset/group
-	var/list/children
-
-/datum/asset/group/register()
-	for(var/type in children)
-		get_asset_datum(type)
-
-/datum/asset/group/send(client/C)
-	for(var/type in children)
-		var/datum/asset/A = get_asset_datum(type)
-		A.send(C)
 
 //DEFINITIONS FOR ASSET DATUMS START HERE.
 /datum/asset/nanoui
@@ -263,6 +246,7 @@ You can set verify to TRUE if you want send() to sleep until the client has the 
 		"browserOutput_white.css"  = 'code/modules/goonchat/browserassets/css/browserOutput_white.css'
 	)
 
+// Fontawesome
 /datum/asset/simple/fontawesome
 	verify = FALSE
 	assets = list(
@@ -273,6 +257,25 @@ You can set verify to TRUE if you want send() to sleep until the client has the 
 		"font-awesome.css"    = 'html/font-awesome/css/all.min.css',
 		"v4shim.css"          = 'html/font-awesome/css/v4-shims.min.css'
 	)
+
+/datum/asset/simple/tgui
+	assets = list(
+		"tgui.bundle.js" = 'tgui/packages/tgui/public/tgui.bundle.js',
+		"tgui.bundle.css" = 'tgui/packages/tgui/public/tgui.bundle.css'
+	)
+
+// For registering or sending multiple others at once
+/datum/asset/group
+	var/list/children
+
+/datum/asset/group/register()
+	for(var/type in children)
+		get_asset_datum(type)
+
+/datum/asset/group/send(client/C)
+	for(var/type in children)
+		var/datum/asset/A = get_asset_datum(type)
+		A.send(C)
 
 /*
 	Asset cache
@@ -289,15 +292,3 @@ You can set verify to TRUE if you want send() to sleep until the client has the 
 		// Doing this to a client too soon after they've connected can cause issues, also the proc we call sleeps.
 		spawn(10)
 			getFilesSlow(C, cache, FALSE)
-
-// Fontawesome
-/datum/asset/simple/fontawesome
-	verify = FALSE
-	assets = list(
-		"fa-regular-400.eot"  = 'html/font-awesome/webfonts/fa-regular-400.eot',
-		"fa-regular-400.woff" = 'html/font-awesome/webfonts/fa-regular-400.woff',
-		"fa-solid-900.eot"    = 'html/font-awesome/webfonts/fa-solid-900.eot',
-		"fa-solid-900.woff"   = 'html/font-awesome/webfonts/fa-solid-900.woff',
-		"font-awesome.css"    = 'html/font-awesome/css/all.min.css',
-		"v4shim.css"          = 'html/font-awesome/css/v4-shims.min.css'
-	)

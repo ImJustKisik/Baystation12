@@ -37,7 +37,6 @@
 
 	// asset_cache
 	if(href_list["asset_cache_confirm_arrival"])
-//		to_chat(src, "ASSET JOB [href_list["asset_cache_confirm_arrival"]] ARRIVED.")
 		var/job = text2num(href_list["asset_cache_confirm_arrival"])
 		completed_asset_jobs += job
 		return
@@ -418,13 +417,15 @@
 		'html/images/foundlogo.png',//inf
 		'html/images/ccalogo.png'//inf
 		)
-	addtimer(CALLBACK(src, .proc/after_send_resources), 1 SECOND)
+	spawn (10) //removing this spawn causes all clients to not get verbs.
+		//Precache the client with all other assets slowly, so as to not block other browse() calls
+		getFilesSlow(src, SSassets.preload, register_asset = FALSE)
 
-
+/*
 /client/proc/after_send_resources()
 	var/decl/asset_cache/asset_cache = decls_repository.get_decl(/decl/asset_cache)
 	getFilesSlow(src, asset_cache.cache, register_asset = FALSE)
-
+*/
 
 mob/proc/MayRespawn()
 	return 0
