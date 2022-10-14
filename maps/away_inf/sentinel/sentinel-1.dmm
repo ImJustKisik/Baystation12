@@ -8633,7 +8633,6 @@
 	pixel_x = -32;
 	req_access = list("ACCESS_CAVALRY")
 	},
-/obj/item/hand_labeler,
 /turf/simulated/floor/tiled/techfloor/grid,
 /area/ship/patrol/command/ofd)
 "yB" = (
@@ -8934,10 +8933,8 @@
 /turf/simulated/floor/tiled/techfloor/grid,
 /area/ship/patrol/command/ofd)
 "HP" = (
-/obj/machinery/computer/ship/disperser{
-	id_tag = "ofdp";
-	dir = 4
-	},
+/obj/structure/table/steel_reinforced,
+/obj/item/hand_labeler,
 /turf/simulated/floor/tiled/techfloor/grid,
 /area/ship/patrol/command/ofd)
 "HY" = (
