@@ -19,7 +19,7 @@
 	contact_class = /decl/ship_contact_class/gagarin
 	color = "#fc7a00"
 	fore_dir = WEST
-	vessel_mass = 20000
+	vessel_mass = 27500
 	known_ships = list(/obj/effect/overmap/visitable/ship/landable/snz)
 	vessel_size = SHIP_SIZE_SMALL
 	start_x = 39

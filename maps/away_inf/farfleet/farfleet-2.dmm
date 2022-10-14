@@ -380,9 +380,9 @@
 /turf/simulated/floor/plating,
 /area/map_template/snz)
 "aV" = (
-/obj/item/gun/projectile/pistol/military/alt,
 /obj/machinery/atmospherics/unary/vent_pump/on,
 /obj/structure/closet/secure_closet/farfleet/fleet/engi,
+/obj/item/storage/belt/holster/security/tactical/farfleet,
 /turf/simulated/floor/wood/walnut,
 /area/ship/farfleet/crew/fleet)
 "aX" = (
@@ -824,9 +824,9 @@
 /turf/simulated/floor/wood/walnut,
 /area/ship/farfleet/crew/fleet)
 "bS" = (
-/obj/item/gun/projectile/pistol/military/alt,
 /obj/machinery/atmospherics/unary/vent_pump/on,
 /obj/structure/closet/secure_closet/farfleet/fleet/med,
+/obj/item/storage/belt/holster/security/tactical/farfleet,
 /turf/simulated/floor/wood/walnut,
 /area/ship/farfleet/crew/fleet)
 "bU" = (
@@ -912,7 +912,6 @@
 /turf/simulated/floor/tiled/techfloor,
 /area/map_template/snz)
 "cb" = (
-/obj/item/gun/projectile/pistol/magnum_pistol,
 /obj/structure/closet/secure_closet/farfleet/fleet_cpt,
 /turf/simulated/floor/wood/walnut,
 /area/ship/farfleet/crew/captain)
@@ -2834,7 +2833,10 @@
 /turf/simulated/floor/tiled/techfloor,
 /area/map_template/snz)
 "gH" = (
-/obj/structure/decor/random_radio,
+/obj/structure/decor/random_radio{
+	name = "Radio Substation";
+	desc = "Radio substation used for long-range comms"
+	},
 /turf/simulated/floor/reinforced/airless,
 /area/space)
 "gJ" = (
@@ -3641,7 +3643,10 @@
 	d2 = 4;
 	icon_state = "2-4"
 	},
-/obj/structure/decor/comm_tower/starts_on,
+/obj/structure/decor/comm_tower/starts_on{
+	desc = "Long-range Comms tower";
+	name = "Comms Tower"
+	},
 /obj/structure/railing/mapped{
 	dir = 1;
 	icon_state = "railing0-1"
@@ -4255,12 +4260,15 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/farfleet/crew/hallway/upper)
 "uA" = (
-/obj/structure/decor/nt_biocan,
 /obj/structure/railing/mapped,
 /obj/structure/cable{
 	d1 = 4;
 	d2 = 8;
 	icon_state = "4-8"
+	},
+/obj/structure/decor/nt_biocan{
+	name = "Capacitor";
+	desc = "Capacitor, used for voltage maintaining"
 	},
 /turf/simulated/floor/reinforced/airless,
 /area/space)
@@ -5252,6 +5260,8 @@
 /obj/machinery/light{
 	dir = 1
 	},
+/obj/item/reagent_containers/food/snacks/canned/caviar/true,
+/obj/item/reagent_containers/food/snacks/canned/caviar/true,
 /turf/simulated/floor/tiled/freezer,
 /area/ship/farfleet/crew/freezer)
 "De" = (
@@ -5497,10 +5507,13 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
-/obj/structure/decor/random_radio,
 /obj/structure/railing/mapped{
 	dir = 1;
 	icon_state = "railing0-1"
+	},
+/obj/structure/decor/random_radio{
+	name = "Radio Substation";
+	desc = "Radio substation used for long-range comms"
 	},
 /turf/simulated/floor/reinforced/airless,
 /area/space)
@@ -6504,7 +6517,10 @@
 /turf/simulated/floor/reinforced/airless,
 /area/space)
 "Pr" = (
-/obj/structure/decor/nt_biocan,
+/obj/structure/decor/nt_biocan{
+	name = "Capacitor";
+	desc = "Capacitor, used for voltage maintaining"
+	},
 /obj/structure/railing/mapped{
 	dir = 1;
 	icon_state = "railing0-1"
@@ -7099,12 +7115,15 @@
 /turf/simulated/floor/tiled/freezer,
 /area/ship/farfleet/crew/freezer)
 "UW" = (
-/obj/structure/decor/comm_tower/starts_on,
 /obj/structure/cable{
 	d1 = 1;
 	d2 = 2;
 	icon_state = "1-2";
 	pixel_y = 0
+	},
+/obj/structure/decor/comm_tower/starts_on{
+	desc = "Long-range Comms tower";
+	name = "Comms Tower"
 	},
 /turf/simulated/floor/reinforced/airless,
 /area/space)
@@ -7387,6 +7406,22 @@
 	},
 /turf/simulated/floor/reinforced,
 /area/ship/farfleet/crew/warehouse/starboard)
+"Yc" = (
+/obj/structure/cable{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/structure/railing/mapped{
+	dir = 1;
+	icon_state = "railing0-1"
+	},
+/obj/structure/decor/nt_biocan{
+	name = "Capacitor";
+	desc = "Capacitor, used for voltage maintaining"
+	},
+/turf/simulated/floor/reinforced/airless,
+/area/space)
 "Yd" = (
 /obj/structure/cable{
 	d1 = 4;
@@ -12155,7 +12190,7 @@ TF
 HH
 HH
 hS
-ab
+Gc
 ab
 ab
 aa
@@ -12276,8 +12311,8 @@ et
 TF
 HH
 HH
-Ek
-Gc
+Yc
+aI
 ab
 Lr
 aa
