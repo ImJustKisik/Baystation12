@@ -85,7 +85,7 @@ Note: If your code uses output() with assets you will need to call asset_flush o
 /proc/register_asset(asset_name, asset)
 	var/datum/asset_cache_item/ACI = new(asset_name, asset)
 
-	testing("Mogus [asset_name] with [ACI.name]")
+//	testing("Mogus [asset_name] with [ACI.name]")
 
 	//this is technically never something that was supported and i want metrics on how often it happens if at all.
 	if (SSassets.cache[asset_name])
