@@ -94,7 +94,7 @@
 		go_out()
 
 /obj/machinery/atmospherics/unary/cryo_cell/interface_interact(user)
-	ui_interact(user)
+	tgui_interact(user)
 	return TRUE
 
  /**
@@ -108,19 +108,25 @@
   *
   * @return nothing
   */
-/obj/machinery/atmospherics/unary/cryo_cell/ui_interact(mob/user, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = 1)
+/obj/machinery/atmospherics/unary/cryo_cell/tgui_interact(mob/user, var/datum/tgui/ui)
 	if(user == occupant || user.stat)
 		return
-//[INF]
+
 	if(!user.skill_check(SKILL_MEDICAL, SKILL_ADEPT))
-		to_chat(user, "You don't know a thing about [src]'s interface to interract with it.")
+		to_chat(user, "Вы ничего не знаете о [src], чтобы взаимодействовать с ним.")
 		return
-//[/INF]
+
+	ui = SStgui.try_update_ui(user, src, ui)
+	if (!ui)
+		ui = new(user, src, "CryoCell", name)
+		ui.open()
+
+/obj/machinery/atmospherics/unary/cryo_cell/tgui_data(mob/user)
 	// this is the data which will be sent to the ui
 	var/data[0]
 	data["isOperating"] = on
-	data["hasOccupant"] = occupant ? 1 : 0
 
+	data["occupant"] = null
 	if (occupant)
 		var/cloneloss = "none"
 		var/amount = occupant.getCloneLoss()
@@ -132,69 +138,53 @@
 			cloneloss = "moderate"
 		else if(amount)
 			cloneloss = "minor"
+		// Don't let a Baystation12 coder anywhere close to UI code.
+		// Because, holy fucking shit, this is dumb as fuck.
+		// I had to use a `dangerouslySetInnerHTML` for now.
+		// Like. No. Seriously. Go fuck yourself if you do this.
 		var/scan = medical_scan_results(occupant)
 		scan += "<br><br>Genetic degradation: [cloneloss]"
-		scan = replacetext(scan,"'scan_notice'","'white'")
-		scan = replacetext(scan,"'scan_warning'","'average'")
-		scan = replacetext(scan,"'scan_danger'","'bad'")
-//INF		scan += "<br>Cryostasis factor: [occupant.stasis_value]x"
+		scan = replacetext(scan,"'notice'","'white'")
+		scan = replacetext(scan,"'warning'","'average'")
+		scan = replacetext(scan,"'danger'","'bad'")
+		scan += "<br>Cryostasis factor: [occupant.stasis_value]x"
 		data["occupant"] = scan
 
 	data["cellTemperature"] = round(air_contents.temperature)
 	data["cellTemperatureStatus"] = "good"
-	if(air_contents.temperature > T0C) // if greater than 273.15 kelvin (0 celsius)
+	if(air_contents.temperature > T0C) // if greater than 273.15 kelvin (0 celcius)
 		data["cellTemperatureStatus"] = "bad"
 	else if(air_contents.temperature > 225)
 		data["cellTemperatureStatus"] = "average"
 
-	data["isBeakerLoaded"] = beaker ? 1 : 0
+	data["beakerLabel"] = beaker ? beaker.name : null
+	data["beakerVolume"] = beaker ? round(beaker.reagents.total_volume,2) : 0
+	data["beakerCapacity"] = beaker ? beaker.volume : 0
 
-	data["beakerLabel"] = null
-	data["beakerVolume"] = 0
-	if(beaker)
-		data["beakerLabel"] = beaker.name
-		data["beakerVolume"] = beaker.reagents.total_volume
+	return data
 
-	// update the ui if it exists, returns null if no ui is passed/found
-	ui = SSnano.try_update_ui(user, src, ui_key, ui, data, force_open)
-	if (!ui)
-		// the ui does not exist, so we'll create a new() one
-		// for a list of parameters and their descriptions see the code docs in \code\modules\nano\nanoui.dm
-		ui = new(user, src, ui_key, "cryo.tmpl", "Cryo Cell Control System", 520, 410)
-		// when the ui is first opened this is the data it will use
-		ui.set_initial_data(data)
-		// open the new ui window
-		ui.open()
-		// auto update every Master Controller tick
-		ui.set_auto_update(1)
+/obj/machinery/atmospherics/unary/cryo_cell/tgui_act(action, list/params)
+	if(usr.loc == src)
+		to_chat(usr, "<span class='warning'>You cannot reach the controls from inside.</span>")
+		return TRUE
 
-/obj/machinery/atmospherics/unary/cryo_cell/OnTopic(user, href_list)
-	if(user == occupant)
-		return STATUS_CLOSE
-	. = ..()
+	switch(action)
+		if("power")
+			on = !on
+			update_icon()
+			return TRUE
 
-/obj/machinery/atmospherics/unary/cryo_cell/OnTopic(user, href_list)
-	if(href_list["switchOn"])
-		on = 1
-		update_icon()
-		return TOPIC_REFRESH
+		if("ejectBeaker")
+			if(beaker)
+				beaker.forceMove(get_step(loc, SOUTH))
+				beaker = null
+			return TRUE
 
-	if(href_list["switchOff"])
-		on = 0
-		update_icon()
-		return TOPIC_REFRESH
-
-	if(href_list["ejectBeaker"])
-		if(beaker)
-			beaker.forceMove(get_step(loc, SOUTH))
-			beaker = null
-		return TOPIC_REFRESH
-
-	if(href_list["ejectOccupant"])
-		if(!occupant || isslime(user) || ispAI(user))
-			return TOPIC_HANDLED // don't update UIs attached to this object
-		go_out()
-		return TOPIC_REFRESH
+		if("ejectOccupant")
+			if(!occupant || isslime(usr) || ispAI(usr))
+				return FALSE // don't update UIs attached to this object
+			go_out()
+			return TRUE
 
 /obj/machinery/atmospherics/unary/cryo_cell/state_transition(var/decl/machine_construction/default/new_state)
 	. = ..()

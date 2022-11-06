@@ -24,7 +24,7 @@ export const ElevatorPanel = (props, context) => {
                   onClick={() => act('move_to_floor', { ref: option.ref })}
                 />
               </td>
-                <td>{current.ref === option.ref && <Icon name="chevron-left" />}</td>
+              <td>{current.ref === option.ref && <Icon name="chevron-left" />}</td>
             </tr>
           ))}
         </table>

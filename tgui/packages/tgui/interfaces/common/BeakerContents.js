@@ -1,25 +1,15 @@
-import { Box, Flex } from '../../components';
+import { AnimatedNumber, Box } from 'tgui/components';
 
-const formatUnits = (a) => a + ' unit' + (a === 1 ? '' : 's');
-
-/**
- * Displays a beaker's contents
- * @property {object} props
- */
 export const BeakerContents = (props) => {
-  const { beakerLoaded, beakerContents = [], buttons } = props;
+  const { beakerLoaded, beakerContents } = props;
   return (
     <Box>
       {(!beakerLoaded && <Box color="label">No beaker loaded.</Box>) ||
         (beakerContents.length === 0 && <Box color="label">Beaker is empty.</Box>)}
-      {beakerContents.map((chemical, i) => (
-        <Box key={chemical.name} width="100%">
-          <Flex align="center" justify="space-between">
-            <Flex.Item color="label">
-              {formatUnits(chemical.volume)} of {chemical.name}
-            </Flex.Item>
-            {!!buttons && <Flex.Item>{buttons(chemical, i)}</Flex.Item>}
-          </Flex>
+      {beakerContents.map((chemical) => (
+        <Box key={chemical.name} color="label">
+          <AnimatedNumber initial={0} value={chemical.volume} />
+          {' units of ' + chemical.name}
         </Box>
       ))}
     </Box>
