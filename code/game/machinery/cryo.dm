@@ -123,32 +123,27 @@
 
 /obj/machinery/atmospherics/unary/cryo_cell/tgui_data(mob/user)
 	// this is the data which will be sent to the ui
-	var/data[0]
+	var/list/data = list()
+	data["hasOccupant"] = occupant ? TRUE : FALSE
 	data["isOperating"] = on
 
-	data["occupant"] = null
-	if (occupant)
-		var/cloneloss = "none"
-		var/amount = occupant.getCloneLoss()
-		if(amount > 50)
-			cloneloss = "severe"
-		else if(amount > 25)
-			cloneloss = "significant"
-		else if(amount > 10)
-			cloneloss = "moderate"
-		else if(amount)
-			cloneloss = "minor"
-		// Don't let a Baystation12 coder anywhere close to UI code.
-		// Because, holy fucking shit, this is dumb as fuck.
-		// I had to use a `dangerouslySetInnerHTML` for now.
-		// Like. No. Seriously. Go fuck yourself if you do this.
-		var/scan = medical_scan_results(occupant)
-		scan += "<br><br>Genetic degradation: [cloneloss]"
-		scan = replacetext(scan,"'notice'","'white'")
-		scan = replacetext(scan,"'warning'","'average'")
-		scan = replacetext(scan,"'danger'","'bad'")
-		scan += "<br>Cryostasis factor: [occupant.stasis_value]x"
-		data["occupant"] = scan
+	data["occupant"] = list()
+	if(occupant)
+		var/scan_occupant = occupant.get_raw_medical_data()
+		if(occupant.stat == DEAD)
+			data["occupant"]["stat"] = "Dead"
+			data["occupant"]["statState"] = "bad"
+		else if (occupant.stat == UNCONSCIOUS)
+			data["occupant"]["stat"] = "Unconscious"
+			data["occupant"]["statState"] = "good"
+		else
+			data["occupant"]["stat"] = "Conscious"
+			data["occupant"]["statState"] = "bad"
+		if(occupant.bodytemperature < T0C) // Green if the mob can actually be healed by cryoxadone.
+			data["occupant"]["temperaturestatus"] = "good"
+		else
+			data["occupant"]["temperaturestatus"] = "bad"
+		data["occupant"] += scan_occupant
 
 	data["cellTemperature"] = round(air_contents.temperature)
 	data["cellTemperatureStatus"] = "good"

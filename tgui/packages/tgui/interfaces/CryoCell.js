@@ -1,27 +1,26 @@
 import { Fragment } from 'inferno';
-import { sanitizeText } from 'tgui/sanitize';
 import { useBackend } from 'tgui/backend';
-import { AnimatedNumber, Box, Button, Flex, LabeledControls, ProgressBar, Section } from 'tgui/components';
+import { AnimatedNumber, Button, Flex, LabeledControls, ProgressBar, Section } from 'tgui/components';
 import { Window } from 'tgui/layouts';
+import { logger } from '../logging';
+import { LabeledList } from '../components';
+import { round } from 'common/math';
 
-const damageTypes = [
-  {
-    label: 'Brute',
-    type: 'bruteLoss',
-  },
-  {
-    label: 'Respiratory',
-    type: 'oxyLoss',
-  },
-  {
-    label: 'Toxin',
-    type: 'toxLoss',
-  },
-  {
-    label: 'Burn',
-    type: 'fireLoss',
-  },
-];
+const getBrainActivityColor = (activity) => {
+  if (activity > 90) return 'good';
+  if (activity > 50) return 'orange';
+  return 'bad';
+};
+
+const getBrainActivityStatus = (activity) => {
+  if (activity === -1) return 'HARDWARE ERROR';
+  if (activity >= 70 && activity < 90) return 'Minor';
+  if (activity >= 40 && activity < 70) return 'Weak';
+  if (activity >= 10 && activity < 40) return 'Extremely Weak';
+  if (activity > 0 && activity < 10) return 'Fading';
+  if (activity === 0) return 'Brain dead';
+  return 'Normal';
+};
 
 export const CryoCell = () => {
   return (
@@ -36,7 +35,7 @@ export const CryoCell = () => {
 const CryoContent = (props, context) => {
   const { act, data } = useBackend(context);
   const { occupant = null, cellTemperature, cellTemperatureStatus, beakerLabel, beakerVolume, beakerCapacity } = data;
-  const hasOccupant = !!occupant;
+  logger.log(occupant);
   const isBeakerLoaded = !!beakerLabel;
   return (
     <Fragment>
@@ -59,6 +58,42 @@ const CryoContent = (props, context) => {
         </LabeledControls>
       </Section>
       <Section
+        title="Occupant"
+        buttons={
+          <Button icon="eject" disabled={!data.hasOccupant} onClick={() => act('ejectOccupant')} content="Eject" />
+        }>
+        <LabeledList>
+          <LabeledList.Item label="Occupant">{(data.occupant && data.occupant.name) || 'No Occupant'}</LabeledList.Item>
+          {!!data.hasOccupant && (
+            <>
+              <LabeledList.Item label="State" color={data.occupant.statState}>
+                {data.occupant.stat}
+              </LabeledList.Item>
+              <LabeledList.Item label="Temperature" color={data.occupant.temperaturestatus}>
+                <AnimatedNumber value={round(data.occupant.temperature, 1)} />
+                {' K ('}
+                <AnimatedNumber value={round(data.occupant.temperature - 273, 1)} />
+                {'°C)'}
+              </LabeledList.Item>
+              <LabeledList.Item label="Brain activity" color={getBrainActivityColor(data.occupant.brain_activity)}>
+                {getBrainActivityStatus(data.occupant.brain_activity)}
+              </LabeledList.Item>
+              <LabeledList.Item
+                label="Pulse rate"
+                color={
+                  data.occupant.pulse <= 0
+                    ? 'bad'
+                    : data.occupant.pulse > 90 || data.occupant.pulse < 60
+                    ? 'orange'
+                    : 'good'
+                }>
+                {data.occupant.pulse === -1 ? 'ERROR' : `${data.occupant.pulse} bpm`}
+              </LabeledList.Item>
+            </>
+          )}
+        </LabeledList>
+      </Section>
+      <Section
         title="Beaker"
         buttons={<Button icon="eject" disabled={!isBeakerLoaded} onClick={() => act('ejectBeaker')} content="Eject" />}>
         <ProgressBar value={beakerVolume} minValue={0} maxValue={beakerCapacity || Infinity}>
@@ -69,15 +104,6 @@ const CryoContent = (props, context) => {
             </Flex.Item>
           </Flex>
         </ProgressBar>
-      </Section>
-      <Section
-        title="Occupant"
-        buttons={<Button icon="eject" disabled={!hasOccupant} onClick={() => act('ejectOccupant')} content="Eject" />}>
-        {(hasOccupant && (
-          /* Don't let a Baystation12 coder anywhere close to UI code.
-            Because, holy fucking shit, this is dumb as fuck. */
-          <Box dangerouslySetInnerHTML={{ __html: sanitizeText(occupant) }} />
-        )) || <Box italic>No Occupant</Box>}
       </Section>
     </Fragment>
   );
