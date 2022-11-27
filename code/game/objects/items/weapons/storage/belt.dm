@@ -531,7 +531,10 @@
 		/obj/item/flame/lighter,
 		/obj/item/device/flashlight,
 		/obj/item/device/megaphone,
-		/obj/item/reagent_containers/spray/pepper
+		/obj/item/reagent_containers/spray/pepper,
+		/obj/item/device/binoculars,
+		/obj/item/clothing/head/beret,
+		/obj/item/material/knife/folding/
 		)
 //[/INF]
 /* INF | А надо ли? ~bear1ake

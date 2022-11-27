@@ -92,6 +92,7 @@
 
 	update_icon()
 	build_inventory(populate_parts)
+	update_icon()
 
 GLOBAL_LIST_EMPTY(vending_products)
 /**

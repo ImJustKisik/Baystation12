@@ -198,6 +198,19 @@
 		to_chat(target, SPAN_WARNING("OH SHI-")) // You've been hit by an RPG!
 		L.gib() // You're dead kiddo.
 
+/obj/item/missile/rpg
+	icon = 'icons/obj/grenade.dmi'
+	icon_state = "missile"
+	throwforce = 15
+
+/obj/item/missile/rpg/throw_impact(atom/hit_atom)
+	if(primed)
+		explosion(hit_atom, 1, 1, 4, 8)
+		qdel(src)
+	else
+		..()
+	return
+
 /obj/item/projectile/hotgas
 	name = "gas vent"
 	icon_state = null
