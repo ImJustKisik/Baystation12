@@ -761,14 +761,39 @@
 /obj/item/clothing/under/taj_old_uniform
 	desc = "A loose-fitting uniform with lots of pockets made of canvas or similar material, very comfortable. Widely used by tajaran revolutionaries during slave's uprising, remained as favored uniform for a short period of time after the uprising and now just a reminder of dark age or a reason for pride. There is a tailhole on the back of the pants!"
 	name = "vintage uniform"
+	item_icons = list(slot_w_uniform_str = 'icons/mob/onmob/onmob_under.dmi')
+	worn_state = "taj_old_uniform"
 	icon_state = "taj_old_uniform"
 	item_state = "taj_old_uniform"
 
 /obj/item/clothing/under/taj_new_fatigues
 	desc = "A tight-fitting union suit made of modern synthetic materials and features CCA markings, sleek. This uniform is one of the numerous variants, but the layout is somewhat similar. This one is provided by CCA Armed Forces for numerous PMC's when they sent over CCA control. There is a tailhole on the back of the pants!"
 	name = "CCA fatigues"
+	item_icons = list(slot_w_uniform_str = 'icons/mob/onmob/onmob_under.dmi')
+	worn_state = "taj_new_fatigues"
 	icon_state = "taj_new_fatigues"
 	item_state = "taj_new_fatigues"
+
+
+/obj/item/clothing/under/medic/paramedic
+    name = "first responder uniform"
+    desc = "Light and bulky paramedic jumpsuit with bright markings. It's too big to fit anyone, but unathi."
+    species_restricted  = list(SPECIES_UNATHI)
+    item_icons = list(slot_w_uniform_str = 'icons/mob/species/unathi/generated/onmob_under_unathi.dmi')
+    icon_state = "unathi_paramedic"
+    item_state = "unathi_paramedic"
+    worn_state = "unathi_paramedic"
+    //rolled_sleeves = 0
+
+/obj/item/clothing/under/unathi_work
+    name = "sturdy uniform"
+    desc = "A large uniform made of sturdy canvas with leather harness for industrial environment. It's too big to fit anyone, but unathi."
+    species_restricted  = list(SPECIES_UNATHI)
+    item_icons = list(slot_w_uniform_str = 'icons/mob/species/unathi/generated/onmob_under_unathi.dmi')
+    icon_state = "unathi_work"
+    item_state = "unathi_work"
+    worn_state = "unathi_work"
+    //rolled_sleeves = 0
 
 /obj/item/clothing/under/inf
 	name = "antiquated skirt"
@@ -1028,6 +1053,33 @@
 	name = "dark victorian suit"
 	icon_state = "victorian_twilight"
 	item_state = "victorian_twilight"
+
+/obj/item/clothing/under/inf/aristo
+	name = "aristo uniform"
+	desc = "Delicately sewn, this suit is magnificently fine and very expensive. Not for just any bourgeois."
+	icon_state = "papaleroy_aristo_suit"
+	item_state = "papaleroy_aristo_suit"
+
+/obj/item/clothing/under/inf/milsim
+	name = "milsim uniform"
+	desc = "Set of milsim navy fatigues which is very common in many of surplus stores."
+	icon_state = "papaleroy_milsim"
+	item_state = "papaleroy_milsim"
+
+/obj/item/clothing/under/inf/rubywhite
+	name = "rubywhite uniform"
+	desc = "Scarlet shirt accompained with white slacks held with suspenders."
+	icon_state = "papaleroy_rubywhite"
+	item_state = "papaleroy_rubywhite"
+	worn_state = "papaleroy_rubywhite"
+	gender_icons = 1
+	item_icons = list(slot_w_uniform_str = 'infinity/icons/mob/onmob/onmob_under.dmi')
+
+/obj/item/clothing/under/inf/faln_trousers
+	name = "faln trousers"
+	desc = "These athletic pants are truly a masterpiece as they perfectly fit for any type of figure."
+	icon_state = "papaleroy_faln_trousers"
+	item_state = "papaleroy_faln_trousers"
 
 //Ретро-униформы для сотрудников отделов
 

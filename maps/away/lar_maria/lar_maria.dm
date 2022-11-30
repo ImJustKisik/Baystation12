@@ -98,7 +98,7 @@
 	var/weapon = null
 	var/datum/disease2/disease/lar_maria/LMD = new()
 
-	ai_holder_type = /datum/ai_holder/simple_animal/lar_maria
+	ai_holder = /datum/ai_holder/simple_animal/lar_maria
 	say_list_type = /datum/say_list/lar_maria
 
 /mob/living/simple_animal/hostile/lar_maria/Destroy()

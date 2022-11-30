@@ -1,10 +1,12 @@
 /mob/Destroy()//This makes sure that mobs with clients/keys are not just deleted from the game.
-	STOP_PROCESSING(SSmobs, src)
+	STOP_PROCESSING_MOB(src)
 	GLOB.dead_mob_list_ -= src
 	GLOB.living_mob_list_ -= src
 	GLOB.player_list -= src
 	unset_machine()
 	QDEL_NULL(hud_used)
+	if(istype(ability_master))
+		QDEL_NULL(ability_master)
 	if(istype(skillset))
 		QDEL_NULL(skillset)
 	for(var/obj/item/grab/G in grabbed_by)
@@ -53,7 +55,7 @@
 	if(ispath(move_intent))
 		move_intent = decls_repository.get_decl(move_intent)
 	set_focus(src)
-	START_PROCESSING(SSmobs, src)
+	START_PROCESSING_MOB(src)
 
 /mob/proc/show_message(msg, type, alt, alt_type)//Message, type of message (1 or 2), alternative message, alt message type (1 or 2)
 	if(!client)	return
@@ -457,6 +459,12 @@
 	unset_machine()
 	reset_view(null)
 
+/*
+/mob/verb/tail_layer()
+	set name = "Tail"
+	set category = "IC"
+	switch_tail_layer(src)
+*/
 /mob/DefaultTopicState()
 	return GLOB.view_state
 
@@ -679,8 +687,10 @@
 
 	if(client.holder)
 		if(statpanel("MC"))
-			stat("CPU:","[world.cpu]")
+			stat("CPU:", "[Master.format_color_cpu()]")
+			stat("Map CPU:", "[Master.format_color_cpu_map()]")
 			stat("Instances:","[world.contents.len]")
+			stat("World Time:", "[world.time]")
 			stat(null)
 			if(Master)
 				Master.stat_entry()
@@ -983,6 +993,13 @@
 // It should not use both.
 /mob/on_update_icon()
 	return update_icons()
+
+/mob/proc/switch_tail_layer()
+	set category = "Abilities"
+	set name = "Toggle tail layer"
+	set desc = "tail will be over or under backpack"
+	tail_layer = !tail_layer
+	to_chat(src, "<span class='notice'>Your tail will be [tail_layer == TRUE ? "over" : "under"] backpacks.</span>")
 
 /mob/proc/face_direction()
 	set_face_dir()
